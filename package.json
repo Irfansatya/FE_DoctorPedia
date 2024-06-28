@@ -1,7 +1,7 @@
 {
   "name": "vite-template-solid",
   "version": "0.0.0",
-  "description": "",
+  "description": "Those templates dependencies are maintained via [pnpm](https://pnpm.io) via `pnpm up -Lri`.",
   "scripts": {
     "start": "vite",
     "dev": "vite",
@@ -22,7 +22,12 @@
     "@rturnq/solid-router": "^0.3.0",
     "@solidjs/router": "^0.8.2",
     "@stitches/core": "^1.2.8",
+    "express": "^4.19.2",
+    "mysql2": "^3.10.1",
     "solid-js": "^1.8.11",
     "solid-transition-group": "^0.0.10"
-  }
+  },
+  "main": "postcss.config.js",
+  "keywords": [],
+  "author": ""
 }

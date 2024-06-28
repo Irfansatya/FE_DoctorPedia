@@ -19,6 +19,10 @@ const Login: Component = () => {
     window.location.href = 'https://www.facebook.com/v12.0/dialog/oauth?client_id=YOUR_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URI&scope=email';
   };
 
+  const handleDoctorSignUpClick = () => {
+    navigate('/doctor-signup');
+  };
+
   return (
     <>
       <div class={styles.fullscreenBackground}></div>
@@ -33,8 +37,8 @@ const Login: Component = () => {
         </div>
         
         <div class={styles.buttonIntegration}>
-          <button class={`${styles.loginButton} ${styles.button}`}>Log In</button>
-          <button class={`${styles.signupButton} ${styles.button}`}>Doctor Sign Up</button>
+        <button class={`${styles.loginButton} ${styles.button}`}>Log In</button>
+          <button class={`${styles.signupButton} ${styles.button}`} onClick={handleDoctorSignUpClick}>Doctor Sign Up</button>
           <button class={`${styles.homeButton} ${styles.button}`} onClick={handleHomeClick}>Home Page</button>
         </div>
 
@@ -44,8 +48,8 @@ const Login: Component = () => {
             <div class={styles.line}></div>
         </div>
         <div class={styles.socialButtons}>
-          <button class={styles.googleLogin} onClick={handleGoogleLogin}></button>
-          <button class={styles.facebookLogin} onClick={handleFacebookLogin}></button>
+          <button class={styles.googleLogin}></button>
+          <button class={styles.facebookLogin} ></button>
         </div>
 
       </div>
