@@ -10,44 +10,72 @@
     height: 100%;
     z-index: -1; /* Pastikan background berada di belakang konten */
   }
-  
-.loginContainer {
 
+  .loginContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 37em;
+    width: 35em;
     padding: 20px;
     box-sizing: border-box;
     position: relative;
+
     background: rgba(255, 255, 255, 0.8);
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    max-width: 300px;
+    
     margin: auto;
     text-align: center;
     position: absolute; /* Posisi absolute agar dapat diatur dalam viewport */
     top: 50%; /* Menyelaraskan posisi vertikal */
     left: 50%; /* Menyelaraskan posisi horizontal */
-    transform: translate(-50%, -50%); /* Menggeser elemen ke tengah */
-}
+    transform: translate(-50%, -50%); 
+  }
 
-  .header{
-    font-size: 2em;
-    max-width: 120%;
-    font-weight: 700;
-    font-style: italic;
-    margin-bottom: 1em;
-    
-    color: #12A190;
+  .formContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80em;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+    max-width: 100em; /* Atur sesuai kebutuhan */
+    margin: auto;
+    text-align: center;
   }
+
+  .header {
+      font-size: 2em;
+      max-width: 120%;
+      font-weight: 700;
+      font-style: italic;
+      margin-top: 1em;
+      margin-bottom: 0.5em;
+      color: #12A190;
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, -50%);
+  }
+
   
-  .titleSection{
-    display: block;
-    width: calc(100%);
-    margin: 0 auto 2.5em auto;
+  .titleSection {
+    display:flex; /* Menggunakan Flexbox untuk menyusun elemen secara horizontal */
+    justify-content: space-between; /* Menyebarkan div secara horizontal */
+    width: 100%;
+    height: 80%;
+    align-items: center;
+    margin: 0 auto 0 auto;
   }
+
+  .section {
+      width: 48%; /* Menyisakan ruang antara kedua div */
+      margin-bottom: 1.5em;
+  }
+
   
   .h1 {
     font-size: 1.4em;
@@ -86,33 +114,41 @@
   }
   
   
-  input {
+  .inputcolection {
     display: block;
     width: calc(100%);
-    margin: 0 auto 1em auto;
+    margin: 0 auto 0.2em auto;
     padding: 10px;
+    height: 1.7em;
+    width: 15em;
     border: 1px solid #ccc;
     border-radius: 4px;
   }
 
-  input::placeholder {
+  .inputcolection::placeholder {
     font-size: 0.7em; /* Sesuaikan ukuran dengan yang ada pada .p */
-    color: #999; /* Sesuaikan warna sesuai kebutuhan */
+    color: #717171; /* Sesuaikan warna sesuai kebutuhan */
+    font-style: italic;
+    font-weight: 100;
     position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translate(0, -50%);
-  width: 100%;
-  text-align: start;
-  margin-left: 1em;
-  pointer-events: none; /* Agar tidak mengganggu input */
+    top: 50%;
+    left: 0;
+    transform: translate(0, -50%);
+    width: 100em;
+    text-align: start;
+    margin-left: 1em;
+    pointer-events: none; /* Agar tidak mengganggu input */
   }
+
   .button-container {
+
     display: flex;
     flex-direction: row; /* ngatur jadi sejajar*/
     justify-content: space-evenly; /* dibagi ajdi sama rata */
-    width: 100%; 
+    max-width: 15em;
   }
+  
+  
   
   button {
     padding: 10px;
@@ -134,17 +170,11 @@
 
   .textButton{
     font-weight: 700;
-    max-width: 75%;
-  }
-
-  .loginButton {
-    background-color: #f5f5f5;
-    color: #12A190;
-  }
-  
-  .loginButton:hover {
-    background-color: #4DBAAD;
-    color: white;
+    margin-top: 0em;
+    margin-bottom: 0.5em;
+    width: 9em;
+    height: 2.5em; 
+    
   }
 
   .signupButton {
@@ -155,18 +185,12 @@
   .signupButton:hover {
     background-color: #52B7D7;
   }
-  
-  .homeButton {
-    background-color: #12A190;
-    color: white;
-  }
-  
-  .homeButton:hover {
-    background-color: #52B7D7;
-  }
 
-  .buttonIntegration button {
-    width: 80%;
+  
+  
+  .buttonIntegration button{
+    width: 100%;
+    min-width: 5em;
     height: 2em;
     margin-bottom: 0.2em; 
     border: none;
@@ -175,10 +199,6 @@
     cursor: pointer;
 
   }
-
-  
-  
-  
 
   .separator {
       display: flex;
