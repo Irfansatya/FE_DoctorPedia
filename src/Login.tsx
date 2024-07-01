@@ -1,6 +1,17 @@
+import { createResource } from 'solid-js';
 import { Component } from 'solid-js';
 import { useNavigate } from '@solidjs/router';
 import styles from './Login.module.css'; // Ensure correct CSS file import
+
+
+const fetchAcc = async () => {
+  const res = await fetch('http://localhost:4000/user')
+
+  return res.json()
+}
+
+const[account] = createResource(fetchAcc)
+
 
 const Login: Component = () => {
   const navigate = useNavigate();
@@ -101,3 +112,4 @@ const Login: Component = () => {
 };
 
 export default Login;
+
