@@ -1,7 +1,8 @@
 [
     {
-      "email": "a",
-      "password": "a"
+      "username":"a",
+      "email": "b",
+      "password": "c"
     }
   ]
   

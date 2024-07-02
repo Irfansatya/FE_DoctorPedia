@@ -1,5 +1,6 @@
 import { Component, createSignal } from "solid-js";
 import { useNavigate } from "@solidjs/router";
+import { setUsername } from './components/store'; 
 import styles from "./Login.module.css";
 import swal from "sweetalert";
 
@@ -66,22 +67,23 @@ const Login: Component = () => {
 
   const handleLogin = async () => {
     const users = await handleFetch("/datatester/usertest.json");
-    if (!users) return; 
-
+    if (!users) return;
+  
     const user = users.find((u) => u.email === email());
     console.log("User found:", user);
-
+  
     if (user) {
       if (user.password === password()) {
         swal("Success", "Login successful", "success");
-        window.location.href = "/home";
+        setUsername(user.username);
+        navigate("/coy");
       } else {
         swal("Error", "Incorrect password", "error");
       }
     } else {
-      swal("Error", "Username not found", "error");;
+      swal("Error", "Username not found", "error");
     }
-  };
+  };  
 
   return (
     <>

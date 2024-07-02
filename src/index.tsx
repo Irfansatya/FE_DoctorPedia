@@ -17,7 +17,7 @@ render(
   () => (
     <Router>
       <Routes>
-        <Route path="/" component={App} />
+        <Route path="/coy" component={App} />
         <Route path="/login" component={Login} />
         <Route path="/docter-signup" component={DocterSignUp} />
         <Route path="/user-signup" component={UserSignUp} />

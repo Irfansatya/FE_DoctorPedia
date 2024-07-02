@@ -1,13 +1,15 @@
 import type { Component } from 'solid-js';
 import { Link, useRoutes, useLocation } from '@solidjs/router';
-import Auth from "./loginTest";
-import DataFetcher from "./components/DataFetcher";
+// import Auth from "./Login";
+// import DataFetcher from "./components/DataFetcher";
+import { username } from './components/store.js';
 import { routes } from './routes';
 import styles from './app.module.css';
 
 const app: Component = () => {
   const location = useLocation();
   const Route = useRoutes(routes);
+  
 
   return (
     <>
@@ -44,6 +46,9 @@ const app: Component = () => {
             />
           </li>
         </ul>
+        <li class="py-2 px-4 ml-auto">
+            <span>Selamat Datang, {username()}!</span>
+          </li>
       </nav>
 
       <main>
