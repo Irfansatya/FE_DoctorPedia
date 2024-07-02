@@ -1,6 +1,7 @@
 import type { Component } from 'solid-js';
 import { Link, useRoutes, useLocation } from '@solidjs/router';
-
+import Auth from "./loginTest";
+import DataFetcher from "./components/DataFetcher";
 import { routes } from './routes';
 import styles from './app.module.css';
 

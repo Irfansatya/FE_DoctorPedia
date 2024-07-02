@@ -1,8 +1,7 @@
-{
-    "user":[
-        {
-            "username" : "user",
-            "password" : "password"
-        }
-    ]
-}
+[
+    {
+      "email": "a",
+      "password": "a"
+    }
+  ]
+  
