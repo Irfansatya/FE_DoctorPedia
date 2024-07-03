@@ -7,6 +7,7 @@ import DocterSignUp from './docterSignUp';
 import UserSignUp from './SignUp';
 import HitoWaMinaTachimaruKedo from './components/DataFetcher';
 import LoginTest from './loginTest';
+import HomePage from './homepage';
 
 
 
@@ -23,6 +24,7 @@ render(
         <Route path="/user-signup" component={UserSignUp} />
         <Route path="/HoshizoraNiNaru" component={HitoWaMinaTachimaruKedo} />
         <Route path="/logintest" component={LoginTest} />
+        <Route path="/homepage" component={HomePage} />
       </Routes>
     </Router>
   ),
