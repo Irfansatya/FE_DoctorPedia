@@ -2,45 +2,40 @@
 *,
 *::before,
 *::after {
-    
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
-
-
-  .container {
-      flex-direction: column;
-
-    }
-  .homepage{
-
-
-body {
+.body {
   min-height: 100vh;
   width: 100%;
-  font-size: 16px;
+  font-size: 18px;
   font-family: "Inter", sans-serif;
 }
-li {
+.li {
+  font-size: 20px;
   list-style: none;
   margin-bottom: 1.5em;
+  color: #12A190;
+  font-style: italic;
 }
-img,
+.img,
 picture {
   max-width: 100%;
   display: block;
   width: 100%;
-  
+}
+.pictbawah{
+  max-width: 8em;
 }
 .container {
   padding: 2em 1em;
 }
-header {
+.header {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
-  margin-bottom: 2em;
+  margin-bottom: 2.5em;
 }
 .mobile_navigation {
   width: 28px;
@@ -53,7 +48,7 @@ header {
   background-size: cover;
   z-index: 100;
 }
-nav {
+.nav {
   transform: translateX(1000px);
   transition: 10s ease-in-out;
   display: none;
@@ -61,7 +56,11 @@ nav {
 .mobile_navigation[aria-expanded="true"] {
   background-image: url("./assets/images/icon-menu-close.svg");
 }
-nav[data-visible="true"] {
+
+.spc_top{
+  margin: 0em 0em;
+}
+.nav[data-visible="true"] {
   transform: translateX(0px);
   display: flex;
   flex-direction: row-reverse;
@@ -72,17 +71,29 @@ nav[data-visible="true"] {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
 }
-ul {
-  width: 60%;
+.ul {
+  min-width: 80%;
   height: 100%;
   background-color: hsl(36, 100%, 99%);
   padding: 10em 2em;
+  
 }
-h1 {
+.h1 {
   margin: 0.5em 0;
   font-size: 40px;
-  font-weight: 800;
+  font-weight: 790;
   line-height: 35px;
+  color: #12A190;
+  font-style: italic;
+}
+
+.h1bawah{
+  margin: 0.em 0;
+  font-size: 40px;
+  font-weight: 750;
+  line-height: 35px;
+  color: #12A190;
+  font-style: italic;
 }
 .grey {
   color: hsl(236, 13%, 42%);
@@ -90,8 +101,29 @@ h1 {
   line-height: 24px;
   /* text-align: left; */
 }
+
+.greyContFoot{
+  color: #12A190;
+  font-size: 15px;
+  line-height: 24px;
+  /* text-align: left; */
+  font-style: italic;
+}
+.desc {
+  color: #f5f5f5;
+  font-style: italic;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 300;
+  letter-spacing: 1px;
+  /* text-align: left; */
+  margin: 0em 0em 0em 20px;
+  width: 90%;
+}
 .read {
   background-color: #12A190;
+  align-items: center;
+  font-weight: 600;
   color: #fff;
   text-decoration: none;
   padding: 1em 2em;
@@ -99,56 +131,86 @@ h1 {
   width: 50%;
   text-align: center;
   margin-top: 2em;
-  letter-spacing: 2px;
+  letter-spacing: 0.3em;
   font-size: 14px;
 }
+
 .col_flex {
   margin-bottom: 2em;
 }
 .col_two {
-  padding: 1.5em 1em;
+  padding: 1.5em 0em;
   background-color: #12A190;
-
   margin: 4em 0;
 }
 .col_space {
-  padding: 1.5em 0;
-  border-bottom: 1px solid hsl(233, 8%, 79%);
+  background-color: #11786B;
+  
+  border-top: 0.1em solid hsl(233, 8%, 79%);
+  padding: 1em 0;
+  
 }
 .col_top {
   padding-top: 1.5em;
+  background-color: #11786B;
+  border-top: 0.1em solid hsl(233, 8%, 79%);
+  padding-bottom: 1.5em;
+  border-bottom: 0.1em solid hsl(233, 8%, 79%);
 }
-h2 {
-  color: hsl(35, 77%, 62%);
+.h2 {
+  color: #f5f5f5;
   margin-bottom: 0.5em;
 }
-h3 {
-  color: hsl(36, 100%, 99%);
+.h3 {
+  margin: 0em 0em 0.5em 20px;
+  color: #f5f5f5;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 19px;
+  letter-spacing: 0.5px;
   margin-bottom: 0.5em;
 }
+
 .flex {
   display: flex;
   align-items: center;
   gap: 1em;
   margin-bottom: 2em;
+  max-width: auto;
 }
-aside {
-  margin: 4em 0;
+.flexContFoot{
+  display: flex;
+  align-items: start;
+  gap: 1em;
+  margin-bottom: 2em;
+  max-width: auto;
 }
-h4 {
+.h2 {
+  margin: 0em 0em 0.5em 20px;
+  font-weight: 750;
+  font-size: 2em;
+  font-style: italic;
+}
+.h4 {
+  
   line-height: 20px;
-  font-size: 35px;
+  font-weight: 600;
+  font-style: italic;
+  font-size: 40px;
+  margin-top: 0.2em;
   margin-bottom: 0.5em;
 
-  color: hsl(233, 8%, 79%);
+  color: #12A190;
 }
-h5 {
-  font-size: 16px;
-  margin-bottom: 0.5em;
+.h5 {
+  font-style: italic;
+  font-size: 20px;
+  margin-bottom: 0.1em;
   font-weight: 700;
+  color: #12A190;
 }
-.flex img {
-  width: 120px;
+flex .img {
+  width: 10em;
 }
 .attribution {
   font-size: 11px;
@@ -157,75 +219,101 @@ h5 {
 .attribution a {
   color: hsl(228, 45%, 44%);
 }
-@media (min-width: 60rem) {
-  .container{
+@media (min-width: 63rem) {
+  .container {
     padding: 3em 7em;
   }
   .mobile_navigation {
     display: none;
   }
-  nav {
+  .nav {
     display: block;
     transform: translateX(0px);
     width: 40%;
   }
-  ul {
+  .ul {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     padding: 0;
     margin: 0;
     width: auto;
     height: auto;
     background-color: transparent;
   }
-  li {
-    margin-bottom: 0;
+  .li {
+    font-weight: 550;
+    margin: 0em 1.5em 0em 2em ;
   }
-h3:hover {
+  .h3:hover {
     color: hsl(35, 77%, 62%);
     cursor: pointer;
   }
-  li:hover,h5:hover{
+  .li:hover,
+  .h5:hover {
     color: hsl(5, 85%, 63%);
     cursor: pointer;
   }
-  section {
+  .section {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 1em;
+    
   }
-  h1 {
+
+  .h1 {
     margin: 0;
     line-height: 58px;
     font-size: 49px;
     width: 84%;
   }
+  .h1bawah{
+    display: flex;
+    align-items: flex-start;
+    margin: 0 1em 0em 0;
+    line-height: 55px;
+    font-size: 45px;
+    font-weight: 79990;
+    width: 90%;
+  }
+  .spc_top{
+
+  }
   .col_flex {
-    display: grid;
+    display: flex;
     grid-template-columns: 1fr 1fr;
     margin-bottom: 0;
     padding-top: 1em;
   }
-  aside {
+  .aside {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1em;
+    margin-block-start: 4em;
   }
-  .flex img{
-    width: 80px;
+  flex .img {
+    width: 0px;
+    
   }
-  .grey{
+  .grey {
+    
     padding-right: 1em;
   }
+  .greyContFoot{
+    padding-right: 1em;
+  }
+  .spc_top{
+     margin-block-start: 0.5em;
+    width: 90%;
+  }
+
   .read {
-    margin-top: 2.5em;
+    margin-top: 2em;
     margin-bottom: 0;
     padding: 1em 0.5em;
   }
-  .col_two,.flex {
+  
+  .col_two,
+  .flex {
     margin: 0;
   }
-  
-}
-
 }

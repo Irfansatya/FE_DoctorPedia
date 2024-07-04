@@ -8,6 +8,9 @@ import UserSignUp from './SignUp';
 import HitoWaMinaTachimaruKedo from './components/DataFetcher';
 import LoginTest from './loginTest';
 import HomePage from './homepage';
+import Tester1 from './tester1';
+import Tester2 from './tester2';
+
 
 
 
@@ -22,9 +25,11 @@ render(
         <Route path="/login" component={Login} />
         <Route path="/docter-signup" component={DocterSignUp} />
         <Route path="/user-signup" component={UserSignUp} />
-        <Route path="/HoshizoraNiNaru" component={HitoWaMinaTachimaruKedo} />
         <Route path="/logintest" component={LoginTest} />
         <Route path="/homepage" component={HomePage} />
+        <Route path="/HoshizoraNiNaru" component={HitoWaMinaTachimaruKedo} />
+        <Route path="/tester1" component={Tester1} />
+        <Route path="/tester2" component={Tester2} />
       </Routes>
     </Router>
   ),
