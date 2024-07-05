@@ -5,23 +5,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  
 }
-
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 2.5em;
-  background-color: #11786B;
-  padding: 2rem;
-  
-}
-
-
-/* Kontainer 1 */
-
-
 .body {
   min-height: 100vh;
   width: 100%;
@@ -45,10 +29,14 @@ picture {
   max-width: 8em;
 }
 .container {
-  padding: 0em 0em;
-
+  padding: 2em 1em;
 }
-
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 2.5em;
+}
 .mobile_navigation {
   width: 28px;
   height: 18px;
@@ -233,7 +221,7 @@ flex .img {
 }
 @media (min-width: 63rem) {
   .container {
-    padding: 0em 0em;
+    padding: 3em 7em;
   }
   .mobile_navigation {
     display: none;

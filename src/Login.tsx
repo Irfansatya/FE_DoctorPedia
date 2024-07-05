@@ -76,7 +76,7 @@ const Login: Component = () => {
       if (user.password === password()) {
         swal("Success", "Login successful", "success");
         setUsername(user.username);
-        navigate("/coy");
+        navigate("/homepage");
       } else {
         swal("Error", "Incorrect password", "error");
       }
