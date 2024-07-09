@@ -3,6 +3,7 @@ import { useNavigate } from "@solidjs/router";
 import { setUsername } from './components/store'; 
 import styles from "./Login.module.css";
 import swal from "sweetalert";
+import { setUser } from './components/store.js'
 
 const Login: Component = () => {
   const navigate = useNavigate();
@@ -15,8 +16,16 @@ const Login: Component = () => {
 
     if (user) {
       swal("Success", "Login successful", "success");
-      setUsername(user.userName);  // Ensure setUsername is defined in your store or state management
-      navigate("/homepage");
+      setUser({ email: user.email, role: user.role });  // Set user data in global store
+
+      // Navigate based on user role
+      if (user.role === "Admin") {
+        navigate("/HomePageTapiBuatRoleLain");
+      } else if (user.role === "Doctor") {
+        navigate("/doctor-page");
+      } else {
+        navigate("/homepage");
+      }
     } else {
       swal("Error", "Incorrect email or password", "error");
     }
