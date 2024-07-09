@@ -8,42 +8,19 @@ const Login: Component = () => {
   const navigate = useNavigate();
   const [email, setEmail] = createSignal("");
   const [password, setPassword] = createSignal("");
-  const [message, setMessage] = createSignal("");
 
-  const handleFetch = async (url) => {
-    try {
-      const response = await fetch(url);
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      const data = await response.json();
-      console.log("Fetched data:", data);
-      return data;
-    } catch (error) {
-      console.error("Failed to fetch data:", error);
-      swal("Error", "Failed to fetch data", "error");
-      return null;
+  const handleLogin = () => {
+    const storedUsers = JSON.parse(localStorage.getItem('danaKaget')) || [];
+    const user = storedUsers.find(user => user.email === email() && user.password === password());
+
+    if (user) {
+      swal("Success", "Login successful", "success");
+      setUsername(user.userName);  // Ensure setUsername is defined in your store or state management
+      navigate("/homepage");
+    } else {
+      swal("Error", "Incorrect email or password", "error");
     }
   };
-
-  // const handleRegister = async () => {
-  //   try {
-  //     const users = await handleFetch("/datatester/usertest.json");
-  //     if (!users) return; // Early return if fetch failed
-
-  //     const user = users.find(u => u.email === email());
-
-  //     if (user) {
-  //       swal("Error", "User already exists", "error");
-  //     } else {
-  //       swal("Success", "Registration successful", "success");
-  //       // Logic to add user to the JSON (in a real app, you would send a request to the backend)
-  //     }
-  //   } catch (error) {
-  //     console.error("Failed to fetch data:", error);
-  //     swal("Error", "Failed to fetch data", "error");
-  //   }
-  // };
 
   const handleHomeClick = () => {
     navigate("/");
@@ -65,26 +42,6 @@ const Login: Component = () => {
     navigate("/user-signup");
   };
 
-  const handleLogin = async () => {
-    const users = await handleFetch("/datatester/usertest.json");
-    if (!users) return;
-  
-    const user = users.find((u) => u.email === email());
-    console.log("User found:", user);
-  
-    if (user) {
-      if (user.password === password()) {
-        swal("Success", "Login successful", "success");
-        setUsername(user.username);
-        navigate("/homepage");
-      } else {
-        swal("Error", "Incorrect password", "error");
-      }
-    } else {
-      swal("Error", "Username not found", "error");
-    }
-  };  
-
   return (
     <>
       <div class={styles.fullscreenBackground}></div>
@@ -93,7 +50,7 @@ const Login: Component = () => {
           <header class={styles.header}>DokterPedia</header>
           <h1 class={styles.h1}>Welcome</h1>
           <h2 class={styles.h2}>
-            Welcome to DoctorPedia, please enter your details
+            Welcome to UserPedia, please enter your details
           </h2>
         </div>
 
@@ -156,7 +113,6 @@ const Login: Component = () => {
             class={styles.facebookLogin}
             onClick={handleFacebookLogin}
           ></button>
-          {message() && <p>{message()}</p>}
         </div>
       </div>
     </>

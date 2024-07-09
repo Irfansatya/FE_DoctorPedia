@@ -12,7 +12,7 @@ const SignUpUser = () => {
   const [mobileNumber, setMobileNumber] = createSignal('');
   const [password, setPassword] = createSignal('');
   const [confirmPassword, setConfirmPassword] = createSignal('');
-  
+
   const [emailError, setEmailError] = createSignal('');
   const [mobileNumberError, setMobileNumberError] = createSignal('');
   const [passwordError, setPasswordError] = createSignal('');
@@ -67,18 +67,28 @@ const SignUpUser = () => {
     const isConfirmPasswordValid = validateConfirmPassword();
 
     if (isEmailValid && isMobileNumberValid && isPasswordValid && isConfirmPasswordValid) {
+      // Retrieve existing data from localStorage
+      const existingData = JSON.parse(localStorage.getItem('danaKaget')) || [];
+      
+      // Determine the maximum id
+      const maxId = existingData.length > 0 ? Math.max(...existingData.map(user => user.id)) : 0;
+      const newId = maxId + 1;
+
       // Save to localStorage
-      const tahuBulat = {
-        id: firstName(),
-        name: lastName(),
+      const newUser = {
+        id: newId,
+        firstName: firstName(),
+        lastName: lastName(),
         password: password(),
         email: email(),
-        // mobileNumber: mobileNumber(),
-        role: username(),
-        
+        mobileNumber: mobileNumber(),
+        userName: username(),
+        role: 'User' // Assign the default role
       };
-      localStorage.setItem('userData', JSON.stringify(tahuBulat));
       
+      const updatedData = [...existingData, newUser];
+      localStorage.setItem('danaKaget', JSON.stringify(updatedData));
+
       // Proceed with sign-up logic here (e.g., make a request to the backend)
       navigate('/Login');
     }
