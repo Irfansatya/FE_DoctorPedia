@@ -1,18 +1,21 @@
-import { createSignal } from 'solid-js';
-import  AgGridSolid  from 'ag-grid-solid';
+import { createSignal, onCleanup, onMount } from 'solid-js';
+import AgGridSolid from "ag-grid-solid";
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
 
+
 const App = () => {
-  const [rowData, setRowData] = createSignal([
+  const initialData = JSON.parse(localStorage.getItem('rowData')) || [
     { id: 1, name: 'John Doe', email: 'john@example.com' },
     { id: 2, name: 'Jane Doe', email: 'jane@example.com' }
-  ]);
+  ];
 
-  const [newUser, setNewUser] = createSignal({ id: '', name: '', email: '' });
+  const [rowData, setRowData] = createSignal(initialData);
+  const [newUser, setNewUser] = createSignal({ name: '', email: '' });
+  let nextId = initialData.length ? Math.max(...initialData.map(user => user.id)) + 1 : 1;
 
   const columnDefs = [
-    { headerName: 'ID', field: 'id', editable: true },
+    { headerName: 'ID', field: 'id', editable: false },
     { headerName: 'Name', field: 'name', editable: true },
     { headerName: 'Email', field: 'email', editable: true },
     {
@@ -30,9 +33,12 @@ const App = () => {
   };
 
   const addUser = () => {
-    if (newUser().id && newUser().name && newUser().email) {
-      setRowData(prev => [...prev, { id: Number(newUser().id), name: newUser().name, email: newUser().email }]);
-      setNewUser({ id: '', name: '', email: '' });
+    if (newUser().name && newUser().email) {
+      const updatedRowData = [...rowData(), { id: nextId, name: newUser().name, email: newUser().email }];
+      nextId += 1;
+      setRowData(updatedRowData);
+      localStorage.setItem('rowData', JSON.stringify(updatedRowData));
+      setNewUser({ name: '', email: '' });
     } else {
       alert('Please fill all fields.');
     }
@@ -43,15 +49,17 @@ const App = () => {
       row.id === params.data.id ? { ...row, ...params.data } : row
     );
     setRowData(updatedRowData);
+    localStorage.setItem('rowData', JSON.stringify(updatedRowData));
   };
 
   const deleteUser = (id) => {
-    setRowData(prev => prev.filter(user => user.id !== id));
+    const updatedRowData = rowData().filter(user => user.id !== id);
+    setRowData(updatedRowData);
+    localStorage.setItem('rowData', JSON.stringify(updatedRowData));
   };
 
   return (
     <div>
-      <input name="id" placeholder="ID" value={newUser().id} onInput={handleChange} />
       <input name="name" placeholder="Name" value={newUser().name} onInput={handleChange} />
       <input name="email" placeholder="Email" value={newUser().email} onInput={handleChange} />
       <button onClick={addUser}>Add User</button>

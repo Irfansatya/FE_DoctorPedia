@@ -68,15 +68,16 @@ const SignUpUser = () => {
 
     if (isEmailValid && isMobileNumberValid && isPasswordValid && isConfirmPasswordValid) {
       // Save to localStorage
-      const userData = {
-        firstName: firstName(),
-        lastName: lastName(),
-        username: username(),
-        email: email(),
-        mobileNumber: mobileNumber(),
+      const tahuBulat = {
+        id: firstName(),
+        name: lastName(),
         password: password(),
+        email: email(),
+        // mobileNumber: mobileNumber(),
+        role: username(),
+        
       };
-      localStorage.setItem('userData', JSON.stringify(userData));
+      localStorage.setItem('userData', JSON.stringify(tahuBulat));
       
       // Proceed with sign-up logic here (e.g., make a request to the backend)
       navigate('/Login');

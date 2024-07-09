@@ -6,7 +6,6 @@ import Login from './Login';
 import DocterSignUp from './docterSignUp';
 import UserSignUp from './SignUp';
 import HitoWaMinaTachimaruKedo from './components/DataFetcher';
-import LoginTest from './loginTest';
 import LandingPage from './landingpage';
 import HomePage from './HomePage'
 import Tester1 from './ag - Grid/agGridCreate';
@@ -26,8 +25,8 @@ render(
         <Route path="/login" component={Login} />
         <Route path="/docter-signup" component={DocterSignUp} />
         <Route path="/user-signup" component={UserSignUp} />
-        <Route path="/logintest" component={LoginTest} />
-        <Route path="/landingpage" component={LandingPage} />
+
+        <Route path="/" component={LandingPage} />
         <Route path="/homepage" component={HomePage} />
         <Route path="/HoshizoraNiNaru" component={HitoWaMinaTachimaruKedo} />
         <Route path="/tester1" component={Tester1} />

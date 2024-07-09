@@ -5,10 +5,12 @@ import { Link, useRoutes, useLocation } from '@solidjs/router';
 import { username } from './components/store.js';
 import { routes } from './routes';
 import styles from './app.module.css';
+import UserGrid from './components/usergrid.jsx';
 
 const app: Component = () => {
   const location = useLocation();
   const Route = useRoutes(routes);
+  
   
 
   return (
