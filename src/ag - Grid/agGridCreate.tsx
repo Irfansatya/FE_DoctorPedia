@@ -1,7 +1,10 @@
 import { createSignal } from 'solid-js';
 import AgGridSolid from 'ag-grid-solid';
+import styles from './agGrid.module.css'; // Adjust the import if the file location is different
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
+import { Link } from '@solidjs/router';
+import columnDefs from './columnDefs'; // Import definisi kolom
 
 const App = () => {
   const initialData = JSON.parse(localStorage.getItem('danaKaget')) || [
@@ -12,24 +15,6 @@ const App = () => {
   const [rowData, setRowData] = createSignal(initialData);
   const [newUser, setNewUser] = createSignal({ firstName: '', lastName: '', password: '', email: '', mobileNumber: '', userName: '', role: 'User' });
   let nextId = initialData.length ? Math.max(...initialData.map(user => user.id)) + 1 : 1;
-
-  const columnDefs = [
-    { headerName: 'ID', field: 'id', editable: false },
-    { headerName: 'First Name', field: 'firstName', editable: true },
-    { headerName: 'Last Name', field: 'lastName', editable: true },
-    { headerName: 'Password', field: 'password', editable: true },
-    { headerName: 'Email', field: 'email', editable: true },
-    { headerName: 'Mobile Number', field: 'mobileNumber', editable: true },
-    { headerName: 'Username', field: 'userName', editable: true },
-    { headerName: 'Role', field: 'role', editable: true },
-    {
-      headerName: 'Actions',
-      field: 'actions',
-      cellRendererFramework: (params) => (
-        <button onClick={() => deleteUser(params.data.id)}>Delete</button>
-      )
-    }
-  ];
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -62,23 +47,113 @@ const App = () => {
     localStorage.setItem('danaKaget', JSON.stringify(updatedRowData));
   };
 
-  return (
-    <div>
-      <input name="firstName" placeholder="First Name" value={newUser().firstName} onInput={handleChange} />
-      <input name="lastName" placeholder="Last Name" value={newUser().lastName} onInput={handleChange} />
-      <input name="password" placeholder="Password" value={newUser().password} onInput={handleChange} />
-      <input name="email" placeholder="Email" value={newUser().email} onInput={handleChange} />
-      <input name="mobileNumber" placeholder="Mobile Number" value={newUser().mobileNumber} onInput={handleChange} />
-      <input name="userName" placeholder="Username" value={newUser().userName} onInput={handleChange} />
-      <button onClick={addUser}>Add User</button>
+  const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser')) || {};
+  const userRole = loggedInUser.role || 'Guest';
 
-      <div class="ag-theme-alpine" style={{ height: '400px', width: '100%' }}>
-        <AgGridSolid
-          rowData={rowData()}
-          columnDefs={columnDefs}
-          onCellValueChanged={onCellValueChanged}
-        ></AgGridSolid>
+  return (
+    <div class={`${styles.container} ${styles.homepage}`}>
+      <header class={styles.header}>
+        <div class={styles.headercontent}>
+          <div class={styles.logo}>
+            <h1>DocterPedia</h1>
+          </div>
+          <nav class={styles.nav} data-visible="false">
+            <ul class={styles.ul}>
+              <li class={styles.li}><Link href="/login">Login</Link></li>
+              <li class={styles.li}><Link href="/new">Jadwal</Link></li>
+              {userRole === "Admin" && (
+                <li class={styles.li}><Link href="/account-manage">Akun</Link></li>
+              )}
+            </ul>
+          </nav>
+        </div>
+        <button aria-expanded="false" class={styles.mobile_navigation} aria-label="open"></button>
+      </header>
+
+      {/* KONTAINER Gambar BG */}
+      {/* KONTAINER Formulir */}
+      <div class={`${styles.AccountManaging}`}>
+        <div>
+          <div class={`${styles.InputDiv}`}>
+          <div class={`${styles.InputDivColumn}`}>
+            <p class={styles.p}>First Name</p>
+            <input
+              class={styles.input}
+              type="text"
+              name="firstName"
+              placeholder="Masukkan nama depan..."
+              value={newUser().firstName}
+              onInput={handleChange}
+            />
+            <p class={styles.p}> Name</p>
+            <input
+              class={styles.input}
+              type="text"
+              name="lastName"
+              placeholder="Last Name"
+              value={newUser().lastName}
+              onInput={handleChange}
+            />
+            <p class={styles.p}>Password</p>
+            <input
+              class={styles.input}
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={newUser().password}
+              onInput={handleChange}
+            />
+            </div>
+            <div  class={`${styles.InputDivColumn}`}>
+              <p class={styles.p}>E-Mail</p>
+              <input
+                class={styles.input}
+                type="email"
+                name="email"
+                placeholder="Email"
+                value={newUser().email}
+                onInput={handleChange}
+              />
+            <p class={styles.p}>Mobile Number</p>
+            <input
+              class={styles.input}
+              type="tel"
+              name="mobileNumber"
+              placeholder="Mobile Number"
+              value={newUser().mobileNumber}
+              onInput={handleChange}
+            />
+            <p class={styles.p}>Username</p>
+            <input
+              class={styles.input}
+              type="text"
+              name="userName"
+              placeholder="Username"
+              value={newUser().userName}
+              onInput={handleChange}
+            />
+            </div>
+          </div>
+
+          <button class={styles.button} onClick={addUser}>Add User</button>
+        </div>
+        
+        <div class="ag-theme-alpine custom-ag-theme" style={{ height: '800px', width: '80%' }}>
+          <AgGridSolid
+            rowData={rowData()}
+            columnDefs={columnDefs}
+            onCellValueChanged={onCellValueChanged}
+          ></AgGridSolid>
+        </div>
       </div>
+      {/* KONTAINER BAWAH */}
+      {/* FOOTER */}
+      <footer class={`${styles.attribution}`}>
+        {/* <p>
+          Dibuat oleh <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">EJBFSUE</a>.
+          WFEHIEWF <a href="#">HOME</a>.
+        </p> */}
+      </footer>
     </div>
   );
 };

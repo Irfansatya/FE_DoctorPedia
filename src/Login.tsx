@@ -1,9 +1,8 @@
 import { Component, createSignal } from "solid-js";
 import { useNavigate } from "@solidjs/router";
-import { setUsername } from './components/store'; 
+import { setUsername, setUser } from './components/store'; 
 import styles from "./Login.module.css";
 import swal from "sweetalert";
-import { setUser } from './components/store.js'
 
 const Login: Component = () => {
   const navigate = useNavigate();
@@ -17,15 +16,17 @@ const Login: Component = () => {
     if (user) {
       swal("Success", "Login successful", "success");
       setUser({ email: user.email, role: user.role });  // Set user data in global store
-
-      // Navigate based on user role
-      if (user.role === "Admin") {
-        navigate("/HomePageTapiBuatRoleLain");
-      } else if (user.role === "Doctor") {
-        navigate("/doctor-page");
-      } else {
-        navigate("/homepage");
-      }
+      localStorage.setItem('loggedInUser', JSON.stringify(user)); // Store logged-in user details
+      navigate("/homepage");
+    //   // Navigate based on user role
+    //   if (user.role === "Admin") {
+    //     navigate("/admin-homepage");
+    //   } else if (user.role === "Doctor") {
+    //     navigate("/doctor-page");
+    //   } else {
+    //     navigate("/homepage");
+    //   }
+    // } else {
     } else {
       swal("Error", "Incorrect email or password", "error");
     }

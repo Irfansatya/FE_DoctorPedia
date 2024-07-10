@@ -1,17 +1,18 @@
 import { Component } from "solid-js";
 import { Link, useRoutes, useLocation } from "@solidjs/router";
 import { routes } from "./routes";
-import { user } from './components/store.js';  // import the global store
 import styles from "./HomePage.module.css"; // Import the CSS module
 
 const HomePage: Component = () => {
   const location = useLocation();
   const Route = useRoutes(routes);
 
-  // Retrieve the logged-in user data from localStorage
-  const loggedInUser = JSON.parse(localStorage.getItem('currentUser')) || {};
+  // Retrieve the logged-in user's role from localStorage
+  const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser')) || {};
+  const userRole = loggedInUser.role || 'Guest';
 
   return (
+    // HEADER
     <div class={`${styles.container} ${styles.homepage}`}>
       <header class={styles.header}>
         <div class="logo">
@@ -21,8 +22,8 @@ const HomePage: Component = () => {
           <ul class={styles.ul}>
             <li class={styles.li}><Link href="/login">Login</Link></li>
             <li class={styles.li}><Link href="/new">Jadwal</Link></li>
-            {user.role === "Admin" && (
-              <li class={styles.li}><Link href="/categories">Akun</Link></li>
+            {userRole === "Admin" && (
+              <li class={styles.li}><Link href="/account-manage">Akun</Link></li>
             )}
           </ul>
         </nav>

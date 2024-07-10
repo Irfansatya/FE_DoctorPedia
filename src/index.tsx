@@ -7,8 +7,8 @@ import DocterSignUp from './docterSignUp';
 import UserSignUp from './SignUp';
 import HitoWaMinaTachimaruKedo from './components/DataFetcher';
 import LandingPage from './landingpage';
-import HomePage from './HomePage'
-import Tester1 from './ag - Grid/agGridCreate';
+import HomePage from './HomePage';
+import AccountManaging from './ag - Grid/agGridCreate';
 import Tester2 from './HomePageTapiBuatRoleLain';
 
 
@@ -26,12 +26,12 @@ render(
         <Route path="/login" component={Login} />
         <Route path="/docter-signup" component={DocterSignUp} />
         <Route path="/user-signup" component={UserSignUp} />
-
+        
         <Route path="/" component={LandingPage} />
         <Route path="/homepage" component={HomePage} />
         <Route path="/HomePageTapiBuatRoleLain" component={HomePageTapiBuatRoleLain} />
         <Route path="/HoshizoraNiNaru" component={HitoWaMinaTachimaruKedo} />
-        <Route path="/tester1" component={Tester1} />
+        <Route path="/account-manage" component={AccountManaging} />
         <Route path="/tester2" component={Tester2} />
       </Routes>
     </Router>
