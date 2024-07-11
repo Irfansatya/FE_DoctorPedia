@@ -17,7 +17,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 37em;
+    height: 35em;
     padding: 20px;
     box-sizing: border-box;
     position: relative;
@@ -35,7 +35,7 @@
 
   .header{
     font-size: 2em;
-    max-width: 120%;
+    max-width: 100%;
     font-weight: 700;
     font-style: italic;
     margin-bottom: 1em;

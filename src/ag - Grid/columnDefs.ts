@@ -96,6 +96,20 @@ const columnDefs = [
     filter: true
   },
   {
+    headerName: "Role",
+    field: "role",
+    cellClass: styles.cellWithMargin,
+    cellStyle: { padding: '0px', backgroundColor: '#e0e0e0' },
+    headerCellStyle: { padding: '10px', backgroundColor: '#11786B' },
+    width: 200,
+    minWidth: 150,
+    maxWidth: 250,
+    editable: true,
+    sortable: true,
+    resizable: true,
+    filter: true
+  },
+  {
     headerName: 'Actions',
     field: 'actions',
     cellRenderer: (params) => `<button onclick="deleteUser(${params.data.id})">Delete</button>`

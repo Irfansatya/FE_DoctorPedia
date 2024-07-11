@@ -9,7 +9,7 @@ import HitoWaMinaTachimaruKedo from './components/DataFetcher';
 import LandingPage from './landingpage';
 import HomePage from './HomePage';
 import AccountManaging from './ag - Grid/agGridCreate';
-import Tester2 from './HomePageTapiBuatRoleLain';
+import Tester2 from './tester2';
 
 
 

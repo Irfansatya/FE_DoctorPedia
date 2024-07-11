@@ -1,5 +1,377 @@
-h1{
-    size: 10em;
-    color: #D81C2F;
-    font-weight: 10;
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap");
+/* Scrollbar Styles */
+body::-webkit-scrollbar {
+    width: 15px; /* Adjust the width of the scrollbar */
+  }
+  
+  body::-webkit-scrollbar-thumb {
+
+    background-color: #11786B; /* Scrollbar color */
+    border-radius: 0.25em; /* Rounded corners */
+  }
+  
+  body::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Scrollbar track color */
+  }
+  
+  body::-moz-scrollbar {
+    width: 15px; /* Firefox scrollbar width */
+  }
+  
+  body::-moz-scrollbar-thumb {
+    background-color: #11786B; /* Scrollbar color for Firefox */
+    border-radius: 0.25em; /* Rounded corners for Firefox */
+  }
+  
+  body::-moz-scrollbar-track {
+    background: #f1f1f1; /* Scrollbar track color for Firefox */
+  }
+  
+  *,
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #11786B;
+  padding: 3.3em;
+
+  width: 100%;
+}
+
+.headercontent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-inline-start: 1.6em;
+  margin-inline-end: 2em;
+  width: 100%;
+}
+
+.main {
+    position: relative;
+    width: 100%;
+    height: 100%; /* Atur sesuai kebutuhan */
+  }
+  
+  .backgroundContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .backgroundImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ini membuat gambar responsif dan mengikuti lebar layar */
+  }
+  
+  .overlayText {
+    position: absolute;
+    top: 17%;
+    left: 2.2em;
+    font-size: 35px;
+    font-weight: 600;
+    line-height: 35px;
+    color: #f5f5f5;
+    font-style: italic;
+  }
+.logo {
+  width: 100%;
+  line-height: 58px;
+
+  width: 100%;
+  font-size: 54px;
+  font-weight: 790;
+  line-height: 35px;
+  color: #f5f5f5;
+  font-style: italic;
+  
+}
+
+
+.nav {
+  width: 100%;
+  margin-right: 2em;
+  transform: translateX(1000px);
+  transition: 10s ease-in-out;
+  display: none;
+}
+
+.nav[data-visible="true"] {
+  transform: translateX(0px);
+  display: flex;
+  flex-direction: row-reverse;
+  position: fixed;
+  margin-right: 2em;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.mobile_navigation {
+  width: 28px;
+  height: 18px;
+  background-color: transparent;
+  border: 0;
+  background-image: url("./assets/images/icon-menu.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  z-index: 100;
+}
+
+.mobile_navigation[aria-expanded="true"] {
+  background-image: url("./assets/images/icon-menu-close.svg");
+}
+
+.ul {
+  min-width: 80%;
+  height: 100%;
+  background-color: hsl(36, 100%, 99%);
+  padding: 10em 2em;
+}
+
+.li {
+  font-size: 20px;
+  list-style: none;
+  color: #12A190;
+  font-style: italic;
+}
+
+
+.rightcontainer{
+
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
+}
+  
+.h1 {
+ 
+  font-size: 35px;
+  font-weight: 790;
+  line-height: 35px;
+  color: #f5f5f5;
+  font-style: italic;
+}
+
+.h4 {
+    
+  font-size: 17px;
+  letter-spacing: 1px;
+  font-weight: 600;
+  color: #f5f5f5;
+  font-style: italic;
+
+}
+.h5{
+    font-size: 14px;
+  letter-spacing: 1px;
+  font-weight: 500;
+  color: #f5f5f5;
+  font-style: italic;
+}
+
+/* -------------main------------- */
+
+
+.main{
+  position: relative;
+  width: 100%;
+  height: 3000px; /* Atur sesuai kebutuhan */
+}
+
+
+
+
+.feature{
+    display: flex;
+    gap: 1em;
+}
+
+.cardFeature{
+    
+    display: flex; 
+    justify-content: center; /* Memusatkan elemen secara horizontal */
+    align-items: center;
+    flex-direction: column;
+    width: 189px;
+    height: 240px;
+    background-color: #11786B;
+    border-radius: 10px;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Menambahkan bayangan hitam */
+}
+
+.inCardFeature{
+    display: absolute;
+    width: 176px;
+    height: 175px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Menambahkan bayangan hitam di bawah inCardFeature */
+    position: relative;
+    max-inline-size: 95%;
+}
+.decs1{
+    margin-top: 0.5em;
+}
+.h3{
+    font-size: 16px;
+    font-weight: 500;
+    line-height: auto;
+    color: #f5f5f5;
+    font-style: italic;
+}
+
+.titleSec{
+
+    font-size: 40px;
+    font-weight: 790;
+    line-height: 30px;
+    color: #11786B;
+    font-style: italic;
+}
+.subTitleSec{
+    font-size: 24px;
+    font-weight: 790;
+    line-height: 30px;
+    color: #11786B;
+    font-style: italic;
+}
+
+
+
+
+
+
+/* --------------Footer---------------- */
+
+.footer {
+    display:  block;
+    align-items: center;
+    justify-content: space-between;
+  background-color: #11786B;
+  
+  
+
+  }
+  .footerup {
+    margin-inline-start: 4.5em;
+    margin-inline-end: 4.5em;
+    display: flex;
+
+    align-items: flex-end;
+    justify-content: space-between;
+    max-width: 100%;
+
+
+  }
+  .footerdown {
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #12A190;
+    padding-inline-start: 4.5em;
+    width: 100%;
+    height: 2.5em;
+  }
+  .pfooter {
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    font-weight: 400;
+    color: #f5f5f5;
+    font-style: italic;
+    text-align: justify; /* Justify text for a clean look */
+    width: 20em;
+    margin-block-start: 0.2em;
+  }
+
+  .palamat {
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    font-weight: 400;
+    color: #f5f5f5;
+    margin-block-start: 0.2em;
+  }
+  
+
+.alamat {
+    margin-block-start: 7em;
+    gap: 20px;
+}
+
+
+
+.DocterSign{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.button{
+ padding: 8px;
+  margin-block-end: 1em;
+  margin-block-start: 0.5em;
+  border: none;
+  border-radius: 10px;
+  background-color: #009688;
+  color: white;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  flex-grow: 0.2;
+  flex-shrink: 0.2;
+}
+
+
+@media (min-width: 63rem) {
+  .container {
+
+    padding: 0;
+  }
+
+  .mobile_navigation {
+    display: none;
+  }
+
+  .nav {
+    display: block;
+    transform: translateX(0px);
+    width: 100%;
+  }
+
+  .ul {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0;
+    margin: 0;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+  }
+
+  .li {
+    font-weight: 550;
+    margin: 0 1.5em 0 2em;
+    color: #f5f5f5;
+  }
+
+  .h1 {
+    
+    color: #f5f5f5;
+    line-height: 58px;
+    font-size: 45px;
+    width: 84%;
+  }
 }
