@@ -1,3 +1,4 @@
+import DeleteButtonRenderer from './DeleteButtonRenderer';
 import styles from './agGrid.module.css';
 
 const columnDefs = [
@@ -112,12 +113,11 @@ const columnDefs = [
   },
   {
     headerName: 'Delete',
-    cellStyle: { padding: '0px', textAlign: 'center', backgroundColor: '#EE879d', color: '#f1f1f1' },
-    cellRenderer: 'deleteRenderer',
+    cellRenderer: 'deleteButtonRenderer',
     width: 100,
     minWidth: 80,
-    maxWidth: 120
-  }
+    maxWidth: 120,
+  },
 ];
 
 export { columnDefs };

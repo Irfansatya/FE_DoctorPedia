@@ -2,6 +2,7 @@ import { Component } from "solid-js";
 import { Link, useRoutes, useLocation } from "@solidjs/router";
 import { routes } from "./routes";
 import styles from "./tester2.module.css";
+import { username } from './components/store.js';
 
 const Tester2: Component = () => {
   const location = useLocation();
@@ -12,6 +13,10 @@ const Tester2: Component = () => {
   const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser')) || {};
   const userRole = loggedInUser.role || 'Guest';
 
+
+  function handleClick() {
+    console.log('Card diklik');
+  }
 
   return (
     <div class={`${styles.container}`}>
@@ -38,7 +43,7 @@ const Tester2: Component = () => {
       <div class={styles.image}>
         <div class={styles.backgroundContainer}>
         <img src="../assets/images/image-web-3-desktop 1.png" alt="Background" class={styles.backgroundImage} />
-          <h1 class={styles.overlayText}>Selamat Datang, "Nama User"</h1>
+          <h1 class={styles.overlayText}>Selamat Datang, {username()}!</h1>
         </div>
       </div>
 
@@ -57,25 +62,16 @@ const Tester2: Component = () => {
               <h1 class={styles.titleSec}>FITUR UTAMA</h1>
               <h2 class={styles.subTitleSec}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu pharetra velit. </h2>
             </div>
-            <div class={styles.feature}>
-              <div class={styles.cardFeature}>
+
+            <div class={styles.featureRow}>
+
+              <div class={styles.cardFeature } onclick={handleClick}>
                 <div class={styles.inCardFeature}>
                 <img src="" alt="" />
                 </div>   
                 <h4 class={`${styles.h4} ${styles.decs1}`}>Fitur pertama</h4>
               </div>
-              <div class={styles.cardFeature}>
-                <div class={styles.inCardFeature}>
-                <img src="" alt="" />
-                </div>   
-                <h4 class={`${styles.h4} ${styles.decs1}`}>Fitur pertama</h4>
-              </div>
-              <div class={styles.cardFeature}>
-                <div class={styles.inCardFeature}>
-                <img src="" alt="" />
-                </div>   
-                <h4 class={`${styles.h4} ${styles.decs1}`}>Fitur pertama</h4>
-              </div>
+              
             </div>
           </div>
 
@@ -91,21 +87,21 @@ const Tester2: Component = () => {
               <h1 class={styles.h1}>ISINYA TUTORIAL MAKE</h1>
             </div>
             <div class={styles.tutorialRow}>
-              <div class={styles.tutorialInCOntent}>
+              <div class={styles.tutorialInCOntent}  >
                 <img class={styles.tutorialimg}src="assets\images\Ellipse 13.png" alt="" />
                 <div class={styles.tutorialText}>
                   <h3 class={styles.h3}>Lorem Ipsum Dolor</h3>
                   <h4 class={styles.h4}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h4>
                 </div>
               </div>
-              <div class={styles.tutorialInCOntent}>
+              <div class={styles.tutorialInCOntent}  >
                 <img class={styles.tutorialimg}src="assets\images\Ellipse 13.png" alt="" />
                 <div class={styles.tutorialText}>
                   <h3 class={styles.h3}>Lorem Ipsum Dolor</h3>
                   <h4 class={styles.h4}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h4>
                 </div>
               </div>
-              <div class={styles.tutorialInCOntent}>
+              <div class={styles.tutorialInCOntent}  >
                 <img class={styles.tutorialimg}src="assets\images\Ellipse 13.png" alt="" />
                 <div class={styles.tutorialText}>
                   <h3 class={styles.h3}>Lorem Ipsum Dolor</h3>
@@ -130,18 +126,18 @@ const Tester2: Component = () => {
 
 
             <div class={styles.townRow}>
-              <div class={styles.town}>
+              <div class={styles.town} >
                   <h3>Purwokerto</h3>
               </div>
-              <div class={styles.town}>
+              <div class={styles.town }  onclick={handleClick}>
                   <h3>Purwokerto</h3>
               </div>
             </div>
             
             <div class={styles.rumahSakitRow}>
-              <div class={styles.rumahSakitcard}>
+              <div class={styles.rumahSakitcard}  onclick={handleClick}>
                   <div class={styles.rumahSakitImage}>
-                    <div class={styles.town}>
+                    <div class={styles.town}  onclick={handleClick}>
                       <h3>Purwokerto</h3>
                     </div>    
                   </div>
@@ -154,7 +150,7 @@ const Tester2: Component = () => {
           </div>
 
 
-
+          </div>
 
 
           {/* <---------------Poli content---------------------------> */}
@@ -163,13 +159,16 @@ const Tester2: Component = () => {
             <div class={styles.titlePoli}>
               <h1  class={styles.h1}>POLI KAMI:</h1>
             </div>
-            
-            <div class={styles.poliCard}>
-              <div class={styles.circle}></div>
-              <h6 class={styles.h6}>Gigi</h6>
+            <div class={styles.poliRow}>
+              <div class={styles.poliCard}>
+                <div class={styles.circle} onclick={handleClick}>
+                  </div>
+                    <h6 class={styles.h6} >Gigi</h6>
+                  </div>
+                </div>
             </div>
-          </div>
-
+  
+        
 
           {/* <---------------Artikel content---------------------------> */}
           <div class={styles.artikel}>
@@ -180,20 +179,17 @@ const Tester2: Component = () => {
             </div>
 
             <div class={styles.artikelRow}>
-              <div class={styles.artikelCard}>
 
+
+              <div class={styles.artikelCard}onclick={handleClick}>
                 <div class={styles.artikelImg}>
                   <div class={styles.artikelCardTitle}>
                     <h1 class={styles.h1}>TITLE</h1>
                     <h3 class={styles.h3}>Lorem ipsum dolor sit amet;</h3>
                   </div>
+                </div>
               </div>
               </div>
-            </div>
-
-
-          </div>
-
 
         </div>
 

@@ -222,6 +222,10 @@
   color: hsl(228, 45%, 44%);
 }
 
+.buttonDelete{
+  background-color: #af1f1f;
+  font-weight: 500;
+}
 @media (min-width: 63rem) {
   .container {
     padding: 0;
@@ -260,4 +264,5 @@
     font-size: 49px;
     width: 84%;
   }
+
 }

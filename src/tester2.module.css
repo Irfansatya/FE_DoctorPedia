@@ -185,19 +185,44 @@ body::-webkit-scrollbar {
 
 /* -------------main------------- */
 
+.mainSectDiv{
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  margin-inline-start: 6em;
+  margin-inline-end: 6em;
+  margin-block: 4em;
+}
 
 .main{
   position: relative;
   width: 100%;
-  height: 3000px; /* Atur sesuai kebutuhan */
+  height: 2250px; /* Atur sesuai kebutuhan */
 }
 
 
+.Mainfeature{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 1em;
+}
 
-
-.feature{
+.featureRow{
     display: flex;
     gap: 1em;
+}
+
+.cardFeature:hover {
+  transform: scale(1.05); /* Memperbesar sedikit saat hover */
+  box-shadow: 0 8px 16px #c9c9c9; /* Menambah bayangan saat hover */
+  background-color: #12A190;
+}
+
+.cardFeature:active {
+  transform: scale(0.95); /* Mengecilkan sedikit saat diklik */
+  box-shadow: 0 4px 8px #c9c9c9; /* Menambah bayangan saat klik */
+  background-color: #21C1AE;
 }
 
 .cardFeature{
@@ -212,7 +237,9 @@ body::-webkit-scrollbar {
     border-radius: 10px;
     align-items: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Menambahkan bayangan hitam */
+    transition: transform 0.2s ease, box-shadow 0.5s ease, background-color 0.5s ease; /* Animasi selama 0.5 detik */
 }
+
 
 .inCardFeature{
     display: absolute;
@@ -273,7 +300,6 @@ body::-webkit-scrollbar {
   background-color: #21C1AE;
   display: flex; 
   padding-block: 4em;
- /* Memusatkan elemen secara horizontal */
   align-items: center;
   gap: 2.5em;
   flex-direction: column;
@@ -297,7 +323,17 @@ body::-webkit-scrollbar {
   flex-direction: column;
   gap: 1em;
   padding: 1em;
+  transition: transform 0.6s ease, box-shadow 0.5s ease, background-color 0.5s ease; /* Animasi selama 0.5 detik */
 }
+
+.tutorialInCOntent:hover {
+  transform: scale(1.07); /* Memperbesar sedikit saat hover */
+}
+
+.tutorialInCOntent:active {
+  transform: scale(1); /* Mengecilkan sedikit saat diklik */
+}
+
 .tutorial .h3, .tutorial .h1 {
   color: #f5f5f5;
 }
@@ -318,8 +354,9 @@ body::-webkit-scrollbar {
 .rumahSakit{
   display: flex;
   flex-direction: column;
-  gap: 0.5em;
+  gap: 1em;
 }
+
 .rumahSakit .h1, .rumahSakit .h3 {
   color: #11786B;
 
@@ -340,6 +377,19 @@ body::-webkit-scrollbar {
   padding: 0.4em 0.3em 0.4em 0.3em;
   font-weight: 500;
   color: #f5f5f5;
+  transition: background-color 0.2s ease; /* Animasi selama 0.5 detik */
+}
+
+.town:hover{
+  background-color: #21C1AE;
+  transition: background-color 0.2s ease; /* Animasi selama 0.5 detik */
+
+}
+
+.town:active{
+  background-color: #21C1AE;
+  transition: background-color 0.3s ease; /* Animasi selama 0.5 detik */
+
 }
 
 .townRow{
@@ -348,12 +398,29 @@ body::-webkit-scrollbar {
   gap: 0.5em;
 }
 
+.rumahSakitRow{
+
+    display: flex;
+    gap: 1em;
+}
+
 .rumahSakitcard{
 display: flex;
 flex-direction: column;
 height: 309px;
 width: 360px; 
 gap: 0.5em;
+transition: transform 0.6s ease, background-color 0.2s ease; /* Animasi selama 0.5 detik */
+}
+
+.rumahSakitcard:hover {
+  transform: scale(0.95); /* Memperbesar sedikit saat hover */
+
+}
+
+.rumahSakitcard:active .rumahSakitUnitTitle .h2, .rumahSakitUnitTitle .h3{
+  transform: scale(1.01); /* Memperbesar sedikit saat hover */
+
 }
 
 .rumahSakitImage{
@@ -402,7 +469,7 @@ color: #11786B;
 
 /* ---------------Poli---------------- */
 
-.poli , .poli .h6{
+.poli , .poli .h6,.poli .h1{
   display: flex;
   flex-direction: column;
   gap: 0.5em;
@@ -415,11 +482,16 @@ color: #11786B;
   background-color: #11786B;
 }
 .h6{
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 700;
   line-height: auto;
 
   font-style: italic;
+}
+
+.poliRow{
+  display: flex;
+  gap: 1em;
 }
 
 .poliCard{
@@ -429,20 +501,41 @@ color: #11786B;
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: transform 0.6s ease, background-color 0.2s ease; /* Animasi selama 0.5 detik */
+}
+
+.poliCard:hover{
+  transform: scale(1.07); /* Memperbesar sedikit saat hover */
+}
+
+.poliCard:active{
+  transform: scale(0.95); /* Memperbesar sedikit saat hover */
 }
 
 /* ---------------Articles---------------- */
 
+.artikel{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 1em;
+}
 .artikelTitle, .artikelTitle .h1, .artikelTitle .h3{
   display: flex;
   flex-direction: column;
   text-align: start;
   line-height: 1.3em;
   margin-block-end: 0em;
+  
   color: #11786B;
 }
 .artikelTitle .h3{
   white-space: nowrap;
+}
+
+.artikelRow{
+  display: flex;
+  gap: 1em;
 }
 
 .artikelCard{
@@ -452,8 +545,18 @@ color: #11786B;
   width: 360px;
   background-color: #12A190;
   border-radius: 10px;
-  
+  transition: transform 0.6s ease, background-color 0.2s ease; /* Animasi selama 0.5 detik */
 }
+
+
+.artikelCard:hover{
+  transform: scale(1.02); /* Memperbesar sedikit saat hover */
+}
+
+.artikelCard:active{
+  transform: scale(0.95); /* Memperbesar sedikit saat hover */
+}
+
 .artikelImg{
   background-image: url(assets\images\Kesehatan-Anak.jpg);
 }
@@ -466,6 +569,10 @@ color: #11786B;
 .artikelCardTitle .h1, .artikelCardTitle .h3{
   color: #f5f5f5;
   
+}
+.artikelCardTitle .h1{
+  font-size: 35px;
+  line-height: 36px;
 }
 
 
@@ -481,8 +588,8 @@ color: #11786B;
 
   }
   .footerup {
-    margin-inline-start: 4.5em;
-    margin-inline-end: 4.5em;
+    margin-inline-start: 6em;
+    margin-inline-end: 6em;
     display: flex;
 
     align-items: flex-end;

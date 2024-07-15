@@ -4,8 +4,8 @@ import styles from './agGrid.module.css'; // Adjust the import if the file locat
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
 import { Link } from '@solidjs/router';
-
-import { columnDefs } from './columnDefs'; // Import definisi kolom
+import { columnDefs } from './columnDefs';
+import DeleteButtonRenderer from './DeleteButtonRenderer';
 
 const App = () => {
   const initialData = JSON.parse(localStorage.getItem('danaKaget')) || [
@@ -71,41 +71,39 @@ const App = () => {
         <button aria-expanded="false" class={styles.mobile_navigation} aria-label="open"></button>
       </header>
 
-      {/* KONTAINER Gambar BG */}
-      {/* KONTAINER Formulir */}
       <div class={`${styles.AccountManaging}`}>
         <div>
           <div class={`${styles.InputDiv}`}>
-          <div class={`${styles.InputDivColumn}`}>
-            <p class={styles.p}>First Name</p>
-            <input
-              class={styles.input}
-              type="text"
-              name="firstName"
-              placeholder="Masukkan nama depan..."
-              value={newUser().firstName}
-              onInput={handleChange}
-            />
-            <p class={styles.p}> Name</p>
-            <input
-              class={styles.input}
-              type="text"
-              name="lastName"
-              placeholder="Last Name"
-              value={newUser().lastName}
-              onInput={handleChange}
-            />
-            <p class={styles.p}>Password</p>
-            <input
-              class={styles.input}
-              type="password"
-              name="password"
-              placeholder="Password"
-              value={newUser().password}
-              onInput={handleChange}
-            />
+            <div class={`${styles.InputDivColumn}`}>
+              <p class={styles.p}>First Name</p>
+              <input
+                class={styles.input}
+                type="text"
+                name="firstName"
+                placeholder="Masukkan nama depan..."
+                value={newUser().firstName}
+                onInput={handleChange}
+              />
+              <p class={styles.p}>Last Name</p>
+              <input
+                class={styles.input}
+                type="text"
+                name="lastName"
+                placeholder="Last Name"
+                value={newUser().lastName}
+                onInput={handleChange}
+              />
+              <p class={styles.p}>Password</p>
+              <input
+                class={styles.input}
+                type="password"
+                name="password"
+                placeholder="Password"
+                value={newUser().password}
+                onInput={handleChange}
+              />
             </div>
-            <div  class={`${styles.InputDivColumn}`}>
+            <div class={`${styles.InputDivColumn}`}>
               <p class={styles.p}>E-Mail</p>
               <input
                 class={styles.input}
@@ -115,24 +113,24 @@ const App = () => {
                 value={newUser().email}
                 onInput={handleChange}
               />
-            <p class={styles.p}>Mobile Number</p>
-            <input
-              class={styles.input}
-              type="tel"
-              name="mobileNumber"
-              placeholder="Mobile Number"
-              value={newUser().mobileNumber}
-              onInput={handleChange}
-            />
-            <p class={styles.p}>Username</p>
-            <input
-              class={styles.input}
-              type="text"
-              name="userName"
-              placeholder="Username"
-              value={newUser().userName}
-              onInput={handleChange}
-            />
+              <p class={styles.p}>Mobile Number</p>
+              <input
+                class={styles.input}
+                type="tel"
+                name="mobileNumber"
+                placeholder="Mobile Number"
+                value={newUser().mobileNumber}
+                onInput={handleChange}
+              />
+              <p class={styles.p}>Username</p>
+              <input
+                class={styles.input}
+                type="text"
+                name="userName"
+                placeholder="Username"
+                value={newUser().userName}
+                onInput={handleChange}
+              />
             </div>
           </div>
 
@@ -143,12 +141,13 @@ const App = () => {
           <AgGridSolid
             rowData={rowData()}
             columnDefs={columnDefs}
+            components={{ deleteButtonRenderer: DeleteButtonRenderer }}
+            context={{ deleteUser }}
             onCellValueChanged={onCellValueChanged}
-          ></AgGridSolid>
+          />
         </div>
       </div>
-      {/* KONTAINER BAWAH */}
-      {/* FOOTER */}
+
       <footer class={`${styles.attribution}`}>
         {/* <p>
           Dibuat oleh <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">EJBFSUE</a>.
