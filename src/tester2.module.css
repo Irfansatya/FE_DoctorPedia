@@ -41,7 +41,7 @@ body::-webkit-scrollbar {
   align-items: center;
   justify-content: space-between;
   background-color: #11786B;
-  padding: 3.3em;
+  padding: 3em;
 
   width: 100%;
 }
@@ -50,8 +50,9 @@ body::-webkit-scrollbar {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-inline-start: 1.6em;
-  margin-inline-end: 2em;
+  margin-inline-start: 3em;
+  margin-inline-end: 3em;
+  margin-block-end: 1em;
   width: 100%;
 }
 
@@ -77,7 +78,7 @@ body::-webkit-scrollbar {
   .overlayText {
     position: absolute;
     top: 17%;
-    left: 2.2em;
+    left: 2.7em;
     font-size: 35px;
     font-weight: 600;
     line-height: 35px;
@@ -165,17 +166,17 @@ body::-webkit-scrollbar {
   font-style: italic;
 }
 
-.h4 {
+/* .h4 {
     
-  font-size: 17px;
+  font-size: 18px;
   letter-spacing: 1px;
   font-weight: 600;
   color: #f5f5f5;
   font-style: italic;
 
-}
+} */
 .h5{
-    font-size: 14px;
+    font-size: 18px;
   letter-spacing: 1px;
   font-weight: 500;
   color: #f5f5f5;
@@ -226,13 +227,27 @@ body::-webkit-scrollbar {
 .decs1{
     margin-top: 0.5em;
 }
-.h3{
-    font-size: 16px;
+.h2{
+    font-size: 28px;
     font-weight: 500;
     line-height: auto;
-    color: #f5f5f5;
     font-style: italic;
 }
+.h3{
+  font-size: 20px;
+  font-weight: 500;
+  line-height: auto;
+
+  font-style: italic;
+}
+.h4{
+  font-size: 16px;
+  font-weight: 500;
+  line-height: auto;
+  color: #21C1AE;
+  font-style: italic;
+}
+
 
 .titleSec{
 
@@ -244,15 +259,214 @@ body::-webkit-scrollbar {
 }
 .subTitleSec{
     font-size: 24px;
-    font-weight: 790;
+    font-weight: 600;
     line-height: 30px;
     color: #11786B;
     font-style: italic;
 }
 
+/* Tutorial */
+
+.tutorial{
+  width: 1075px;
+  height: 450px;
+  background-color: #21C1AE;
+  display: flex; 
+  padding-block: 4em;
+ /* Memusatkan elemen secara horizontal */
+  align-items: center;
+  gap: 2.5em;
+  flex-direction: column;
+  text-align: center;
+
+}
+
+.titleTutor h1{
+
+  font-style: normal;
+}
+
+.tutorialRow{
+  display: flex; 
+  gap: 8em;
+}
+.tutorialInCOntent{
+  display: flex; 
+  justify-content: center; /* Memusatkan elemen secara horizontal */
+  align-items: center;
+  flex-direction: column;
+  gap: 1em;
+  padding: 1em;
+}
+.tutorial .h3, .tutorial .h1 {
+  color: #f5f5f5;
+}
+.tutorialText{
+  text-align: center;
+}
+.tutorial .h4{
+  color: #11786B;
+  text-align: center;
+  max-width: 185px;
+}
+
+
+/* ---------------RS---------------- */
 
 
 
+.rumahSakit{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+.rumahSakit .h1, .rumahSakit .h3 {
+  color: #11786B;
+
+}
+
+.rumahSakitTitle {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  line-height: 1.3em;
+  margin-block-end: 0em;
+}
+
+.town{
+  background-color: #11786B;
+  border-radius: 5px;
+  max-width: max-content;
+  padding: 0.4em 0.3em 0.4em 0.3em;
+  font-weight: 500;
+  color: #f5f5f5;
+}
+
+.townRow{
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+}
+
+.rumahSakitcard{
+display: flex;
+flex-direction: column;
+height: 309px;
+width: 360px; 
+gap: 0.5em;
+}
+
+.rumahSakitImage{
+  border-radius:5px;
+  height: 240px;
+  width: 360px;
+  background-image: url("./assets/images/RSCONTOH1.jpg");
+}
+
+.rumahSakitUnitTitle{
+  display: block;
+  white-space: nowrap;
+
+}
+
+.rumahSakitUnitTitle .h2, .rumahSakitUnitTitle .h3{
+color: #11786B;
+}
+
+.rumahSakitUnitTitle .h2{
+  font-weight: 700;
+  line-height: 35px;
+  }
+
+  .rumahSakitUnitTitle .h3{
+    font-weight: 600;
+    line-height: 20px;
+    }
+
+
+
+  .scrollable{
+  overflow-y: auto;
+  }
+
+  .scrollable::-webkit-scrollbar {
+    width: 0; /* Buat scrollbar tidak terlihat */
+    background: transparent; /* Pastikan transparan */
+  }
+
+  /* Untuk menyembunyikan scrollbar di Firefox */
+  .scrollable {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+/* ---------------Poli---------------- */
+
+.poli , .poli .h6{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  color: #11786B;
+}
+.circle {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  background-color: #11786B;
+}
+.h6{
+  font-size: 15px;
+  font-weight: 700;
+  line-height: auto;
+
+  font-style: italic;
+}
+
+.poliCard{
+  height: 110px;
+  width: 100px;
+  gap: 0.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ---------------Articles---------------- */
+
+.artikelTitle, .artikelTitle .h1, .artikelTitle .h3{
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  line-height: 1.3em;
+  margin-block-end: 0em;
+  color: #11786B;
+}
+.artikelTitle .h3{
+  white-space: nowrap;
+}
+
+.artikelCard{
+  display: flex;
+  align-items: self-end;
+  height: 240px;
+  width: 360px;
+  background-color: #12A190;
+  border-radius: 10px;
+  
+}
+.artikelImg{
+  background-image: url(assets\images\Kesehatan-Anak.jpg);
+}
+
+
+.artikelCardTitle{
+  margin-block-end: 0.5em;
+  margin-inline-start: 0.5em;
+}
+.artikelCardTitle .h1, .artikelCardTitle .h3{
+  color: #f5f5f5;
+  
+}
 
 
 /* --------------Footer---------------- */
@@ -288,7 +502,7 @@ body::-webkit-scrollbar {
     height: 2.5em;
   }
   .pfooter {
-    font-size: 13px;
+    font-size: 15px;
     letter-spacing: 0.5px;
     font-weight: 400;
     color: #f5f5f5;
@@ -299,7 +513,7 @@ body::-webkit-scrollbar {
   }
 
   .palamat {
-    font-size: 13px;
+    font-size: 15px;
     letter-spacing: 0.5px;
     font-weight: 400;
     color: #f5f5f5;
@@ -327,7 +541,7 @@ body::-webkit-scrollbar {
   border-radius: 10px;
   background-color: #009688;
   color: white;
-  font-size: 1em;
+  font-size: 1.2em;
   font-weight: 600;
   cursor: pointer;
   flex-grow: 0.2;
@@ -369,9 +583,9 @@ body::-webkit-scrollbar {
 
   .h1 {
     
-    color: #f5f5f5;
+
     line-height: 58px;
     font-size: 45px;
-    width: 84%;
+    width: 100%;
   }
 }

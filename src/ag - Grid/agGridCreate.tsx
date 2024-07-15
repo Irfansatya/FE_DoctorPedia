@@ -4,7 +4,8 @@ import styles from './agGrid.module.css'; // Adjust the import if the file locat
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
 import { Link } from '@solidjs/router';
-import columnDefs from './columnDefs'; // Import definisi kolom
+
+import { columnDefs } from './columnDefs'; // Import definisi kolom
 
 const App = () => {
   const initialData = JSON.parse(localStorage.getItem('danaKaget')) || [
