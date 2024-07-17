@@ -1,7 +1,7 @@
 import { createSignal, onMount, Component } from "solid-js";
 import { Link, useRoutes, useLocation } from "@solidjs/router";
 import { routes } from "./routes";
-import styles from "./tester2.module.css";
+import styles from "./HomePage.module.css";
 
 const HomePage: Component = () => {
   const location = useLocation();
@@ -29,22 +29,22 @@ const HomePage: Component = () => {
     <div class={`${styles.container}`}>
       {/* Header section */}
       <header class={styles.header}>
-        <div class={styles.headercontent}>
-          <div class={styles.logo}>
-            <h1>DocterPedia</h1>
-          </div>
-          <nav class={styles.nav} data-visible="false">
-            <ul class={styles.ul}>
-              <li class={styles.li}><Link href="/login">Login</Link></li>
-              <li class={styles.li}><Link href="/new">Jadwal</Link></li>
-              {userRole === "Admin" && (
-                <li class={styles.li}><Link href="/account-manage">Akun</Link></li>
-              )}
-            </ul>
-          </nav>
+        <div class={styles.headerContainer}>
+            <div class={styles.logoH1}>
+                <h1>Dokterpedia</h1>
+            </div>
+            <div class={styles.nav} data-visible="false">
+                <ul class={styles.ul}>
+                <li class={styles.li}><Link href="/login">Login</Link></li>
+                <li class={styles.li}><Link href="/new">Jadwal</Link></li>
+                {userRole === "Admin" && (
+                    <li class={styles.li}><Link href="/account-manage">Akun</Link></li>
+                )}
+                </ul>
+            </div>
+            <button aria-expanded="false" class={styles.mobile_navigation} aria-label="open"></button>
         </div>
-        <button aria-expanded="false" class={styles.mobile_navigation} aria-label="open"></button>
-      </header>
+    </header>
 
 
 

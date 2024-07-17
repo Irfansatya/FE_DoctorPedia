@@ -57,8 +57,9 @@ const Tester2: Component = () => {
           </div>
 
           <div class={styles.form}>
-            <div class={styles.rightform}>
 
+
+            <div class={styles.rightForm}>
 
               <div class={styles.input}>
                 <p  class={styles.p}>Nama Pasien</p>
@@ -103,7 +104,8 @@ const Tester2: Component = () => {
 
                 <div class={styles.input}>
                   <p class={styles.p}>Hari, tanggal</p>
-                  <input type="text" />
+                  <input type="date" id="start" name="start-date" value="2023-07-22" class= {styles.calendar}></input>
+                  
                 </div>
 
                 <div class={styles.input}>
@@ -111,7 +113,30 @@ const Tester2: Component = () => {
                   <input type="text" />
                 </div>
 
+                
               </div>
+                <div class={styles.withaccount}>
+                <input type="checkbox" id="accountcb" name="accountdb" value="yes" class={styles.cb}></input>
+                <p class={styles.p}>Gunakan data akun?</p>
+                    
+                </div>
+            </div>
+
+
+
+              <div class={styles.leftForm}>
+                <div class={styles.input}>
+                  <p  class={styles.p}>Keluhan</p>
+                  <textarea id="description" name="description" rows="4" cols="50" class={styles.textarea}>
+                  </textarea>
+                  <div class="buttonACC">
+                  <button  class={styles.button}>Kirim!</button>
+               </div>
+                
+              </div>
+
+
+
             </div>  
           </div>
         </div>

@@ -7,7 +7,7 @@ import DocterSignUp from './docterSignUp';
 import UserSignUp from './SignUp';
 
 import CreateAppointment from './janjiCreate/janjiCreate';
-
+import Article from './Article/Articles';
 import LandingPage from './landingpage';
 import HomePage from './HomePage';
 import AccountManaging from './ag - Grid/agGridCreate';
@@ -33,6 +33,7 @@ render(
         <Route path="/appointment" component={CreateAppointment} />
         <Route path="/" component={LandingPage} />
         <Route path="/homepage" component={HomePage} />
+        <Route path="/article" component={Article} />
 {/* 
         <Route path="/HoshizoraNiNaru" component={HitoWaMinaTachimaruKedo} /> */}
         <Route path="/account-manage" component={AccountManaging} />

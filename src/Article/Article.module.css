@@ -197,30 +197,76 @@ body::-webkit-scrollbar {
   margin-left: 1em;
   pointer-events: none; /* Agar tidak mengganggu input */
 }
+
+
+.overlayText {
+    grid-area: 1 / 1;
+    color: white; /* Anda bisa mengubah warna sesuai kebutuhan */
+    text-align:start;
+    margin-inline-start: 2.5em;
+    margin-block-start: 0.5em;
+    font-weight: 600;
+  
+    font-size: 40px; /* Sesuaikan ukuran font sesuai kebutuhan */
+    /* Tambahkan gaya lain yang diperlukan */
+  }
+
+  .backgroundContainer {
+    display: grid;
+    place-items:inherit;
+  }
+  .backgroundImage {
+    width: 100%;
+    height: auto;
+    display: block;
+    grid-area: 1 / 1;
+  }
 /* -------------main------------- */
 
 
-.Title .h2 {
-  color: #11786B;
- line-height: 1em;
+.title{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    color: #11786B;
+    padding-block: 1em;
+    gap: 1EM;
 }
 
-.Title .h4{
-  color: #11786B;
-  line-height: 2em;
-  font-weight: 500;
-  font-style: italic;
+.articlesContent .hr{
+    border: 0;
+    height: 3px; /* Adjust the height */
+    background-color: #11786B; /* Change color */
+    margin-block: 2em;
+    margin-block-end: 3em;
 }
 
 
-.form .p{
-  color: #11786B;
-  line-height: 1.5em;
-  margin-inline-start: 0.2em;
-  margin-block-end: 0.2em;
-  font-weight: 600;
-  font-style: italic;
+.articlesContent .p{
+    text-align: justify;
+    color: #11786B;
+    font-weight: 600;
+    text-indent: 40px; 
+    margin-block-end: 3em;
+    text-indent: 4em;
+    line-height: 1.6;
 }
+
+
+.footerArticles{
+    text-align: justify;
+    color: #11786B;
+    font-weight: 600;
+}
+
+
+
+
+
+
+
+
+/* --------------Footer---------------- */
 
 .rightcontainer{
 
@@ -234,120 +280,6 @@ body::-webkit-scrollbar {
   font-style: italic;
 }
   
-.mainSectDiv{
-  display: flex;
-  flex-direction: column;
-  gap: 60px;
-  margin-inline-start: 6em;
-  margin-inline-end: 6em;
-  margin-block: 4em;
-  margin-block-start: 5em;
-}
-
-.main{
-  position: relative;
-  width: 100%;
-  height: 1000px; /* Atur sesuai kebutuhan */
-}
-
-
-
-
-
-
-.form{
-  display: flex;
-  flex-direction: row;
-  justify-content: stretch;
-  border: 0.1em solid #11786B; /* 2px wide solid black border */
-  padding-block: 2em;
-  padding-inline: 1em;/* Optional: Add some padding */
-  border-radius: 1em;
-  width: 100%;
-  position: sticky;
-  gap: 3em;
-}
-
-
-
-.rightForm, .leftForm {
-  display: flex;
-  gap: 0.2em;
-  flex-direction: column;
-  
-  flex-grow: 1;
-  flex-shrink: 1;
-  width: 40%; /* Initial width, can be adjusted */
-}
-
-
-
-.subInput,.subInputDua{
-  display: flex;
-  flex-direction: row;
-  gap: 1em;
-  justify-content: stretch;
-  position: sticky;
-  flex-shrink: 1;
-}
-
-.subInputDua
-.subInput .input {
-  width: calc(30%);
-}
-
-.subInputDua .calendar{
-  margin: auto;
-
-  padding: 5px;
-  height: 2em;
-}
-
-
-.subInputDua .input:nth-child(1) {
-  flex: 3 1 0%; /* 60% of the container */
-}
-
-.subInputDua .input:nth-child(2) {
-  flex: 1 1 0%; /* 40% of the container */
-}
-
-.withaccount{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  align-content:space-around;
-  gap: 0.8em;
-  padding: 5px;
-  margin-inline-start: 10px;
-  margin-block-start: 1em;
-}
-
-.withaccount .cb{
-  transform: scale(1.5); 
-  width: auto;
-}
-
-.leftForm{
-  align-content: flex-end;
-}
-
-
-
-.textarea{
-  width: 100%; /* Make it as wide as its container */
-  height: 320px; /* Adjust the height as needed */
-  padding: 0.7em; /* Add some padding for better readability */
-  font-family: Arial, sans-serif; /* Change the font */
-  font-size: 24px; /* Adjust the font size */
-  border: 2px solid #11786B; /* Add a border */
-  border-radius: 4px; /* Add rounded corners */
-  resize: vertical; /* Allow the user to resize vertically only */
-  margin-block-end: 1em;
-}
-
-/* --------------Footer---------------- */
-
 .footer {
     display:  block;
     align-items: center;
@@ -411,7 +343,7 @@ body::-webkit-scrollbar {
 
 
 
-  .alamat .p {
+  .alamat .p{
     font-size: 15px;
     letter-spacing: 0.5px;
     font-weight: 400;
@@ -468,17 +400,23 @@ body::-webkit-scrollbar {
   flex-shrink: 0.2;
 }
 
-.leftForm .button {
-  font-size: 18px;
-  align-items: center;
-  width: calc(50%);
-  text-align: center;
-  height: 2.5em;
-  margin-block-start: 0px;
-  margin-inline-start: calc(50%);
-  margin-block-end: 0px;
-  align-self: flex-end; /* Mengatur agar tombol berada di pojok kanan */
-}
+.mainSectDiv{
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    margin-inline-start: 6em;
+    margin-inline-end: 6em;
+    margin-block: 4em;
+    margin-block-start: 5em;
+  }
+  
+  .main{
+    position: relative;
+    width: 100%;
+    height: 1500px; /* Atur sesuai kebutuhan */
+  }
+  
+  
 @media (min-width: 63rem) {
   .container {
 

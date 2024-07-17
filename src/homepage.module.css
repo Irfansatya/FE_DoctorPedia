@@ -36,120 +36,126 @@ body::-webkit-scrollbar {
   box-sizing: border-box;
 }
 
+
+
+
 .header {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #11786B;
-  padding: 3em;
 
-  width: 100%;
-}
-
-.headercontent {
-  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-inline-start: 3em;
-  margin-inline-end: 3em;
-  margin-block-end: 1em;
+  background-color: #11786B;
+  ;
+  height: auto;
   width: 100%;
 }
 
-.main {
-    position: relative;
+
+.headerContainer{
+  display: flex;
+  align-items: center;
+  
+  flex-direction: row;
+  margin-block-start: 4em;
+  margin-block-end: 3em;
+  gap: 1.5em;
+  flex-direction: column;
+  height: auto;
+  width: auto;
+}
+
+  
+  .main {
+
     width: 100%;
-    height: 100%; /* Atur sesuai kebutuhan */
+    height: 100%; /* Adjust as needed */
   }
   
-  .backgroundContainer {
-    position: relative;
+  
+.logoH1 {
+  width: auto;
+  line-height: 40px;
+  font-size: 45px;
+  font-weight: 790;
+  line-height: auto;
+  color: #f5f5f5;
+  font-style: italic;
+}
+  
+  .nav {
+    width: 100%;
+
+    transition: 1s ease-in-out;
+    display: none;
+  }
+  
+  .nav[data-visible="true"] {
+    transform: translateX(0px);
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+
+    top: 0;
+    right: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.5);
   }
   
+  .mobile_navigation {
+    width: 30px;
+    height: 18px;
+    background-color: transparent;
+    border: 0;
+    background-image: url("./assets/images/icon-menu.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    z-index: 100;
+  }
+  
+  .mobile_navigation[aria-expanded="true"] {
+    background-image: url("./assets/images/icon-menu-close.svg");
+  }
+  
+  .nav .ul {
+    min-width: 100%;
+    height: 100%;
+    gap: 0em;
+  }
+  
+  .ul .li {
+    font-size: 20px;
+    list-style: none;
+    color: #f5f5f5;
+    font-style: italic;
+    font-weight: 550;
+    
+  }
+
+  .backgroundContainer {
+    display: grid;
+    place-items:inherit;
+  }
   .backgroundImage {
     width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ini membuat gambar responsif dan mengikuti lebar layar */
+    height: auto;
+    display: block;
+    grid-area: 1 / 1;
   }
   
   .overlayText {
-    position: absolute;
-    top: 17%;
-    left: 2.7em;
-    font-size: 35px;
+    grid-area: 1 / 1;
+    color: white; /* Anda bisa mengubah warna sesuai kebutuhan */
+    text-align:start;
+    margin-inline-start: 2.5em;
+    margin-block-start: 0.5em;
     font-weight: 600;
-    line-height: 35px;
-    color: #f5f5f5;
-    font-style: italic;
-  }
-.logo {
-  width: 100%;
-  line-height: 58px;
-
-  width: 100%;
-  font-size: 54px;
-  font-weight: 790;
-  line-height: 35px;
-  color: #f5f5f5;
-  font-style: italic;
   
-}
-
-
-.nav {
-  width: 100%;
-  margin-right: 2em;
-  transform: translateX(1000px);
-  transition: 10s ease-in-out;
-  display: none;
-}
-
-.nav[data-visible="true"] {
-  transform: translateX(0px);
-  display: flex;
-  flex-direction: row-reverse;
-  position: fixed;
-  margin-right: 2em;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.mobile_navigation {
-  width: 28px;
-  height: 18px;
-  background-color: transparent;
-  border: 0;
-  background-image: url("./assets/images/icon-menu.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  z-index: 100;
-}
-
-.mobile_navigation[aria-expanded="true"] {
-  background-image: url("./assets/images/icon-menu-close.svg");
-}
-
-.ul {
-  min-width: 80%;
-  height: 100%;
-  background-color: hsl(36, 100%, 99%);
-  padding: 10em 2em;
-}
-
-.li {
-  font-size: 20px;
-  list-style: none;
-  color: #12A190;
-  font-style: italic;
-}
-
+    font-size: 40px; /* Sesuaikan ukuran font sesuai kebutuhan */
+    /* Tambahkan gaya lain yang diperlukan */
+  }
 
 .rightcontainer{
 
