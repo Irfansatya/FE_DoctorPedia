@@ -12,23 +12,22 @@ const LandingPage: Component = () => {
 
 // HEADER
     
-    <div class={`${styles.container} ${styles.landingpage}`}>
-      <header class={styles.header}>
-        <div class="logo">
-          <h1 class={styles.h1}>DocterPedia</h1>
-        </div>
-        <nav class={styles.nav}data-visible="false">
+<div class={`${styles.container}`}>
+{/* Header section */}
+<header class={styles.header}>
+  <div class={styles.headerContainer}>
+      <div class={styles.logoH1}>
+          <h1>Dokterpedia</h1>
+      </div>
+      <div class={styles.nav} data-visible="false">
           <ul class={styles.ul}>
-            <li class={styles.li}><Link href="/login">Login</Link></li>
-            <li class={styles.li}><Link href="/new">Jadwal</Link></li>
-            <li class={styles.li}><Link href="/categories">Akun</Link></li>
-            
+          <li class={styles.li}><Link href="/login">Login</Link></li>
+          <li class={styles.li}><Link href="/new">Jadwal</Link></li>
           </ul>
-        </nav>
-        <button aria-expanded="false" class={styles.mobile_navigation} aria-label="open"></button>
-      </header>
-
-
+      </div>
+      <button aria-expanded="false" class={styles.mobile_navigation} aria-label="open"></button>
+  </div>
+</header>
 
 {/* KONTAINER KIRI */}
 

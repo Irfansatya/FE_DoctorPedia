@@ -5,18 +5,21 @@ import App from './app';
 import Login from './Login';
 import DocterSignUp from './docterSignUp';
 import UserSignUp from './SignUp';
-import HitoWaMinaTachimaruKedo from './components/DataFetcher';
+
+import CreateAppointment from './janjiCreate/janjiCreate';
+
 import LandingPage from './landingpage';
 import HomePage from './HomePage';
 import AccountManaging from './ag - Grid/agGridCreate';
 import Tester2 from './tester2';
+import HospitalCRUD from './hospitalDetailCRUD/hospitalCRUD';
 
 
 
 
 
 import './index.css';
-import HomePageTapiBuatRoleLain from './HomePageTapiBuatRoleLain';
+
 
 render(
   () => (
@@ -26,11 +29,12 @@ render(
         <Route path="/login" component={Login} />
         <Route path="/docter-signup" component={DocterSignUp} />
         <Route path="/user-signup" component={UserSignUp} />
-        
+        <Route path="/hospitalmanage" component={HospitalCRUD} />
+        <Route path="/appointment" component={CreateAppointment} />
         <Route path="/" component={LandingPage} />
         <Route path="/homepage" component={HomePage} />
-        <Route path="/HomePageTapiBuatRoleLain" component={HomePageTapiBuatRoleLain} />
-        <Route path="/HoshizoraNiNaru" component={HitoWaMinaTachimaruKedo} />
+{/* 
+        <Route path="/HoshizoraNiNaru" component={HitoWaMinaTachimaruKedo} /> */}
         <Route path="/account-manage" component={AccountManaging} />
         <Route path="/tester2" component={Tester2} />
       </Routes>

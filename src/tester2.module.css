@@ -192,6 +192,7 @@ body::-webkit-scrollbar {
   margin-inline-start: 6em;
   margin-inline-end: 6em;
   margin-block: 4em;
+  margin-block-start: 15em;
 }
 
 .main{
@@ -604,7 +605,7 @@ color: #11786B;
     align-items: center;
     justify-content: space-between;
     background-color: #12A190;
-    padding-inline-start: 4.5em;
+    padding-inline-start: 6em;
     width: 100%;
     height: 2.5em;
   }
