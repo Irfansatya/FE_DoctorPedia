@@ -1,15 +1,12 @@
-
 import { createSignal, onMount, Component } from "solid-js";
-import { Link, useRoutes, useLocation } from "@solidjs/router";
+import { Link, useNavigate, useLocation } from "@solidjs/router";
 import { routes } from "../routes";
 import styles from "./janjiCreate.module.css";
 
-
-
-const Tester2: Component = () => {
+const CreateAppointment: Component = () => {
+  const navigate = useNavigate();
   const location = useLocation();
-  const Route = useRoutes(routes);
-
+  
   // Step 1: Create a signal for the username
   const [username, setUsername] = createSignal('');
 
@@ -22,13 +19,53 @@ const Tester2: Component = () => {
   const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser')) || {};
   const userRole = loggedInUser.role || 'Guest';
 
-  function handleClick() {
-    console.log('Card diklik');
-  }
+  // State untuk setiap input
+  const [namaPasien, setNamaPasien] = createSignal('');
+  const [umur, setUmur] = createSignal('');
+  const [berat, setBerat] = createSignal('');
+  const [tinggi, setTinggi] = createSignal('');
+  const [golDarah, setGolDarah] = createSignal('');
+  const [poli, setPoli] = createSignal('');
+  const [dokter, setDokter] = createSignal('');
+  const [tanggal, setTanggal] = createSignal('');
+  const [sesi, setSesi] = createSignal('');
+  const [keluhan, setKeluhan] = createSignal('');
+
+  // Fungsi untuk menyimpan data ke local storage
+  const saveAppointment = () => {
+    const newAppointment = {
+      id: Date.now(), // Menggunakan timestamp sebagai ID unik
+      namaPasien: namaPasien(),
+      umur: umur(),
+      berat: berat(),
+      tinggi: tinggi(),
+      golDarah: golDarah(),
+      poli: poli(),
+      dokter: dokter(),
+      tanggal: tanggal(),
+      sesi: sesi(),
+      keluhan: keluhan(),
+      pengirim: username() // Tambahkan kolom pengirim
+    };
+
+    // Ambil data existing dari local storage
+    const existingData = JSON.parse(localStorage.getItem('Appointment')) || [];
+
+    // Tambahkan appointment baru
+    const updatedData = [...existingData, newAppointment];
+
+    // Simpan kembali ke local storage
+    localStorage.setItem('Appointment', JSON.stringify(updatedData));
+
+    console.log("Appointment saved:", newAppointment);
+    alert('Appointment created successfully!');
+
+    // Redirect setelah menyimpan data
+    navigate('/homepage');
+  };
 
   return (
-    <div class={`${styles.container}`}>
-      {/* Header section */}
+    <div class={styles.container}>
       <header class={styles.header}>
         <div class={styles.headerContainer}>
             <div class={styles.logoH1}>
@@ -47,142 +84,86 @@ const Tester2: Component = () => {
         </div>
     </header>
 
-
       <main class={styles.main}>
-      <div class={styles.mainSectDiv}>
-        <div class={styles.janjiTemu}>
-          <div class={styles.Title}>
-            <h2 class={styles.h2}>Janji Temu</h2>
-            <h4 class={styles.h4}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </h4>
-          </div>
-
-          <div class={styles.form}>
-
-
-            <div class={styles.rightForm}>
-
-              <div class={styles.input}>
-                <p  class={styles.p}>Nama Pasien</p>
-                <input type="text" />
-              </div>
-
-              <div class={styles.subInput}>
-                
-                <div class={styles.input}>
-                  <p class={styles.p}>Umur</p>
-                  <input type="text" />
-                </div>
-                
-                <div class={styles.input}>
-                  <p class={styles.p}>Berat</p>
-                  <input type="text" />
-                </div>
-
-                <div class={styles.input}>
-                  <p class={styles.p}>Tinggi</p>
-                  <input type="text" />
-                </div>
-
-                <div class={styles.input}>
-                  <p class={styles.p}>Gol. Darah</p>
-                  <input type="text" />
-                </div>
-
-              </div>
-
-              <div class={styles.input}>
-                <p class={styles.p}>Poli</p>
-                <input type="text" />
-              </div>
-
-              <div class={styles.input}>
-                <p class={styles.p}>Dokter</p>
-                <input type="text" />
-              </div>
-
-              <div class={styles.subInputDua}>
-
-                <div class={styles.input}>
-                  <p class={styles.p}>Hari, tanggal</p>
-                  <input type="date" id="start" name="start-date" value="2023-07-22" class= {styles.calendar}></input>
-                  
-                </div>
-
-                <div class={styles.input}>
-                  <p class={styles.p}>Sesi</p>
-                  <input type="text" />
-                </div>
-
-                
-              </div>
-                <div class={styles.withaccount}>
-                <input type="checkbox" id="accountcb" name="accountdb" value="yes" class={styles.cb}></input>
-                <p class={styles.p}>Gunakan data akun?</p>
-                    
-                </div>
+        <div class={styles.mainSectDiv}>
+          <div class={styles.janjiTemu}>
+            <div class={styles.Title}>
+              <h2 class={styles.h2}>Janji Temu</h2>
+              <h4 class={styles.h4}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </h4>
             </div>
 
+            <div class={styles.form}>
+              <div class={styles.rightForm}>
+                <div class={styles.input}>
+                  <p class={styles.p}>Nama Pasien</p>
+                  <input type="text" value={namaPasien()} onInput={(e) => setNamaPasien(e.target.value)} />
+                </div>
 
+                <div class={styles.subInput}>
+                  <div class={styles.input}>
+                    <p class={styles.p}>Umur</p>
+                    <input type="text" value={umur()} onInput={(e) => setUmur(e.target.value)} />
+                  </div>
+                  
+                  <div class={styles.input}>
+                    <p class={styles.p}>Berat</p>
+                    <input type="text" value={berat()} onInput={(e) => setBerat(e.target.value)} />
+                  </div>
+
+                  <div class={styles.input}>
+                    <p class={styles.p}>Tinggi</p>
+                    <input type="text" value={tinggi()} onInput={(e) => setTinggi(e.target.value)} />
+                  </div>
+
+                  <div class={styles.input}>
+                    <p class={styles.p}>Gol. Darah</p>
+                    <input type="text" value={golDarah()} onInput={(e) => setGolDarah(e.target.value)} />
+                  </div>
+                </div>
+
+                <div class={styles.input}>
+                  <p class={styles.p}>Poli</p>
+                  <input type="text" value={poli()} onInput={(e) => setPoli(e.target.value)} />
+                </div>
+
+                <div class={styles.input}>
+                  <p class={styles.p}>Dokter</p>
+                  <input type="text" value={dokter()} onInput={(e) => setDokter(e.target.value)} />
+                </div>
+
+                <div class={styles.subInputDua}>
+                  <div class={styles.input}>
+                    <p class={styles.p}>Hari, tanggal</p>
+                    <input type="date" id="start" name="start-date" class={styles.calendar} value={tanggal()} onInput={(e) => setTanggal(e.target.value)} />
+                  </div>
+
+                  <div class={styles.input}>
+                    <p class={styles.p}>Sesi</p>
+                    <input type="text" value={sesi()} onInput={(e) => setSesi(e.target.value)} />
+                  </div>
+                </div>
+
+                <div class={styles.withaccount}>
+                  <input type="checkbox" id="accountcb" name="accountdb" value="yes" class={styles.cb} />
+                  <p class={styles.p}>Gunakan data akun?</p>
+                </div>
+              </div>
 
               <div class={styles.leftForm}>
                 <div class={styles.input}>
-                  <p  class={styles.p}>Keluhan</p>
-                  <textarea id="description" name="description" rows="4" cols="50" class={styles.textarea}>
-                  </textarea>
+                  <p class={styles.p}>Keluhan</p>
+                  <textarea id="description" name="description" rows="4" cols="50" class={styles.textarea} value={keluhan()} onInput={(e) => setKeluhan(e.target.value)}></textarea>
                   <div class="buttonACC">
-                  <button  class={styles.button}>Kirim!</button>
-               </div>
-                
-              </div>
-
-
-
-            </div>  
+                    <button class={styles.button} onClick={saveAppointment}>Kirim!</button>
+                  </div>
+                </div>
+              </div>  
+            </div>
           </div>
         </div>
-      </div>
       </main>
-        
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-     {/* <---------------Footer---------------------------> */}
-     <footer class={styles.footer}>
+      <footer class={styles.footer}>
         <div class={styles.footerAboveDiv}>
           <div class={styles.rightcontainer}>
             <h2 class={styles.h1}>DocterPedia</h2>
@@ -213,4 +194,4 @@ const Tester2: Component = () => {
   );
 };
 
-export default Tester2;
+export default CreateAppointment;

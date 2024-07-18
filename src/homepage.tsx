@@ -1,6 +1,7 @@
 import { createSignal, onMount, Component } from "solid-js";
 import { Link, useRoutes, useLocation } from "@solidjs/router";
 import { routes } from "./routes";
+import MyGrid from "./testingPage/MyGrid";
 import styles from "./HomePage.module.css";
 
 const HomePage: Component = () => {
@@ -56,6 +57,10 @@ const HomePage: Component = () => {
         </div>
       </div>
 
+      <div>
+      <h1>My Grid to Cards Transformation</h1>
+      <MyGrid />
+      </div>
 
 
 
