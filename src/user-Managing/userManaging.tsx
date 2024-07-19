@@ -1,6 +1,6 @@
 import { createSignal } from 'solid-js';
 import AgGridSolid from 'ag-grid-solid';
-import styles from './agGrid.module.css'; // Adjust the import if the file location is different
+import styles from './userManaging.module.css'; // Adjust the import if the file location is different
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
 import { Link } from '@solidjs/router';

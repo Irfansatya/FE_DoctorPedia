@@ -1,4 +1,4 @@
-import styles from "./Card.module.css"; // Pastikan Anda memiliki file CSS terpisah
+
 
 const Card = ({ data }) => {
   return (

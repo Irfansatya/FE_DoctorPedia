@@ -1,5 +1,5 @@
 import { Component, createSignal } from 'solid-js';
-import styles from './agGrid.module.css';
+import styles from './userManaging.module.css';
 
 const DeleteButtonRenderer = (props) => {
   const [params, setParams] = createSignal(props);

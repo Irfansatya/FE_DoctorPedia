@@ -1,19 +1,19 @@
 import { render } from 'solid-js/web';
 import { Router, Routes, Route } from '@solidjs/router';
 
-import App from '../app';
-import Login from '../loginPage/Login';
-import DocterSignUp from '../docterSignUp';
-import UserSignUp from '../SignUp';
+import App from './app';
+import Login from './loginPage/Login';
+import DocterSignUp from './docterSignUp';
+import UserSignUp from './SignUp';
 
-import CreateAppointment from '../appointmentCreate/appointmentCreate';
-import CRUDAppointment from '../appointmentCRUD/appointmentCRUD';
-import Article from '../articlePage/Articles';
-import LandingPage from '../landingpage-Page/landingpage';
-import HomePage from '../homepage-Page/HomePage';
-import AccountManaging from '../user-Managing/userManaging';
-import test from '../testingPage/MyGrid';
-import AppointmentShow from '../appointmentShow/AppointmentShow';
+import CreateAppointment from './appointmentCreate/appointmentCreate';
+import CRUDAppointment from './appointmentCRUD/appointmentCRUD';
+import Article from './articlePage/Articles';
+import LandingPage from './landingpage-Page/landingpage';
+import HomePage from './homepage-Page/HomePage';
+import AccountManaging from './user-Managing/userManaging';
+import test from './testingPage/MyGrid';
+import AppointmentShow from './appointmentShow/AppointmentShow';
 
 
 

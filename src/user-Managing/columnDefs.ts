@@ -1,5 +1,5 @@
 import DeleteButtonRenderer from './DeleteButtonRenderer';
-import styles from './agGrid.module.css';
+import styles from './userManaging.module.css';
 
 const columnDefs = [
   {
