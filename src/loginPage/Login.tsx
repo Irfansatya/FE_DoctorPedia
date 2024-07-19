@@ -1,6 +1,6 @@
 import { Component, createSignal } from "solid-js";
 import { useNavigate } from "@solidjs/router";
-import { setUsername, setUser } from './components/store'; 
+import { setUsername, setUser } from '../components/store'; 
 import styles from "./Login.module.css";
 import swal from "sweetalert";
 

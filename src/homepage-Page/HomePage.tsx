@@ -1,8 +1,9 @@
 import { createSignal, onMount, Component } from "solid-js";
-import { Link, useRoutes, useLocation } from "@solidjs/router";
-import { routes } from "./routes";
-import MyGrid from "./testingPage/MyGrid";
+import { Link, useRoutes, useLocation, Routes } from "@solidjs/router";
+import { routes } from "../routes";
+
 import styles from "./HomePage.module.css";
+import CreateAppointment from "../appointmentCreate/appointmentCreate";
 
 const HomePage: Component = () => {
   const location = useLocation();
@@ -23,7 +24,6 @@ const HomePage: Component = () => {
   function handleClick() {
     console.log('Card diklik');
   }
-  
 
   
   return (
@@ -57,10 +57,6 @@ const HomePage: Component = () => {
         </div>
       </div>
 
-      <div>
-      <h1>My Grid to Cards Transformation</h1>
-      <MyGrid />
-      </div>
 
 
 
@@ -73,15 +69,15 @@ const HomePage: Component = () => {
               <h2 class={styles.subTitleSec}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu pharetra velit. </h2>
             </div>
 
-            <div class={styles.featureRow}>
-              <div class={styles.cardFeature} onclick={handleClick}>
+            <div class={styles.cardFeature}>
+              <Link href="/appointment" class={styles.inCardFeature}>
                 <div class={styles.inCardFeature}>
                   <img src="" alt="" />
-                </div>   
+                </div>
                 <h4 class={`${styles.h4} ${styles.decs1}`}>Fitur pertama</h4>
-              </div>
+              </Link>
             </div>
-          </div>
+            </div>
 
           {/* <---------------Tutorial---------------------------> */}
           <div class={styles.tutorial}>

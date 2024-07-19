@@ -1,0 +1,20 @@
+.card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .cardImage {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%; /* Contoh styling untuk gambar */
+  }
+  
+  .cardContent {
+    margin-top: 10px;
+  }
+  

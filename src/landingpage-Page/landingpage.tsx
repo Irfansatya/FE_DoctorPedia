@@ -1,6 +1,6 @@
 import { Component } from "solid-js";
 import { Link, useRoutes, useLocation } from "@solidjs/router";
-import { routes } from "./routes";
+import { routes } from "../routes";
 import styles from "./landingpage.module.css"; // Import the CSS module
 
 const LandingPage: Component = () => {

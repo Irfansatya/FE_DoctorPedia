@@ -1,21 +1,21 @@
 import { createSignal, onMount, Component } from "solid-js";
 import { Link, useRoutes, useLocation } from "@solidjs/router";
 import { routes } from "../routes";
-import styles from "./janjiShow.module.css"
+import styles from "./appointmentCRUD.module.css"
 
 import AgGridSolid from 'ag-grid-solid';
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
-import DeleteButtonRenderer from './DeleteButtonRenderer';
 
 import { columnDefs } from './columnDefs';  // Definisikan kolom yang diperlukan untuk appointment
+import DeleteButtonRenderer from './DeleteButtonRenderer';
 
-const janjiShow: Component = () => {
+const janjiCRUD: Component = () => {
   const location = useLocation();
   const Route = useRoutes(routes);
 
   const [username, setUsername] = createSignal('');
-  const [appointments, setAppointments] = createSignal([]);
+  const [appointments, setAppointments] = createSignal(JSON.parse(localStorage.getItem('Appointment')) || []);
   const [newAppointment, setNewAppointment] = createSignal({
     namaPasien: '',
     umur: '',
@@ -26,8 +26,7 @@ const janjiShow: Component = () => {
     dokter: '',
     tanggal: '',
     sesi: '',
-    keluhan: '',
-    pengirim: ''
+    keluhan: ''
   });
   let nextId = appointments().length ? Math.max(...appointments().map(app => app.id)) + 1 : 1;
 
@@ -44,16 +43,13 @@ const janjiShow: Component = () => {
     setNewAppointment((prev) => ({ ...prev, [name]: value }));
   };
 
-  const allAppointments = JSON.parse(localStorage.getItem('Appointment')) || [];
-  const userAppointments = allAppointments.filter(app => app.pengirim === loggedInUser.userName);
-  setAppointments(userAppointments);
   const addAppointment = () => {
     if (newAppointment().namaPasien && newAppointment().umur && newAppointment().poli && newAppointment().dokter && newAppointment().tanggal && newAppointment().sesi && newAppointment().keluhan) {
-      const updatedAppointments = [...appointments(), { id: nextId, pengirim: username(), ...newAppointment() }];
+      const updatedAppointments = [...appointments(), { id: nextId, ...newAppointment() }];
       nextId += 1;
       setAppointments(updatedAppointments);
       localStorage.setItem('Appointment', JSON.stringify(updatedAppointments));
-      setNewAppointment({ namaPasien: '', umur: '', berat: '', tinggi: '', golDarah: '', poli: '', dokter: '', tanggal: '', sesi: '', keluhan: '', pengirim:'' });
+      setNewAppointment({ namaPasien: '', umur: '', berat: '', tinggi: '', golDarah: '', poli: '', dokter: '', tanggal: '', sesi: '', keluhan: '' });
     } else {
       alert('Please fill all fields.');
     }
@@ -102,7 +98,104 @@ const janjiShow: Component = () => {
       <main class={styles.main}>
       <div class={styles.mainSectDiv}>
         <div class={styles.appointmentCRUD}>
-          
+          <div class={`${styles.InputDiv}`}>
+            <div class={`${styles.InputDivColumn}`}>
+              <p class={styles.p}>Nama Pasien</p>
+              <input
+                class={styles.input}
+                type="text"
+                name="namaPasien"
+                placeholder="Nama Pasien"
+                value={newAppointment().namaPasien}
+                onInput={handleChange}
+              />
+              <p class={styles.p}>Umur</p>
+              <input
+                class={styles.input}
+                type="text"
+                name="umur"
+                placeholder="Umur"
+                value={newAppointment().umur}
+                onInput={handleChange}
+              />
+              <p class={styles.p}>Berat</p>
+              <input
+                class={styles.input}
+                type="text"
+                name="berat"
+                placeholder="Berat"
+                value={newAppointment().berat}
+                onInput={handleChange}
+              />
+            </div>
+            <div class={`${styles.InputDivColumn}`}>
+              <p class={styles.p}>Tinggi</p>
+              <input
+                class={styles.input}
+                type="text"
+                name="tinggi"
+                placeholder="Tinggi"
+                value={newAppointment().tinggi}
+                onInput={handleChange}
+              />
+              <p class={styles.p}>Gol. Darah</p>
+              <input
+                class={styles.input}
+                type="text"
+                name="golDarah"
+                placeholder="Gol. Darah"
+                value={newAppointment().golDarah}
+                onInput={handleChange}
+              />
+              <p class={styles.p}>Poli</p>
+              <input
+                class={styles.input}
+                type="text"
+                name="poli"
+                placeholder="Poli"
+                value={newAppointment().poli}
+                onInput={handleChange}
+              />
+              <p class={styles.p}>Dokter</p>
+              <input
+                class={styles.input}
+                type="text"
+                name="dokter"
+                placeholder="Dokter"
+                value={newAppointment().dokter}
+                onInput={handleChange}
+              />
+              <p class={styles.p}>Tanggal</p>
+              <input
+                class={styles.input}
+                type="date"
+                name="tanggal"
+                placeholder="Tanggal"
+                value={newAppointment().tanggal}
+                onInput={handleChange}
+              />
+              <p class={styles.p}>Sesi</p>
+              <input
+                class={styles.input}
+                type="text"
+                name="sesi"
+                placeholder="Sesi"
+                value={newAppointment().sesi}
+                onInput={handleChange}
+              />
+              <p class={styles.p}>Keluhan</p>
+              <input
+                class={styles.input}
+                type="text"
+                name="keluhan"
+                placeholder="Keluhan"
+                value={newAppointment().keluhan}
+                onInput={handleChange}
+              />
+            </div>
+          </div>
+          <button class={styles.button} onClick={addAppointment}>Add Appointment</button>
+        </div> 
         <div class="ag-theme-alpine custom-ag-theme" style={{ height: '800px', width: '100%' }}>
             <AgGridSolid
                 rowData={appointments()}
@@ -111,7 +204,6 @@ const janjiShow: Component = () => {
                 context={{ deleteAppointment }}
                 onCellValueChanged={onCellValueChanged}
             />
-        </div>
         </div>
       </div>
     </main>
@@ -149,4 +241,4 @@ const janjiShow: Component = () => {
   );
 };
 
-export default janjiShow;
+export default janjiCRUD;
