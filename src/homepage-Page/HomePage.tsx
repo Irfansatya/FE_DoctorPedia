@@ -52,7 +52,7 @@ const HomePage: Component = () => {
       {/* -----------------------------------Hub Atas------------------------------------------------ */}
       <div class={styles.image}>
         <div class={styles.backgroundContainer}>
-          <img src="../images/images/image-web-3-desktop 1.png" alt="Background" class={styles.backgroundImage} />
+          <img src="" alt="Background" class={styles.backgroundImage} />
           <h1 class={styles.overlayText}>Selamat Datang, {username()}!</h1>
         </div>
       </div>
@@ -86,21 +86,21 @@ const HomePage: Component = () => {
             </div>
             <div class={styles.tutorialRow}>
               <div class={styles.tutorialInCOntent}>
-                <img class={styles.tutorialimg} src="/images/images/Ellipse 13.png" alt="" />
+                <img class={styles.tutorialimg} src="assets\public\png\Ellipse 13.png" alt="" />
                 <div class={styles.tutorialText}>
                   <h3 class={styles.h3}>Lorem Ipsum Dolor</h3>
                   <h4 class={styles.h4}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h4>
                 </div>
               </div>
               <div class={styles.tutorialInCOntent}>
-                <img class={styles.tutorialimg} src="/images/images/Ellipse 13.png" alt="" />
+                <img class={styles.tutorialimg} src="assets\public\png\Ellipse 13.png" alt="" />
                 <div class={styles.tutorialText}>
                   <h3 class={styles.h3}>Lorem Ipsum Dolor</h3>
                   <h4 class={styles.h4}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h4>
                 </div>
               </div>
               <div class={styles.tutorialInCOntent}>
-                <img class={styles.tutorialimg} src="/images/images/Ellipse 13.png" alt="" />
+                <img class={styles.tutorialimg} src="assets\public\png\Ellipse 13.png" alt="" />
                 <div class={styles.tutorialText}>
                   <h3 class={styles.h3}>Lorem Ipsum Dolor</h3>
                   <h4 class={styles.h4}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h4>

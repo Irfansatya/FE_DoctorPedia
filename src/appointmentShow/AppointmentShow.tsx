@@ -96,7 +96,7 @@ const janjiShow: Component = () => {
       </header>
       <div class={styles.image}>
         <div class={styles.backgroundContainer}>
-          <img src="assets/images/image-web-3-desktop 1.png" alt="Background" class={styles.backgroundImage} />
+          <img src="assets\public\png\image-web-3-desktop 1.png" alt="Background" class={styles.backgroundImage} />
           <h1 class={styles.overlayText}>Selamat Datang, {username()}!</h1>
         </div>
       </div>
