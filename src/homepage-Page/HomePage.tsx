@@ -1,11 +1,12 @@
 import { createSignal, onMount, Component } from "solid-js";
-import { Link, useRoutes, useLocation, Routes } from "@solidjs/router";
+import { Link, useRoutes, useLocation, useNavigate, Routes } from "@solidjs/router";
 import { routes } from "../routes";
 
 import styles from "./HomePage.module.css";
 import CreateAppointment from "../appointmentCreate/appointmentCreate";
 
 const HomePage: Component = () => {
+  const navigate = useNavigate();
   const location = useLocation();
   const Route = useRoutes(routes);
 
@@ -24,6 +25,11 @@ const HomePage: Component = () => {
   function handleClick() {
     console.log('Card diklik');
   }
+
+  const handleAppointment = () => {
+    navigate('/appointment'); // Fungsi untuk navigasi
+  };
+
 
   
   return (
@@ -70,12 +76,14 @@ const HomePage: Component = () => {
             </div>
 
             <div class={styles.cardFeature}>
-              <Link href="/appointment" class={styles.inCardFeature}>
-                <div class={styles.inCardFeature}>
+              
+                <div class={styles.inCardFeature}onClick={handleAppointment} style={{ cursor: 'pointer' }}>
+                
                   <img src="" alt="" />
+                
                 </div>
-                <h4 class={`${styles.h4} ${styles.decs1}`}>Fitur pertama</h4>
-              </Link>
+                <h4 class={`${styles.h4} ${styles.decs1}`}>Appointment</h4>
+                
             </div>
             </div>
 

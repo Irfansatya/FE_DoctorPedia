@@ -1,11 +1,31 @@
 import { createSignal } from 'solid-js';
 import AgGridSolid from 'ag-grid-solid';
-import styles from './userManaging.module.css'; // Adjust the import if the file location is different
+import styles from './userManaging.module.css';
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
 import { Link } from '@solidjs/router';
-import { columnDefs } from './columnDefs';
-import DeleteButtonRenderer from './DeleteButtonRenderer';
+import CryptoJS from 'crypto-js';
+import ActionButtonRenderer from './ActionButtonRenderer';
+
+const secretKey = 'your-secret-key';
+
+const encryptPassword = (password) => {
+  return CryptoJS.AES.encrypt(password, secretKey).toString();
+};
+
+const decryptPassword = (encryptedPassword) => {
+  const bytes = CryptoJS.AES.decrypt(encryptedPassword, secretKey);
+  return bytes.toString(CryptoJS.enc.Utf8);
+};
+
+const isEncrypted = (password) => {
+  try {
+    decryptPassword(password);
+    return true;
+  } catch (e) {
+    return false;
+  }
+};
 
 const App = () => {
   const initialData = JSON.parse(localStorage.getItem('danaKaget')) || [
@@ -13,9 +33,17 @@ const App = () => {
     { id: 2, firstName: 'Jane', lastName: 'Doe', password: 'password123', email: 'jane@example.com', mobileNumber: '0987654321', userName: 'jane_doe', role: 'User' }
   ];
 
-  const [rowData, setRowData] = createSignal(initialData);
+  const encryptedInitialData = initialData.map(user => {
+    if (!isEncrypted(user.password)) {
+      return { ...user, password: encryptPassword(user.password) };
+    }
+    return user;
+  });
+
+  const [rowData, setRowData] = createSignal(encryptedInitialData);
   const [newUser, setNewUser] = createSignal({ firstName: '', lastName: '', password: '', email: '', mobileNumber: '', userName: '', role: 'User' });
-  let nextId = initialData.length ? Math.max(...initialData.map(user => user.id)) + 1 : 1;
+  const [editingRows, setEditingRows] = createSignal([]);
+  let nextId = encryptedInitialData.length ? Math.max(...encryptedInitialData.map(user => user.id)) + 1 : 1;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -24,29 +52,78 @@ const App = () => {
 
   const addUser = () => {
     if (newUser().firstName && newUser().lastName && newUser().password && newUser().email && newUser().mobileNumber && newUser().userName) {
-      const updatedRowData = [...rowData(), { id: nextId, ...newUser(), role: 'User' }];
+      const encryptedPassword = encryptPassword(newUser().password);
+      const updatedRowData = [...rowData(), { id: nextId, ...newUser(), password: encryptedPassword, role: 'User' }];
       nextId += 1;
       setRowData(updatedRowData);
       localStorage.setItem('danaKaget', JSON.stringify(updatedRowData));
       setNewUser({ firstName: '', lastName: '', password: '', email: '', mobileNumber: '', userName: '', role: 'User' });
+      console.log('New User Added:', newUser());
     } else {
       alert('Please fill all fields.');
     }
   };
 
   const onCellValueChanged = (params) => {
+    if (params.column.colId === 'password') {
+      // Only encrypt password if it's not in editing mode
+      if (!editingRows().includes(params.data.id)) {
+        params.data.password = encryptPassword(params.data.password);
+      }
+    }
+
     const updatedRowData = rowData().map(row =>
       row.id === params.data.id ? { ...row, ...params.data } : row
     );
     setRowData(updatedRowData);
     localStorage.setItem('danaKaget', JSON.stringify(updatedRowData));
+    console.log('Row Data Updated:', params.data);
   };
 
-  const deleteUser = (id) => {
-    const updatedRowData = rowData().filter(user => user.id !== id);
+  const startEditingCallback = (id) => {
+    setEditingRows((prev) => [...prev, id]);
+  };
+
+  const stopEditingCallback = (id) => {
+    setEditingRows((prev) => prev.filter(rowId => rowId !== id));
+  };
+
+  const deleteRowCallback = (id) => {
+    const updatedRowData = rowData().filter(data => data.id !== id);
     setRowData(updatedRowData);
     localStorage.setItem('danaKaget', JSON.stringify(updatedRowData));
   };
+
+  const columnDefs = [
+    { headerName: 'First Name', field: 'firstName', editable: (params) => editingRows().includes(params.data.id) },
+    { headerName: 'Last Name', field: 'lastName', editable: (params) => editingRows().includes(params.data.id) },
+    { 
+      headerName: 'Password', 
+      field: 'password', 
+      editable: (params) => editingRows().includes(params.data.id),
+      cellRenderer: (params) => editingRows().includes(params.data.id) ? params.value : '********'
+    },
+    { headerName: 'Email', field: 'email', editable: (params) => editingRows().includes(params.data.id) },
+    { headerName: 'Mobile Number', field: 'mobileNumber', editable: (params) => editingRows().includes(params.data.id) },
+    { headerName: 'Username', field: 'userName', editable: (params) => editingRows().includes(params.data.id) },
+    { headerName: 'Role', field: 'role', editable: (params) => editingRows().includes(params.data.id) },
+    {
+      headerName: 'Action',
+      field: 'action',
+      cellRendererFramework: (params) => (
+        <ActionButtonRenderer
+          {...params}
+          startEditingCallback={startEditingCallback}
+          stopEditingCallback={stopEditingCallback}
+          deleteRowCallback={deleteRowCallback}
+        />
+      ),
+      editable: false,
+      sortable: false,
+      filter: false,
+      width: 150,
+    }
+  ];
 
   const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser')) || {};
   const userRole = loggedInUser.role || 'Guest';
@@ -141,8 +218,8 @@ const App = () => {
           <AgGridSolid
             rowData={rowData()}
             columnDefs={columnDefs}
-            components={{ deleteButtonRenderer: DeleteButtonRenderer }}
-            context={{ deleteUser }}
+            animateRows={true}
+            rowSelection="multiple"
             onCellValueChanged={onCellValueChanged}
           />
         </div>

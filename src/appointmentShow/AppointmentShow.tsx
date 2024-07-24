@@ -10,7 +10,7 @@ import DeleteButtonRenderer from './DeleteButtonRenderer';
 import Card from "./Card";
 
 
-const janjiShow: Component = () => {
+const appointmentShow: Component = () => {
   const location = useLocation();
   const Route = useRoutes(routes);
 
@@ -142,4 +142,4 @@ const janjiShow: Component = () => {
   );
 };
 
-export default janjiShow;
+export default appointmentShow;
