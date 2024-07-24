@@ -63,7 +63,7 @@ const Tester2: Component = () => {
                 <h2 class={styles.h4}>Ditinjau oleh dr. Rizal Fadli 24 September 2024</h2>
             </div>
             <div class={styles.img}>
-                <img src="assets\public\png\Artikel.png" alt="" />
+                <img src="public\png\Artikel.png" alt="" />
             </div >
             <div class={styles.articlesContent}>
                 <hr class={styles.hr}/>

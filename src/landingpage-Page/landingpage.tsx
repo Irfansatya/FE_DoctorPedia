@@ -36,8 +36,8 @@ const LandingPage: Component = () => {
         <section class={`${styles.main_section} ${styles.section}`} >
           <div class={`${styles.col_one}`}>
             <picture class={styles.picture}>
-              <source media="(min-width:60rem)" srcset="./assets/images/image-web-3-desktop.jpg" />
-              <img class={styles.img} src="./assets/images/image-web-3-mobile.jpg" alt="a colorful hero" />
+              <source media="(min-width:60rem)" srcset="public\png\image-web-3-desktop 1.png" />
+              <img class={styles.img} src="public\png\image-web-3-desktop 1.png" alt="a colorful hero" />
             </picture>
             <div class={styles.col_flex}>
               <h1 class={styles.h1bawah}>Jagalah kesehatan keluarga anda!
@@ -83,7 +83,7 @@ const LandingPage: Component = () => {
 
         <aside class={`${styles.main_section} ${styles.aside}`}>
           <article class={styles.flexContFoot}>
-            <img class={`${styles.img} ${styles.pictbawah}`}   src="assets\images\Img-1.png" alt="Login/Regist" />
+            <img class={`${styles.img} ${styles.pictbawah}`}   src="public\png\Img-1.png" alt="Login/Regist" />
             <div>
               <h4 class={styles.h4}>01</h4>
               <h5 class={styles.h5}>Daftar akun</h5>
@@ -91,7 +91,7 @@ const LandingPage: Component = () => {
             </div>
           </article>
           <article class={styles.flexContFoot}>
-            <img class={`${styles.img} ${styles.pictbawah}`}  src="assets\images\Img-2.png" alt="Create Appointments" />
+            <img class={`${styles.img} ${styles.pictbawah}`}  src="public\png\Img-2.png" alt="Create Appointments" />
             <div>
               <h4 class={styles.h4}>02</h4>
               <h5 class={styles.h5}>Membuat Janji</h5>
@@ -99,7 +99,7 @@ const LandingPage: Component = () => {
             </div>
           </article>
           <article class={styles.flexContFoot}>
-            <img class={`${styles.img} ${styles.pictbawah}`}  src="assets\images\Img-3.png" alt="Done!" />
+            <img class={`${styles.img} ${styles.pictbawah}`}  src="public\png\Img-3.png" alt="Done!" />
             <div>
               <h4 class={styles.h4}>03</h4>
               <h5 class={styles.h5}>Selesai!</h5>

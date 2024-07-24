@@ -52,7 +52,7 @@ const HomePage: Component = () => {
       {/* -----------------------------------Hub Atas------------------------------------------------ */}
       <div class={styles.image}>
         <div class={styles.backgroundContainer}>
-          <img src="" alt="Background" class={styles.backgroundImage} />
+          <img src="public\jpg\bawah navbar.jpg" alt="Background" class={styles.backgroundImage} />
           <h1 class={styles.overlayText}>Selamat Datang, {username()}!</h1>
         </div>
       </div>
@@ -72,7 +72,7 @@ const HomePage: Component = () => {
             <div class={styles.cardFeature}>
               <Link href="/appointment" class={styles.inCardFeature}>
                 <div class={styles.inCardFeature}>
-                  <img src="" alt="" />
+                  <img src="public\png\Doktor.png" alt="" />
                 </div>
                 <h4 class={`${styles.h4} ${styles.decs1}`}>Fitur pertama</h4>
               </Link>
@@ -86,21 +86,21 @@ const HomePage: Component = () => {
             </div>
             <div class={styles.tutorialRow}>
               <div class={styles.tutorialInCOntent}>
-                <img class={styles.tutorialimg} src="assets\public\png\Ellipse 13.png" alt="" />
+                <img class={styles.tutorialimg} src="public/png/login.png" alt="" />
                 <div class={styles.tutorialText}>
                   <h3 class={styles.h3}>Lorem Ipsum Dolor</h3>
                   <h4 class={styles.h4}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h4>
                 </div>
               </div>
               <div class={styles.tutorialInCOntent}>
-                <img class={styles.tutorialimg} src="assets\public\png\Ellipse 13.png" alt="" />
+                <img class={styles.tutorialimg} src="public\png\janji.png" alt="" />
                 <div class={styles.tutorialText}>
                   <h3 class={styles.h3}>Lorem Ipsum Dolor</h3>
                   <h4 class={styles.h4}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h4>
                 </div>
               </div>
               <div class={styles.tutorialInCOntent}>
-                <img class={styles.tutorialimg} src="assets\public\png\Ellipse 13.png" alt="" />
+                <img class={styles.tutorialimg} src="public\png\bertremu.png" alt="" />
                 <div class={styles.tutorialText}>
                   <h3 class={styles.h3}>Lorem Ipsum Dolor</h3>
                   <h4 class={styles.h4}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h4>
@@ -130,6 +130,7 @@ const HomePage: Component = () => {
                 <div class={styles.rumahSakitImage}>
                   <div class={styles.town} onclick={handleClick}>
                     <h3>Purwokerto</h3>
+                    <img class={styles.tutorialimg} src="public\png\35e10_rs-jih-purwokerto.jpg" alt="" />
                   </div>    
                 </div>
                 <div class={styles.rumahSakitUnitTitle}> 
@@ -147,7 +148,9 @@ const HomePage: Component = () => {
             </div>
             <div class={styles.poliRow}>
               <div class={styles.poliCard}>
-                <div class={styles.circle} onclick={handleClick}></div>
+                <div class={styles.circle} onclick={handleClick}>
+                <img class={styles.tutorialimg} src="public\png\Gigi.png" alt="" />
+                </div>
                 <h6 class={styles.h6}>Gigi</h6>
               </div>
             </div>
