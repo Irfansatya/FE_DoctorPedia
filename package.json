@@ -22,6 +22,7 @@
     "@solidjs/router": "^0.8.2",
     "ag-grid-community": "^28.2.0",
     "ag-grid-solid": "^28.2.0",
+    "crypto-js": "^4.2.0",
     "solid-js": "^1.8.11",
     "sweetalert": "^2.1.2"
   }

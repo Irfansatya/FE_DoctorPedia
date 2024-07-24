@@ -1,20 +1,17 @@
-import DeleteButtonRenderer from './DeleteButtonRenderer';
 import styles from './userManaging.module.css';
 
-const columnDefs = [
+
+const columnDefs = (context) => [
+  // Other column definitions...
   {
-    headerName: "First Name",
-    field: "firstName",
-    cellClass: styles.cellWithMargin,
-    cellStyle: { padding: '0px', backgroundColor: '#f1f1f1', color: '#11786B' },
-    headerCellStyle: { padding: '10px', backgroundColor: '#52B7D7', color: '#f5f5f5' },
-    width: 150,
-    minWidth: 100,
-    maxWidth: 200,
-    editable: true,
-    sortable: true,
-    resizable: true,
-    filter: true
+    headerName: 'Action',
+    cellRenderer: 'actionButtonRenderer',
+    width: 100,
+    minWidth: 80,
+    maxWidth: 120,
+    cellRendererParams: {
+      context: context // Pass context directly
+    }
   },
   {
     headerName: "Last Name",
@@ -25,7 +22,7 @@ const columnDefs = [
     width: 200,
     minWidth: 150,
     maxWidth: 250,
-    editable: true,
+    editable: (params) => params.context.isEditing(),
     sortable: true,
     resizable: true,
     filter: true
@@ -50,7 +47,7 @@ const columnDefs = [
     width: 200,
     minWidth: 150,
     maxWidth: 250,
-    editable: true,
+    editable: (params) => params.context.isEditing(),
     sortable: true,
     resizable: true,
     filter: true
@@ -64,7 +61,7 @@ const columnDefs = [
     width: 200,
     minWidth: 150,
     maxWidth: 250,
-    editable: true,
+    editable: (params) => params.context.isEditing(),
     sortable: true,
     resizable: true,
     filter: true
@@ -78,7 +75,7 @@ const columnDefs = [
     width: 200,
     minWidth: 150,
     maxWidth: 250,
-    editable: true,
+    editable: (params) => params.context.isEditing(),
     sortable: true,
     resizable: true,
     filter: true
@@ -92,7 +89,7 @@ const columnDefs = [
     width: 200,
     minWidth: 150,
     maxWidth: 250,
-    editable: true,
+    editable: (params) => params.context.isEditing(),
     sortable: true,
     resizable: true,
     filter: true
@@ -106,18 +103,20 @@ const columnDefs = [
     width: 200,
     minWidth: 150,
     maxWidth: 250,
-    editable: true,
+    editable: (params) => params.context.isEditing(),
     sortable: true,
     resizable: true,
     filter: true
   },
   {
-    headerName: 'Delete',
-    cellRenderer: 'deleteButtonRenderer',
+    headerName: 'Action',
+    cellRenderer: 'actionButtonRenderer',
     width: 100,
     minWidth: 80,
     maxWidth: 120,
-  },
+   
+    
+  }
 ];
 
 export { columnDefs };
