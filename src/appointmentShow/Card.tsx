@@ -1,41 +1,104 @@
-import { Component } from "solid-js";
+import { Component, createSignal } from "solid-js";
 import styles from "./Card.module.css";
+import Modal from "./modal";
 
-// Define the TypeScript interface for the data prop
-interface CardData {
+// Define the CardData type
+type CardData = {
   id: string;
-  imageUrl: string;
   namaPasien: string;
-  umur: number;
-  berat: number;
-  tinggi: number;
+  umur: string;
+  berat: string;
+  tinggi: string;
   golDarah: string;
   poli: string;
   dokter: string;
   tanggal: string;
   sesi: string;
   keluhan: string;
-  deleteAppointment: (id: string) => void;
-}
+  pengirim: string;
+};
 
-// Use the interface in the component props
-const Card: Component<{ data: CardData }> = (props) => {
+const Card: Component<{
+  data: CardData;
+  updateAppointment: (id: string, updatedData: Partial<CardData>) => void;
+  deleteAppointment: (id: string) => void;
+}> = (props) => {
+  const [isModalOpen, setIsModalOpen] = createSignal(false);
+
+  const handleSave = (updatedData: Partial<CardData>) => {
+    props.updateAppointment(props.data.id, updatedData);
+  };
+
   return (
     <div class={styles.card}>
-      <img src={props.data.imageUrl} alt={props.data.namaPasien} class={styles.cardImage} />
-      <div class={styles.cardContent}>
-        <h2>{props.data.namaPasien}</h2>
-        <p>Umur: {props.data.umur}</p>
-        <p>Berat: {props.data.berat}</p>
-        <p>Tinggi: {props.data.tinggi}</p>
-        <p>Golongan Darah: {props.data.golDarah}</p>
-        <p>Poli: {props.data.poli}</p>
-        <p>Dokter: {props.data.dokter}</p>
-        <p>Tanggal: {props.data.tanggal}</p>
-        <p>Sesi: {props.data.sesi}</p>
-        <p>Keluhan: {props.data.keluhan}</p>
-        <button onClick={() => props.data.deleteAppointment(props.data.id)}>Hapus</button>
+      <div class={styles.upperDiv}>
+        
+        <div class={styles.rightDiv}>
+
+          <div class={styles.subdesc}>
+            <h5 class={styles.h5}>Nama Pasien</h5>
+            <p class={styles.p}>{props.data.namaPasien}</p>
+          </div>
+          
+          <div class={styles.groupdesc}>
+            <div class={styles.groupsubdesc}>
+              <h5 class={styles.h5}>Umur</h5>
+              <p class={styles.p}>{props.data.umur}</p>
+            </div>
+            <div class={styles.groupsubdesc}>
+              <h5 class={styles.h5}>Berat</h5>
+              <p class={styles.p}>{props.data.berat}</p>
+            </div>
+            <div class={styles.groupsubdesc}>
+              <h5 class={styles.h5}>Tinggi</h5>
+              <p class={styles.p}>{props.data.tinggi}</p>
+            </div>
+            <div class={styles.groupsubdesc}>
+              <h5 class={styles.h5}>Golongan Darah</h5>
+              <p class={styles.p}>{props.data.golDarah}</p>
+            </div>
+          </div>
+
+          <div class={styles.subdesc}>
+            <h5 class={styles.h5}>Dokter</h5>
+            <p class={styles.p}>{props.data.dokter}</p>
+          </div>
+          <div class={styles.subdesc}>
+            <h5 class={styles.h5}>Poli</h5>
+            <p class={styles.p}>{props.data.poli}</p>
+          </div>
+          
+          
+          </div>
+          <div class={styles.leftDiv}>
+            <div class={styles.subdesc}>
+              <h5 class={styles.h5}>Tanggal</h5>
+              <p class={styles.p}>{props.data.tanggal}</p>
+            </div>
+            <div class={styles.subdesc}>
+              <h5 class={styles.h5}>Sesi</h5>
+              <p class={styles.p}>{props.data.sesi}</p>
+            </div>
+          </div>
+        </div>
+        
+          <div class={styles.bottomDiv}>
+            <div class={styles.subdesc}>
+              <h5 class={styles.h5}>Keluhan:</h5>
+              <p class={`${styles.p} ${styles.scrollable}`}>{props.data.keluhan}</p>
+            </div>
+            <div class={styles.buttonsUnd}>
+              <button class={styles.buttonedit} onClick={() => setIsModalOpen(true)}>Edit</button>
+              <button onClick={() => props.deleteAppointment(props.data.id)}>Hapus</button>
+            </div>
+          
       </div>
+      <Modal
+        show={isModalOpen()}
+        onClose={() => setIsModalOpen(false)}
+        onSave={handleSave}
+        initialData={props.data}
+      />
     </div>
   );
 };

@@ -1,22 +1,37 @@
 import { createSignal, onMount, Component } from "solid-js";
 import { Link, useRoutes, useLocation } from "@solidjs/router";
 import { routes } from "../routes";
-import styles from "./appoitmentShow.module.css"
-
+import styles from "./appoitmentShow.module.css";
 
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
 import DeleteButtonRenderer from './DeleteButtonRenderer';
 import Card from "./Card";
 
-
-const appointmentShow: Component = () => {
+const AppointmentShow: Component = () => {
   const location = useLocation();
   const Route = useRoutes(routes);
 
   const [username, setUsername] = createSignal('');
-  const [appointments, setAppointments] = createSignal([]);
-  const [newAppointment, setNewAppointment] = createSignal({
+  const [appointments, setAppointments] = createSignal<CardData[]>([]);
+
+  type CardData = {
+    id: string;
+    namaPasien: string;
+    umur: string;
+    berat: string;
+    tinggi: string;
+    golDarah: string;
+    poli: string;
+    dokter: string;
+    tanggal: string;
+    sesi: string;
+    keluhan: string;
+    pengirim: string;
+  };
+
+  const [newAppointment, setNewAppointment] = createSignal<CardData>({
+    id: '',
     namaPasien: '',
     umur: '',
     berat: '',
@@ -29,7 +44,8 @@ const appointmentShow: Component = () => {
     keluhan: '',
     pengirim: ''
   });
-  let nextId = appointments().length ? Math.max(...appointments().map(app => app.id)) + 1 : 1;
+
+  let nextId = appointments().length ? Math.max(...appointments().map(app => parseInt(app.id))) + 1 : 1;
 
   onMount(() => {
     const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser')) || {};
@@ -39,6 +55,14 @@ const appointmentShow: Component = () => {
   const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser')) || {};
   const userRole = loggedInUser.role || 'Guest';
 
+  const updateAppointment = (id: string, updatedData: Partial<CardData>) => {
+    const updatedAppointments = appointments().map(app =>
+      app.id === id ? { ...app, ...updatedData } : app
+    );
+    setAppointments(updatedAppointments);
+    localStorage.setItem('Appointment', JSON.stringify(updatedAppointments));
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setNewAppointment((prev) => ({ ...prev, [name]: value }));
@@ -47,14 +71,27 @@ const appointmentShow: Component = () => {
   const allAppointments = JSON.parse(localStorage.getItem('Appointment')) || [];
   const userAppointments = allAppointments.filter(app => app.pengirim === loggedInUser.userName);
   setAppointments(userAppointments);
- 
+
   const addAppointment = () => {
     if (newAppointment().namaPasien && newAppointment().umur && newAppointment().poli && newAppointment().dokter && newAppointment().tanggal && newAppointment().sesi && newAppointment().keluhan) {
-      const updatedAppointments = [...appointments(), { id: nextId, pengirim: username(), ...newAppointment() }];
+      const updatedAppointments = [...appointments(), { ...newAppointment(), id: nextId.toString(), pengirim: username() }];
       nextId += 1;
       setAppointments(updatedAppointments);
       localStorage.setItem('Appointment', JSON.stringify(updatedAppointments));
-      setNewAppointment({ namaPasien: '', umur: '', berat: '', tinggi: '', golDarah: '', poli: '', dokter: '', tanggal: '', sesi: '', keluhan: '', pengirim:'' });
+      setNewAppointment({
+        id: '',
+        namaPasien: '',
+        umur: '',
+        berat: '',
+        tinggi: '',
+        golDarah: '',
+        poli: '',
+        dokter: '',
+        tanggal: '',
+        sesi: '',
+        keluhan: '',
+        pengirim: ''
+      });
     } else {
       alert('Please fill all fields.');
     }
@@ -68,7 +105,7 @@ const appointmentShow: Component = () => {
     localStorage.setItem('Appointment', JSON.stringify(updatedAppointments));
   };
 
-  const deleteAppointment = (id) => {
+  const deleteAppointment = (id: string) => {
     const updatedAppointments = appointments().filter(app => app.id !== id);
     setAppointments(updatedAppointments);
     localStorage.setItem('Appointment', JSON.stringify(updatedAppointments));
@@ -104,8 +141,12 @@ const appointmentShow: Component = () => {
         <div class={styles.mainSectDiv}>
           <div class={styles.appointmentCRUD}>
             <div class={styles.cardsContainer}>
-              {appointments().map((appointment, index) => (
-                <Card key={index} data={{ ...appointment, deleteAppointment }} />
+              {appointments().map((appointment) => (
+                <Card 
+                  data={appointment} 
+                  updateAppointment={updateAppointment} 
+                  deleteAppointment={deleteAppointment} 
+                />
               ))}
             </div>
           </div>
@@ -142,4 +183,4 @@ const appointmentShow: Component = () => {
   );
 };
 
-export default appointmentShow;
+export default AppointmentShow;

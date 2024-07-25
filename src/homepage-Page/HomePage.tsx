@@ -1,5 +1,5 @@
 import { createSignal, onMount, Component } from "solid-js";
-import { Link, useRoutes, useLocation, Routes } from "@solidjs/router";
+import { Link, useRoutes, useLocation,  useNavigate, Routes } from "@solidjs/router";
 import { routes } from "../routes";
 
 import styles from "./HomePage.module.css";
@@ -8,6 +8,7 @@ import CreateAppointment from "../appointmentCreate/appointmentCreate";
 const HomePage: Component = () => {
   const location = useLocation();
   const Route = useRoutes(routes);
+  const navigate = useNavigate();
 
   // Step 1: Create a signal for the username
   const [username, setUsername] = createSignal('');
@@ -25,6 +26,9 @@ const HomePage: Component = () => {
     console.log('Card diklik');
   }
 
+  const appoClick = () => {
+    navigate('/appointment'); // Fungsi untuk navigasi
+  };
   
   return (
     <div class={`${styles.container}`}>
@@ -70,15 +74,15 @@ const HomePage: Component = () => {
             </div>
 
             <div class={styles.cardFeature}>
-              <Link href="/appointment" class={styles.inCardFeature}>
-                <div class={styles.inCardFeature}>
-                  <img src="public\png\Doktor.png" alt="" />
+             
+                <div class={styles.inCardFeature} onClick={appoClick} style={{ cursor: 'pointer' }}>
+                  <img src="" alt="" />
                 </div>
-                <h4 class={`${styles.h4} ${styles.decs1}`}>Fitur pertama</h4>
-              </Link>
+                <h4 class={`${styles.h4} ${styles.decs1}`}>Appointment</h4>
+             
             </div>
             </div>
-
+            </div> 
           {/* <---------------Tutorial---------------------------> */}
           <div class={styles.tutorial}>
             <div class={styles.titleTutor}>
@@ -108,7 +112,7 @@ const HomePage: Component = () => {
               </div>
             </div>
           </div>
-
+        <div class={styles.mainSectDiv}>
           {/* <---------------RS Content---------------------------> */}
           <div class={styles.rumahSakit}>
             <div class={styles.rumahSakitTitle}>

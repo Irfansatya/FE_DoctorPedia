@@ -1,8 +1,18 @@
-import { createComponent } from 'solid-js';
+import { Component } from "solid-js";
+import { ICellRendererParams } from "ag-grid-community";
 
-const DeleteButtonRenderer = (props: any) => {
+// Define the types for the props
+interface DeleteButtonRendererProps extends ICellRendererParams {
+  context: {
+    deleteAppointment: (id: number) => void;
+  };
+}
+
+// Define the DeleteButtonRenderer component
+const DeleteButtonRenderer: Component<DeleteButtonRendererProps> = (props) => {
   const handleClick = () => {
-    props.context.deleteAppointment(props.node.data.id);
+    const id = props.node.data.id;
+    props.context.deleteAppointment(id);
   };
 
   return (

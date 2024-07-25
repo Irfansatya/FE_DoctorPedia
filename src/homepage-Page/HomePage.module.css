@@ -302,7 +302,7 @@ body::-webkit-scrollbar {
 /* Tutorial */
 
 .tutorial{
-  width: 1075px;
+  width: 100%;
   height: 450px;
   background-color: #21C1AE;
   display: flex; 
