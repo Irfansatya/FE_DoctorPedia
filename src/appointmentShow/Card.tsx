@@ -89,7 +89,7 @@ const Card: Component<{
             </div>
             <div class={styles.buttonsUnd}>
               <button class={styles.buttonedit} onClick={() => setIsModalOpen(true)}>Edit</button>
-              <button onClick={() => props.deleteAppointment(props.data.id)}>Hapus</button>
+              <button class={styles.buttonDelete}onClick={() => props.deleteAppointment(props.data.id)}>Hapus</button>
             </div>
           
       </div>

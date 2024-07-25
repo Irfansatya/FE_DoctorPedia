@@ -108,7 +108,7 @@ const Modal: Component<{
               <div class={styles.LeftForm}>
                 <label class={`${styles.formContent} ${styles.h6}`}>
                   Tanggal
-                  <input class={styles.InputForm}
+                  <input class={styles.InputFormTanggal}
                     name="tanggal"
                     type="date"
                     value={formData().tanggal}
