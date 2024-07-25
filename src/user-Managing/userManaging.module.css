@@ -1,0 +1,269 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap");
+
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* styles.css */
+.cell-with-margin {
+  margin-left: 10px; /* Sesuaikan nilai margin kiri sesuai kebutuhan Anda */
+}
+
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  background-color: #11786B;
+  padding: 2em;
+  width: 100%;
+
+}
+.headercontent {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Mengubah justify-content menjadi center */
+  width: 100%; /* Sesuaikan lebar sesuai kebutuhan Anda */
+  
+}
+
+.logo {
+  width: 100%;
+  margin-left: 2em;
+    line-height: 58px;
+    font-size: 49px;
+    width: 84%;
+  font-size: 40px;
+  font-weight: 790;
+  line-height: 35px;
+  color: #f5f5f5;
+  font-style: italic;
+}
+
+.nav {
+  width: 100%;
+  margin-right: 2em;
+}
+
+.nav {
+  transform: translateX(1000px);
+  transition: 10s ease-in-out;
+  display: none;
+}
+
+.mobile_navigation[aria-expanded="true"] {
+  background-image: url("./assets/images/icon-menu-close.svg");
+}
+
+.nav[data-visible="true"] {
+  transform: translateX(0px);
+  display: flex;
+  flex-direction: row-reverse;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Sisanya adalah gaya yang ada */
+
+
+.body {
+  min-height: 100vh;
+  width: 100%;
+  font-size: 18px;
+  font-family: "Inter", sans-serif;
+}
+
+.li {
+  font-size: 20px;
+  list-style: none;
+  color: #12A190;
+  font-style: italic;
+}
+
+.container {
+  padding: 0;
+
+}
+.AccountManaging{
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.AccountManaging > div {
+  width: 80%; /* Atur sesuai kebutuhan Anda */
+  margin: 10px 0; /* Atur jarak antar elemen */
+}
+
+.AccountManaging .ag-theme-alpine {
+  width: 100%; /* Agar grid mengikuti lebar kontainer */
+}
+
+
+ 
+.p {
+  font-weight: 500;
+  font-size: 0.7em;
+  margin-bottom: 0.2em;
+  margin-top: 0.5em;
+  margin-inline-start: 1em;
+  text-align: start;
+
+  color: #12A190;
+}
+
+.InputDiv{
+  display: flex;
+
+}
+
+.InputDivColumn{
+  max-width: 25em;
+  padding-inline-end: 2em;
+}
+
+.input {
+  display: block;
+  width: calc(100%);
+  margin: 0 auto 0.2em auto;
+  padding: 10px;
+  height: 1.7em;
+  width: 20em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.input::placeholder {
+  font-size: 0.7em; /* Sesuaikan ukuran dengan yang ada pada .p */
+  color: #717171; /* Sesuaikan warna sesuai kebutuhan */
+  font-style: italic;
+  font-weight: 100;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(0, -50%);
+  width: 100em;
+  text-align: start;
+  margin-left: 1em;
+  pointer-events: none; /* Agar tidak mengganggu input */
+}
+.mobile_navigation {
+  width: 28px;
+  height: 18px;
+  background-color: transparent;
+  border: 0;
+  background-image: url("./assets/images/icon-menu.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  z-index: 100;
+}
+
+.button-container {
+
+  display: flex;
+  flex-direction: row; /* ngatur jadi sejajar*/
+  justify-content: space-evenly; /* dibagi ajdi sama rata */
+  max-width: 15em;
+}
+
+
+
+.button {
+  padding: 10px;
+  margin-block-end: 1em;
+  margin-block-start: 1em;
+  border: none;
+  border-radius: 10px;
+  background-color: #009688;
+  color: white;
+  font-size: 1em;
+  cursor: pointer;
+  flex-grow: 0.2;
+  flex-shrink: 0.2;
+}
+
+.ul {
+  min-width: 80%;
+  height: 100%;
+  background-color: hsl(36, 100%, 99%);
+  padding: 10em 2em;
+}
+
+.h1 {
+  margin: 0.5em 0;
+  font-size: 40px;
+  font-weight: 790;
+  line-height: 35px;
+  color: #f5f5f5;
+  font-style: italic;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+.buttonDelete{
+  background-color: #af1f1f;
+  font-weight: 500;
+}
+@media (min-width: 63rem) {
+  .container {
+    padding: 0;
+
+
+  }
+
+  .mobile_navigation {
+    display: none;
+  }
+
+  .nav {
+    display: block;
+    transform: translateX(0px);
+    width: 40%;
+  }
+
+  .ul {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0;
+    margin: 0;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+  }
+
+  .li {
+    font-weight: 550;
+    margin: 0 1.5em 0 2em;
+  }
+
+  .h1 {
+    margin: 0;
+    line-height: 58px;
+    font-size: 49px;
+    width: 84%;
+    color: #f5f5f5;
+  }
+
+}
