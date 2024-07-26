@@ -14,7 +14,7 @@ import HomePage from './homepage-Page/HomePage';
 import AccountManaging from './user-Managing/userManaging';
 import test from './testingPage/MyGrid';
 import AppointmentShow from './appointmentShow/AppointmentShow';
-
+import UserProfile from './profile/Profile';
 
 
 
@@ -36,6 +36,7 @@ render(
         <Route path="/" component={LandingPage} />
         <Route path="/homepage" component={HomePage} />
         <Route path="/article" component={Article} />
+        <Route path="/profile" component={UserProfile} />
 {/* 
         <Route path="/HoshizoraNiNaru" component={HitoWaMinaTachimaruKedo} /> */}
         <Route path="/account-manage" component={AccountManaging} />

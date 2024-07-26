@@ -1,0 +1,521 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap");
+/* Scrollbar Styles */
+body::-webkit-scrollbar {
+    width: 15px; /* Adjust the width of the scrollbar */
+  }
+  
+  body::-webkit-scrollbar-thumb {
+
+    background-color: #11786B; /* Scrollbar color */
+    border-radius: 0.25em; /* Rounded corners */
+  }
+  
+  body::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Scrollbar track color */
+  }
+  
+  body::-moz-scrollbar {
+    width: 15px; /* Firefox scrollbar width */
+  }
+  
+  body::-moz-scrollbar-thumb {
+    background-color: #11786B; /* Scrollbar color for Firefox */
+    border-radius: 0.25em; /* Rounded corners for Firefox */
+  }
+  
+  body::-moz-scrollbar-track {
+    background: #f1f1f1; /* Scrollbar track color for Firefox */
+  }
+  
+  *,
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+
+
+.header {
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #11786B;
+  ;
+  height: auto;
+  width: 100%;
+}
+
+
+.headerContainer{
+  display: flex;
+  align-items: center;
+  
+  flex-direction: row;
+  margin-block-start: 4em;
+  margin-block-end: 3em;
+  gap: 1.5em;
+  flex-direction: column;
+  height: auto;
+  width: auto;
+}
+
+  
+  .main {
+
+    width: 100%;
+    height: 100%; /* Adjust as needed */
+  }
+  
+  
+.logoH1 {
+  width: auto;
+  line-height: 40px;
+  font-size: 45px;
+  font-weight: 790;
+  line-height: auto;
+  color: #f5f5f5;
+  font-style: italic;
+}
+  
+  .nav {
+    width: 100%;
+
+    transition: 1s ease-in-out;
+    display: none;
+  }
+  
+  .nav[data-visible="true"] {
+    transform: translateX(0px);
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .mobile_navigation {
+    width: 30px;
+    height: 18px;
+    background-color: transparent;
+    border: 0;
+    background-image: url("./assets/images/icon-menu.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    z-index: 100;
+  }
+  
+  .mobile_navigation[aria-expanded="true"] {
+    background-image: url("./assets/images/icon-menu-close.svg");
+  }
+  
+  .nav .ul {
+    min-width: 100%;
+    height: 100%;
+    gap: 0em;
+  }
+  
+  .ul .li {
+    font-size: 20px;
+    list-style: none;
+    color: #f5f5f5;
+    font-style: italic;
+    font-weight: 550;
+    
+  }
+  
+
+
+.h1 {
+ 
+  font-size: 40px;
+  font-weight: 790;
+
+}
+
+.h2{
+  font-size: 35px;
+  font-weight: 790;
+
+}
+
+.h3{
+  font-size: 25px;
+  font-weight: 790;
+  
+}
+
+.h4{
+  font-size: 20px;
+  font-weight: 790;
+ 
+}
+
+.h5{
+    font-size: 15px;
+ 
+}
+
+.p{
+  font-size: 18px;
+}
+
+.input{
+  display: block;
+  width: calc(100%);
+  padding: 5px;
+  height: auto;
+  width: 100%;
+  
+}
+
+.input input{
+  background-color: #D9D9D9;
+  height: 2em;
+  width: calc(100%);
+}
+
+.input::placeholder {
+  font-size: 0.7em; /* Sesuaikan ukuran dengan yang ada pada .p */
+    color: #999; /* Sesuaikan warna sesuai kebutuhan */
+    position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(0, -50%);
+  width: 100%;
+  text-align: start;
+  margin-left: 1em;
+  pointer-events: none; /* Agar tidak mengganggu input */
+}
+/* -------------main------------- */
+
+
+.Title .h2 {
+  color: #11786B;
+ line-height: 1em;
+}
+
+.Title .h4{
+  color: #11786B;
+  line-height: 2em;
+  font-weight: 500;
+  font-style: italic;
+}
+
+
+.form .p{
+  color: #11786B;
+  line-height: 1.5em;
+  margin-inline-start: 0.2em;
+  margin-block-end: 0.2em;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.rightcontainer{
+
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
+}
+
+.rightcontainer .h1{
+  line-height: 50px;
+  color: #f5f5f5;
+  font-style: italic;
+}
+  
+.mainSectDiv{
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  margin-inline-start: 6em;
+  margin-inline-end: 6em;
+  margin-block: 4em;
+  margin-block-start: 5em;
+}
+
+.main{
+  position: relative;
+  width: 100%;
+  height: 1000px; /* Atur sesuai kebutuhan */
+}
+
+
+
+
+
+
+.form{
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  border: 0.1em solid #11786B; /* 2px wide solid black border */
+  padding-block: 2em;
+  padding-inline: 1em;/* Optional: Add some padding */
+  border-radius: 1em;
+  width: 100%;
+  position: sticky;
+  gap: 3em;
+}
+
+
+
+.rightForm, .leftForm {
+  display: flex;
+  gap: 0.2em;
+  flex-direction: column;
+  
+  flex-grow: 1;
+  flex-shrink: 1;
+  width: 40%; /* Initial width, can be adjusted */
+}
+
+
+
+.subInput,.subInputDua{
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  justify-content: stretch;
+  position: sticky;
+  flex-shrink: 1;
+}
+
+.subInputDua
+.subInput .input {
+  width: calc(30%);
+}
+
+.subInputDua .calendar{
+  margin: auto;
+
+  padding: 5px;
+  height: 2em;
+}
+
+
+.subInputDua .input:nth-child(1) {
+  flex: 3 1 0%; /* 60% of the container */
+}
+
+.subInputDua .input:nth-child(2) {
+  flex: 1 1 0%; /* 40% of the container */
+}
+
+.withaccount{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content:space-around;
+  gap: 0.8em;
+  padding: 5px;
+  margin-inline-start: 10px;
+  margin-block-start: 1em;
+}
+
+.withaccount .cb{
+  transform: scale(1.5); 
+  width: auto;
+}
+
+.leftForm{
+  align-content: flex-end;
+}
+
+
+
+.textarea{
+  width: 100%; /* Make it as wide as its container */
+  height: 320px; /* Adjust the height as needed */
+  padding: 0.7em; /* Add some padding for better readability */
+  font-family: Arial, sans-serif; /* Change the font */
+  font-size: 24px; /* Adjust the font size */
+  border: 2px solid #11786B; /* Add a border */
+  border-radius: 4px; /* Add rounded corners */
+  resize: vertical; /* Allow the user to resize vertically only */
+  margin-block-end: 1em;
+}
+
+/* --------------Footer---------------- */
+
+.footer {
+    display:  block;
+    align-items: center;
+    justify-content: space-between;
+  background-color: #11786B;
+  
+  
+
+  }
+  .footerAboveDiv {
+    margin-inline-start: 6em;
+    margin-inline-end: 6em;
+    display: flex;
+
+    align-items: flex-end;
+    justify-content: space-between;
+    max-width: 100%;
+
+
+  }
+  .footerBottom {
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #12A190;
+    padding-inline-start: 6em;
+    width: 100%;
+    height: 2.5em;
+  }
+  .footerBottom .p {
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    font-weight: 400;
+    color: #f5f5f5;
+    font-style: italic;
+    text-align: justify; /* Justify text for a clean look */
+    width: 20em;
+    margin-block-start: 0.2em;
+  }
+  
+  .pengaduan .p{
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    font-weight: 400;
+    color: #f5f5f5;
+    font-style: italic;
+    text-align: justify; /* Justify text for a clean look */
+    width: 20em;
+    margin-block-start: 0.2em;
+  }
+
+    
+  .pengaduan .h5{
+    letter-spacing: 1px;
+    font-weight: 500;
+    color: #f5f5f5;
+    font-style: italic;
+  }
+
+
+
+
+  .alamat .p {
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    font-weight: 400;
+    color: #f5f5f5;
+    margin-block-start: 0.2em;
+  }
+
+  .alamat .h5 {
+    letter-spacing: 1px;
+  font-weight: 500;
+  color: #f5f5f5;
+  font-style: italic;
+  }
+
+
+
+
+  
+
+.alamat {
+    margin-block-start: 7em;
+    gap: 20px;
+}
+
+
+
+.DocterSign{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.DocterSign .h5{
+    letter-spacing: 1px;
+  font-weight: 500;
+  color: #f5f5f5;
+  font-style: italic;
+}
+
+
+.button{
+ padding: 8px;
+  margin-block-end: 1em;
+  margin-block-start: 0.5em;
+  width: 10;
+  border: none;
+  border-radius: 10px;
+  background-color: #009688;
+  color: white;
+  font-size: 1.2em;
+  font-weight: 600;
+  cursor: pointer;
+  flex-grow: 0.2;
+  flex-shrink: 0.2;
+}
+
+.leftForm .button {
+  font-size: 18px;
+  align-items: center;
+  width: calc(50%);
+  text-align: center;
+  height: 2.5em;
+  margin-block-start: 0px;
+  margin-inline-start: calc(50%);
+  margin-block-end: 0px;
+  align-self: flex-end; /* Mengatur agar tombol berada di pojok kanan */
+}
+@media (min-width: 63rem) {
+  .container {
+
+    padding: 0;
+  }
+
+  .mobile_navigation {
+    display: none;
+  }
+
+  .nav {
+    display: block;
+    transform: translateX(0px);
+    width: 100%;
+  }
+
+  .ul {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0;
+    margin: 0;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+  }
+
+  .li {
+    font-weight: 550;
+    margin: 0 1.5em 0 2em;
+    color: #f5f5f5;
+  }
+
+  .h1 {
+    
+
+    line-height: 58px;
+    font-size: 45px;
+    width: 100%;
+  }
+}

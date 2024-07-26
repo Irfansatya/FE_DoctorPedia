@@ -1,11 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap");
 
-body, html {
-    margin: 0;
-    padding: 0;
+
+html, body {
+    overflow-x: hidden; /* Prevent horizontal overflow */
     width: 100%;
     height: 100%;
-    overflow: auto;
 }
 /* Scrollbar Styles */
 body::-webkit-scrollbar {
@@ -199,16 +198,6 @@ body::-moz-scrollbar-track {
 }
 
 /* -------------main------------- */
-
-
-.content {
-    width: 90%;
-    height: 90%;
-    border: 5px solid black;
-    background-color: white;
- 
-}
-
 .main {
     display: flex;
     justify-content: center; /* Center horizontally */
@@ -364,7 +353,6 @@ body::-moz-scrollbar-track {
 @media (min-width: 63rem) {
     .container {
         padding: 0;
-
     }
 
     .mobile_navigation {

@@ -26,11 +26,9 @@
     padding-block: 1rem;
     border-radius: 0.625rem;
     width: 80%;
-    height: 40rem;
+    height: 95vh;
     max-width: 100rem;
     position: relative;
-    top: 10vh;
-    bottom: 10vh;
 }
 
 .closeButton {

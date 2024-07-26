@@ -1,7 +1,7 @@
 import { createSignal, onMount, Component } from "solid-js";
 import { Link, useRoutes, useLocation } from "@solidjs/router";
-import { routes } from "../routes";
 import styles from "./appoitmentShow.module.css";
+
 
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
@@ -10,7 +10,6 @@ import Card from "./Card";
 
 const AppointmentShow: Component = () => {
   const location = useLocation();
-  const Route = useRoutes(routes);
 
   const [username, setUsername] = createSignal('');
   const [appointments, setAppointments] = createSignal<CardData[]>([]);
@@ -121,9 +120,8 @@ const AppointmentShow: Component = () => {
           <div class={styles.nav} data-visible="false">
             <ul class={styles.ul}>
               <li class={styles.li}><Link href="/login">Home</Link></li>
+              <li class={styles.li}><Link href="/login">Login</Link></li>
               <li class={styles.li}><Link href="/new">Jadwal</Link></li>
-              <li class={styles.li}><Link href="/appointment">Buat Janji</Link></li>
-              <li class={styles.li}><Link href="/profile">Profile</Link></li>
               {userRole === "Admin" && (
                 <li class={styles.li}><Link href="/account-manage">Akun</Link></li>
               )}
