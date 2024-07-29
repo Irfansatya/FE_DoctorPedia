@@ -1,33 +1,32 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap");
+
 /* Scrollbar Styles */
 body::-webkit-scrollbar {
-    width: 15px; /* Adjust the width of the scrollbar */
-  }
-  
-  body::-webkit-scrollbar-thumb {
+  width: 0.9375rem; /* 15px / 16px = 0.9375rem */
+}
 
-    background-color: #11786B; /* Scrollbar color */
-    border-radius: 0.25em; /* Rounded corners */
-  }
-  
-  body::-webkit-scrollbar-track {
-    background: #f1f1f1; /* Scrollbar track color */
-  }
-  
-  body::-moz-scrollbar {
-    width: 15px; /* Firefox scrollbar width */
-  }
-  
-  body::-moz-scrollbar-thumb {
-    background-color: #11786B; /* Scrollbar color for Firefox */
-    border-radius: 0.25em; /* Rounded corners for Firefox */
-  }
-  
-  body::-moz-scrollbar-track {
-    background: #f1f1f1; /* Scrollbar track color for Firefox */
-  }
-  
-  *,
+body::-webkit-scrollbar-thumb {
+  background-color: #11786B; /* Scrollbar color */
+  border-radius: 0.25rem; /* 4px / 16px = 0.25rem */
+}
+
+body::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Scrollbar track color */
+}
+
+body::-moz-scrollbar {
+  width: 0.9375rem; /* Firefox scrollbar width */
+}
+
+body::-moz-scrollbar-thumb {
+  background-color: #11786B; /* Scrollbar color for Firefox */
+  border-radius: 0.25rem; /* Rounded corners for Firefox */
+}
+
+body::-moz-scrollbar-track {
+  background: #f1f1f1; /* Scrollbar track color for Firefox */
+}
+
 *,
 *::before,
 *::after {
@@ -36,176 +35,161 @@ body::-webkit-scrollbar {
   box-sizing: border-box;
 }
 
-
-
-
 .header {
   display: flex;
-
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: #11786B;
-  ;
   height: auto;
-  width: 100%;
+  width: auto;
 }
 
-
-.headerContainer{
-
+.headerContainer {
   width: auto;
   display: flex;
   align-items: center;
-  justify-content: center; /* Mengubah justify-content menjadi center */
-  width: calc(88%); /* Sesuaikan lebar sesuai kebutuhan Anda */
+  justify-content: center;
+  width: calc(88%);
   height: auto;
-  margin-inline: 3em;
-  margin-block-start: 4em;
-  margin-block-end: 3em;
+  margin-inline: 1.875rem; /* 3em / 16px = 1.875rem */
+  padding-block: 3rem;
 }
 
-  
-  .main {
+.main {
+  width: 100%;
+  height: 100%;
+}
 
-    width: 100%;
-    height: 100%; /* Adjust as needed */
-  }
-  
-  
-.logoH1 {
+.logo h1 {
   width: auto;
-  line-height: 40px;
-  font-size: 45px;
+  line-height: 2.5rem; /* 40px / 16px = 2.5rem */
+  font-size: 2.8125rem; /* 45px / 16px = 2.8125rem */
   font-weight: 790;
   line-height: auto;
   color: #f5f5f5;
   font-style: italic;
 }
-  
-  .nav {
-    width: 100%;
 
-    transition: 1s ease-in-out;
-    display: none;
-  }
-  
-  .nav[data-visible="true"] {
-    transform: translateX(0px);
-    display: flex;
-    flex-direction: row;
-    position: fixed;
-
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-  
-  .mobile_navigation {
-    width: 30px;
-    height: 18px;
-    background-color: transparent;
-    border: 0;
-    background-image: url("./assets/images/icon-menu.svg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    z-index: 100;
-  }
-  
-  .mobile_navigation[aria-expanded="true"] {
-    background-image: url("./assets/images/icon-menu-close.svg");
-  }
-  
-  .nav .ul {
-    min-width: 100%;
-    height: 100%;
-    gap: 0em;
-  }
-  
-  .ul .li {
-    font-size: 1.125rem;
-    list-style: none;
-    color: #f5f5f5;
-    font-style: italic;
-    font-weight: 550;
-  }
-  
-  .h1 {
-    font-size: 2.5rem;
-    font-weight: 790;
-  }
-  
-  .h2 {
-    font-size: 2.1875rem; 
-    font-weight: 790;
-  }
-  
-  .h3 {
-    font-size: 1.5625rem; 
-    font-weight: 790;
-  }
-  
-  .h4 {
-    font-size: 1.25rem; /* 20px / 16px = 1.25rem */
-    font-weight: 790;
-  }
-  
-  .h5 {
-    font-size: 0.9375rem; /* 15px / 16px = 0.9375rem */
-  }
-  
-  .p {
-    font-size: 1.125rem; /* 18px / 16px = 1.125rem */
-  }
-  
-
-.input{
-  display: block;
-  width: calc(100%);
-  padding: 5px;
-  height: auto;
+.nav {
   width: 100%;
-  
+  transition: 1s ease-in-out;
+  display: none;
 }
 
-.input input{
+.nav[data-visible="true"] {
+  transform: translateX(0);
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.mobile_navigation {
+  width: 1.875rem; /* 30px / 16px = 1.875rem */
+  height: 1.125rem; /* 18px / 16px = 1.125rem */
+  background-color: transparent;
+  border: 0;
+  background-image: url("./assets/images/icon-menu.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  z-index: 100;
+}
+
+.mobile_navigation[aria-expanded="true"] {
+  background-image: url("./assets/images/icon-menu-close.svg");
+}
+
+.nav .ul {
+  min-width: 100%;
+  height: 100%;
+  gap: 3rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.ul .li {
+  font-size: 1.125rem;
+  list-style: none;
+  color: #f5f5f5;
+  font-style: italic;
+  font-weight: 550;
+}
+
+.h1 {
+  font-size: 2.5rem;
+  font-weight: 790;
+}
+
+.h2 {
+  font-size: 2.1875rem; 
+  font-weight: 790;
+}
+
+.h3 {
+  font-size: 1.5625rem; 
+  font-weight: 790;
+}
+
+.h4 {
+  font-size: 1.25rem; /* 20px / 16px = 1.25rem */
+  font-weight: 790;
+}
+
+.h5 {
+  font-size: 0.9375rem; /* 15px / 16px = 0.9375rem */
+}
+
+.p {
+  font-size: 1.125rem; /* 18px / 16px = 1.125rem */
+}
+
+.input {
+  display: block;
+  width: 100%;
+  padding: 0.3125rem; /* 5px / 16px = 0.3125rem */
+  height: auto;
+}
+
+.input input {
   background-color: #D9D9D9;
-  height: 2em;
-  width: calc(100%);
+  height: 2rem; /* 32px / 16px = 2rem */
+  width: 100%;
 }
 
 .input::placeholder {
-  font-size: 0.7em; /* Sesuaikan ukuran dengan yang ada pada .p */
-    color: #999; /* Sesuaikan warna sesuai kebutuhan */
-    position: absolute;
+  font-size: 0.7em; /* Relative to the input font-size */
+  color: #999;
+  position: absolute;
   top: 50%;
   left: 0;
   transform: translate(0, -50%);
   width: 100%;
   text-align: start;
   margin-left: 1em;
-  pointer-events: none; /* Agar tidak mengganggu input */
+  pointer-events: none;
 }
-/* -------------main------------- */
 
+/* -------------main------------- */
 
 .Title .h2 {
   color: #11786B;
- line-height: 1em;
+  line-height: 1em;
 }
 
-.Title .h4{
+.Title .h4 {
   color: #11786B;
   line-height: 2em;
   font-weight: 500;
   font-style: italic;
 }
 
-
-.form .p{
+.form .p {
   color: #11786B;
   line-height: 1.5em;
   margin-inline-start: 0.2em;
@@ -214,87 +198,70 @@ body::-webkit-scrollbar {
   font-style: italic;
 }
 
-.rightcontainer{
-
-    margin-block-start: 0.5em;
-    margin-block-end: 0.5em;
+.rightcontainer {
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
 }
 
-.rightcontainer .h1{
-  line-height: 3rem;
+.rightcontainer .h1 {
+  line-height: 3rem; /* 48px / 16px = 3rem */
   color: #f5f5f5;
   font-style: italic;
 }
-  
-.mainSectDiv{
+
+.mainSectDiv {
   display: flex;
   flex-direction: column;
-  gap: 60px;
-  margin-inline-start: 6em;
-  margin-inline-end: 6em;
+  gap: 3.75rem; /* 60px / 16px = 3.75rem */
+  margin-inline: 6em;
   margin-block: 4em;
   margin-block-start: 5em;
 }
 
-.main{
+.main {
   position: relative;
-  width: 100%;
-  height: 1000px; /* Atur sesuai kebutuhan */
+  width: auto;
+  height: 62.5rem; /* 1000px / 16px = 62.5rem */
 }
 
-
-
-
-
-
-.form{
+.form {
   display: flex;
   flex-direction: row;
-  justify-content: stretch;
-  border: 0.1em solid #11786B; /* 2px wide solid black border */
-  padding-block: 2em;
-  padding-inline: 1em;/* Optional: Add some padding */
-  border-radius: 1em;
-  width: 100%;
-  position: sticky;
-  gap: 3em;
+
+  border: 0.2rem solid #11786B; /* 3.2px / 16px = 0.2rem */
+  padding-block: 2rem; /* 32px / 16px = 2rem */
+  padding-inline: 1rem; /* 16px / 16px = 1rem */
+  border-radius: 1rem; /* 16px / 16px = 1rem */
+  width: auto;
+  min-width: 40rem;
+
+  gap: 1.875rem; /* 30px / 16px = 1.875rem */
 }
-
-
 
 .rightForm, .leftForm {
   display: flex;
   gap: 0.2em;
   flex-direction: column;
-  
   flex-grow: 1;
   flex-shrink: 1;
-  width: 40%; /* Initial width, can be adjusted */
+  width: 40%;
 }
 
-
-
-.subInput,.subInputDua{
+.subInput, .subInputDua {
   display: flex;
   flex-direction: row;
   gap: 1em;
   justify-content: stretch;
   position: sticky;
   flex-shrink: 1;
+  width: auto;
 }
 
-.subInputDua
-.subInput .input {
-  width: calc(30%);
-}
-
-.subInputDua .calendar{
+.subInputDua .calendar {
   margin: auto;
-
-  padding: 5px;
-  height: 2em;
+  padding: 0.3125rem; /* 5px / 16px = 0.3125rem */
+  height: 2rem; /* 32px / 16px = 2rem */
 }
-
 
 .subInputDua .input:nth-child(1) {
   flex: 3 1 0%; /* 60% of the container */
@@ -304,208 +271,204 @@ body::-webkit-scrollbar {
   flex: 1 1 0%; /* 40% of the container */
 }
 
-.withaccount{
+.withaccount {
   display: flex;
   flex-direction: row;
   align-items: center;
-  align-content:space-around;
+  align-content: space-around;
   gap: 0.8em;
-  padding: 5px;
-  margin-inline-start: 0.625rem;
-  margin-block-start: 1rem;
+  padding: 0.3125rem; /* 5px / 16px = 0.3125rem */
+  margin-inline-start: 0.625rem; /* 10px / 16px = 0.625rem */
+  margin-block-start: 1rem; /* 16px / 16px = 1rem */
 }
 
-.withaccount .cb{
-  transform: scale(1.5); 
+.withaccount .cb {
+  transform: scale(1.5);
   width: auto;
 }
 
-.leftForm{
+.leftForm {
   align-content: flex-end;
 }
 
-
-
-.textarea{
-  width: 100%; /* Make it as wide as its container */
-  height: 320px; /* Adjust the height as needed */
-  padding: 0.7em; /* Add some padding for better readability */
-  font-family: Arial, sans-serif; /* Change the font */
-  font-size: 24px; /* Adjust the font size */
-  border: 0.1rem solid #11786B; /* Add a border */
-  border-radius: 4px; /* Add rounded corners */
-  resize: vertical; /* Allow the user to resize vertically only */
+.textarea {
+  width: 100%;
+  height: 20rem; /* 320px / 16px = 20rem */
+  padding: 0.7em; /* Relative to the textarea font-size */
+  font-family: Arial, sans-serif;
+  font-size: 1.5rem; /* 24px / 16px = 1.5rem */
+  border: 0.2rem solid #11786B;
+  border-radius: 0.25rem; /* 4px / 16px = 0.25rem */
+  resize: vertical;
   margin-block-end: 1em;
 }
 
 /* --------------Footer---------------- */
 
 .footer {
-    display:  block;
-    align-items: center;
-    justify-content: space-between;
+  display: block;
+  align-items: center;
+  justify-content: space-between;
   background-color: #11786B;
-  
-  
+}
 
-  }
-  .footerAboveDiv {
-    margin-inline-start: 6em;
-    margin-inline-end: 6em;
-    display: flex;
+.footerAboveDiv {
+  margin-inline-start: 6em;
+  margin-inline-end: 6em;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  max-width: 100%;
+}
 
-    align-items: flex-end;
-    justify-content: space-between;
-    max-width: 100%;
+.footerBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #12A190;
+  padding-inline-start: 6em;
+  width: 100%;
+  height: 2.5rem; /* 40px / 16px = 2.5rem */
+}
 
+.footerBottom .p {
+  font-size: 1rem;
+  letter-spacing: 0.03125rem; /* 0.5px / 16px = 0.03125rem */
+  font-weight: 400;
+  color: #f5f5f5;
+  font-style: italic;
+  text-align: justify;
+  width: 20em;
+  margin-block-start: 0.2em;
+}
 
-  }
-  .footerBottom {
-    
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #12A190;
-    padding-inline-start: 6em;
-    width: 100%;
-    height: 2.5em;
-  }
-  .footerBottom .p {
-    font-size: 1rem;
-    letter-spacing: 0.5px;
-    font-weight: 400;
-    color: #f5f5f5;
-    font-style: italic;
-    text-align: justify; /* Justify text for a clean look */
-    width: 20em;
-    margin-block-start: 0.2em;
-  }
-  
-  .pengaduan .p{
-    font-size: 1rem;
-    letter-spacing: 0.5px;
-    font-weight: 400;
-    color: #f5f5f5;
-    font-style: italic;
-    text-align: justify; /* Justify text for a clean look */
-    width: 20em;
-    margin-block-start: 0.2em;
-  }
+.pengaduan .p {
+  font-size: 1rem;
+  letter-spacing: 0.03125rem; /* 0.5px / 16px = 0.03125rem */
+  font-weight: 400;
+  color: #f5f5f5;
+  font-style: italic;
+  text-align: justify;
+  width: 20em;
+  margin-block-start: 0.2em;
+}
 
-    
-  .pengaduan .h5{
-    letter-spacing: 1px;
-    font-weight: 500;
-    color: #f5f5f5;
-    font-style: italic;
-  }
-
-
-
-
-  .alamat .p {
-    font-size: 1.125rem;
-    letter-spacing: 0.5px;
-    font-weight: 400;
-    color: #f5f5f5;
-    margin-block-start: 0.2em;
-  }
-
-  .alamat .h5 {
-    letter-spacing: 1px;
+.pengaduan .h5 {
+  letter-spacing: 0.0625rem; /* 1px / 16px = 0.0625rem */
   font-weight: 500;
   color: #f5f5f5;
   font-style: italic;
-  }
+}
 
+.alamat .p {
+  font-size: 1.125rem;
+  letter-spacing: 0.03125rem; /* 0.5px / 16px = 0.03125rem */
+  font-weight: 400;
+  color: #f5f5f5;
+  margin-block-start: 0.2em;
+}
 
-
-
-  
+.alamat .h5 {
+  letter-spacing: 0.0625rem; /* 1px / 16px = 0.0625rem */
+  font-weight: 500;
+  color: #f5f5f5;
+  font-style: italic;
+}
 
 .alamat {
-    margin-block-start: 7em;
-    gap: 20px;
+  margin-block-start: 7em;
+  gap: 1.25rem; /* 20px / 16px = 1.25rem */
 }
 
-
-
-.DocterSign{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+.DocterSign {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
-.DocterSign .h5{
-    letter-spacing: 1px;
+.DocterSign .h5 {
+  letter-spacing: 0.0625rem; /* 1px / 16px = 0.0625rem */
   font-weight: 500;
   color: #f5f5f5;
   font-style: italic;
 }
 
-
-.button{
- padding: 8px;
+.button {
+  padding: 0.5rem; /* 8px / 16px = 0.5rem */
   justify-content: center;
-  width: 10;
+  width: 10rem; /* 160px / 16px = 10rem */
   border: none;
-  border-radius: 10px;
+  border-radius: 0.625rem; /* 10px / 16px = 0.625rem */
   background-color: #009688;
   color: white;
-  font-size: 1.2em;
+  font-size: 1.2rem;
   font-weight: 600;
   cursor: pointer;
-
 }
 
 .leftForm .button {
-  font-size: 18px;
+  font-size: 1.125rem; /* 18px / 16px = 1.125rem */
   align-items: center;
-  width: calc(50%);
+  width: 50%;
   text-align: center;
-  height: 2.5em;
-  margin-block-start: 0px;
-  margin-inline-start: calc(50%);
-  margin-block-end: 0px;
-  align-self: flex-end; /* Mengatur agar tombol berada di pojok kanan */
+  height: 2.5rem; /* 40px / 16px = 2.5rem */
+  margin-block-start: 0;
+  margin-inline-start: 50%;
+  margin-block-end: 0;
+  align-self: flex-end;
 }
-@media (min-width: 63rem) {
-  .container {
 
-    padding: 0;
+@media (min-width: 30rem) {
+  .header {
+    padding: 2rem; /* Adjust padding for larger screens */
   }
 
-  .mobile_navigation {
-    display: none;
+  .headerContainer {
+    margin-inline: 3rem; /* Adjust margin for larger screens */
   }
 
   .nav {
+    display: flex; /* Show the navigation */
+    position: static; /* Adjust positioning if needed */
+    background-color: transparent; /* Change background if needed */
+  }
+
+  .main {
     display: block;
-    transform: translateX(0px);
-    width: 100%;
+    min-height: auto; /* Remove fixed height for flexibility */
+    padding: 2rem; /* Add padding for better spacing */
   }
 
-  .ul {
-    display: flex;
-    justify-content: flex-end;
-    padding: 0;
-    margin: 0;
-    width: auto;
-    height: auto;
-    background-color: transparent;
+  .mainSectDiv {
+    margin-inline: 4rem; /* Adjust margin for larger screens */
   }
 
-  .li {
-    font-weight: 550;
-    margin: 0 1.5em 0 2em;
-    color: #f5f5f5;
+  .form {
+    min-width: 50rem; /* Adjust min-width for larger screens */
+    padding-block: 2.5rem; /* Adjust padding if needed */
+    padding-inline: 1.5rem; /* Adjust padding if needed */
   }
 
-  .h1 {
-    
+  .leftForm, .rightForm {
+    width: 50%; /* Ensure forms are responsive and fit side-by-side */
+  }
 
-    line-height: 58px;
-    font-size: 45px;
-    width: 100%;
+  .p, .h5 {
+    font-size: 1.25rem; /* Increase font size if needed */
+    margin-block-end: 0.5rem; /* Adjust margins for better spacing */
+  }
+
+  .button {
+    font-size: 1.25rem; /* Increase font size for larger screens */
+    width: 12rem; /* Adjust button width */
+  }
+
+  .footer {
+    padding: 2rem; /* Adjust footer padding */
+  }
+
+  .footerAboveDiv {
+    margin-inline: 3rem; /* Adjust margin for larger screens */
   }
 }
+

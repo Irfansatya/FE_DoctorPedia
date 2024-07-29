@@ -15,7 +15,7 @@ import appointmentCRUD from './Ag-Grid/appointmentCRUD/appointmentCRUD';
 import AppointmentShow from './Ag-Grid/appointmentShow/AppointmentShow';
 import userManaging from './user-Managing/userManaging';
 import test from './testingPage/MyGrid';
-
+import HeaderFooter from './Template/headerFooter';
 
 
 
@@ -39,7 +39,8 @@ render(
       <Route path="/crate-Appointment" component={CreateAppointment}/>
       <Route path="/Appointment-CRUD" component={appointmentCRUD}/>
       <Route path="/Appointment-Show" component={AppointmentShow}/>
-      <Route path="/profile" component={UserProfile} />
+      <Route path="/profile" component={UserProfile}/>
+       <Route path="/headerfooter" component={HeaderFooter}/>
 {/* 
         <Route path="/HoshizoraNiNaru" component={HitoWaMinaTachimaruKedo} /> */}
         <Route path="/tester2" component={test} />
