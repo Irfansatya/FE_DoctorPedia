@@ -6,7 +6,12 @@ import styles from "./appointmentCreate.module.css";
 const CreateAppointment: Component = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  
+  const golDarahOptions = [
+    "A",
+    "B",
+    "AB",
+    "O"
+  ];
   // Step 1: Create a signal for the username
   const [username, setUsername] = createSignal('');
 
@@ -74,10 +79,12 @@ const CreateAppointment: Component = () => {
             <div class={styles.nav} data-visible="false">
                 <ul class={styles.ul}>
                 <li class={styles.li}><Link href="/login">Login</Link></li>
-                <li class={styles.li}><Link href="/new">Jadwal</Link></li>
+                <li class={styles.li}><Link href="/appointment">Buat Janji</Link></li>
                 {userRole === "Admin" && (
                     <li class={styles.li}><Link href="/account-manage">Akun</Link></li>
                 )}
+                <li class={styles.li}><Link href="/profile">Pengaturan Akun</Link></li>
+                <li class={styles.li}><Link href="/dokter">Jadwal Dokter</Link></li>
                 </ul>
             </div>
             <button aria-expanded="false" class={styles.mobile_navigation} aria-label="open"></button>
@@ -107,24 +114,46 @@ const CreateAppointment: Component = () => {
                   
                   <div class={styles.input}>
                     <p class={styles.p}>Berat</p>
-                    <input type="text" value={berat()} onInput={(e) => setBerat(e.target.value)} />
+                    <input type="number" value={berat()} onInput={(e) => setBerat(e.target.value)} />
                   </div>
 
                   <div class={styles.input}>
                     <p class={styles.p}>Tinggi</p>
-                    <input type="text" value={tinggi()} onInput={(e) => setTinggi(e.target.value)} />
+                    <input type="number" value={tinggi()} onInput={(e) => setTinggi(e.target.value)} />
                   </div>
 
                   <div class={styles.input}>
                     <p class={styles.p}>Gol. Darah</p>
-                    <input type="text" value={golDarah()} onInput={(e) => setGolDarah(e.target.value)} />
+                    <input
+                      type="text"
+                      list="golDarahList"
+                      value={golDarah()}
+                      onInput={(e) => setGolDarah(e.target.value)}
+                    />
+                    <datalist id="golDarahList">
+                      {golDarahOptions.map(option => (
+                        <option value={option} />
+                      ))}
+                    </datalist>
                   </div>
+
                 </div>
 
-                <div class={styles.input}>
-                  <p class={styles.p}>Poli</p>
-                  <input type="text" value={poli()} onInput={(e) => setPoli(e.target.value)} />
-                </div>
+                <div class={`${styles.input} ${styles.poli}`}>
+                <p class={styles.p}>Poli</p>
+                <select
+                  class={styles.InputForm}
+                  value={poli()}
+                  onInput={(e) => setPoli(e.target.value)}
+                >
+                  <option value="">Pilih Poli</option>
+                  <option value="Poli Umum">Poli Umum</option>
+                  <option value="Poli Anak">Poli Anak</option>
+                  <option value="Poli Gigi">Poli Gigi</option>
+                  <option value="Poli Mata">Poli Mata</option>
+                  {/* Add more options as needed */}
+                </select>
+              </div>
 
                 <div class={styles.input}>
                   <p class={styles.p}>Dokter</p>
@@ -177,10 +206,7 @@ const CreateAppointment: Component = () => {
             </div>
           </div>
           <div class={styles.leftcontainer}>
-            <div class={styles.DocterSign}>
-              <h5 class={styles.h5}>Apakah kamu seorang dokter?</h5>
-              <button class={styles.button}>Sign Up!</button>
-            </div>
+            
           </div>
         </div>
         <div class={styles.footerBottom}>

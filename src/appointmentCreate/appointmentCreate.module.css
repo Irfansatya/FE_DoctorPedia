@@ -53,16 +53,16 @@ body::-webkit-scrollbar {
 
 
 .headerContainer{
+
+  width: auto;
   display: flex;
   align-items: center;
-  
-  flex-direction: row;
+  justify-content: center; /* Mengubah justify-content menjadi center */
+  width: calc(88%); /* Sesuaikan lebar sesuai kebutuhan Anda */
+  height: auto;
+  margin-inline: 3em;
   margin-block-start: 4em;
   margin-block-end: 3em;
-  gap: 1.5em;
-  flex-direction: column;
-  height: auto;
-  width: auto;
 }
 
   
@@ -126,49 +126,41 @@ body::-webkit-scrollbar {
   }
   
   .ul .li {
-    font-size: 20px;
+    font-size: 1.125rem;
     list-style: none;
     color: #f5f5f5;
     font-style: italic;
     font-weight: 550;
-    
   }
   
-
-
-.h1 {
- 
-  font-size: 40px;
-  font-weight: 790;
-
-}
-
-.h2{
-  font-size: 35px;
-  font-weight: 790;
-
-}
-
-.h3{
-  font-size: 25px;
-  font-weight: 790;
+  .h1 {
+    font-size: 2.5rem;
+    font-weight: 790;
+  }
   
-}
-
-.h4{
-  font-size: 20px;
-  font-weight: 790;
- 
-}
-
-.h5{
-    font-size: 15px;
- 
-}
-
-.p{
-  font-size: 18px;
-}
+  .h2 {
+    font-size: 2.1875rem; 
+    font-weight: 790;
+  }
+  
+  .h3 {
+    font-size: 1.5625rem; 
+    font-weight: 790;
+  }
+  
+  .h4 {
+    font-size: 1.25rem; /* 20px / 16px = 1.25rem */
+    font-weight: 790;
+  }
+  
+  .h5 {
+    font-size: 0.9375rem; /* 15px / 16px = 0.9375rem */
+  }
+  
+  .p {
+    font-size: 1.125rem; /* 18px / 16px = 1.125rem */
+  }
+  
 
 .input{
   display: block;
@@ -229,7 +221,7 @@ body::-webkit-scrollbar {
 }
 
 .rightcontainer .h1{
-  line-height: 50px;
+  line-height: 3rem;
   color: #f5f5f5;
   font-style: italic;
 }
@@ -319,8 +311,8 @@ body::-webkit-scrollbar {
   align-content:space-around;
   gap: 0.8em;
   padding: 5px;
-  margin-inline-start: 10px;
-  margin-block-start: 1em;
+  margin-inline-start: 0.625rem;
+  margin-block-start: 1rem;
 }
 
 .withaccount .cb{
@@ -340,7 +332,7 @@ body::-webkit-scrollbar {
   padding: 0.7em; /* Add some padding for better readability */
   font-family: Arial, sans-serif; /* Change the font */
   font-size: 24px; /* Adjust the font size */
-  border: 2px solid #11786B; /* Add a border */
+  border: 0.1rem solid #11786B; /* Add a border */
   border-radius: 4px; /* Add rounded corners */
   resize: vertical; /* Allow the user to resize vertically only */
   margin-block-end: 1em;
@@ -379,7 +371,7 @@ body::-webkit-scrollbar {
     height: 2.5em;
   }
   .footerBottom .p {
-    font-size: 15px;
+    font-size: 1rem;
     letter-spacing: 0.5px;
     font-weight: 400;
     color: #f5f5f5;
@@ -390,7 +382,7 @@ body::-webkit-scrollbar {
   }
   
   .pengaduan .p{
-    font-size: 15px;
+    font-size: 1rem;
     letter-spacing: 0.5px;
     font-weight: 400;
     color: #f5f5f5;
@@ -412,7 +404,7 @@ body::-webkit-scrollbar {
 
 
   .alamat .p {
-    font-size: 15px;
+    font-size: 1.125rem;
     letter-spacing: 0.5px;
     font-weight: 400;
     color: #f5f5f5;
@@ -454,8 +446,7 @@ body::-webkit-scrollbar {
 
 .button{
  padding: 8px;
-  margin-block-end: 1em;
-  margin-block-start: 0.5em;
+  justify-content: center;
   width: 10;
   border: none;
   border-radius: 10px;
@@ -464,8 +455,7 @@ body::-webkit-scrollbar {
   font-size: 1.2em;
   font-weight: 600;
   cursor: pointer;
-  flex-grow: 0.2;
-  flex-shrink: 0.2;
+
 }
 
 .leftForm .button {
