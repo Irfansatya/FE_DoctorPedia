@@ -113,7 +113,6 @@ const AppointmentShow: Component = () => {
           <div class={styles.upperForm}>
             <div class={styles.image}>
               <label class={`${styles.formContent} ${styles.h6}`}>
-                Profile Picture
                 <input
                   class={styles.InputForm}
                   type="file"

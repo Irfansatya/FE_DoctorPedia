@@ -11,6 +11,9 @@ const CreateAppointment: Component = () => {
     "AB",
     "O"
   ];
+  const DokterOption = [
+    "Nunggu CRUD buat dokternya", "adddddd", "adds"
+  ];
   // Step 1: Create a signal for the username
   const [username, setUsername] = createSignal('');
 
@@ -154,10 +157,35 @@ const CreateAppointment: Component = () => {
                 </select>
               </div>
 
-                <div class={styles.input}>
-                  <p class={styles.p}>Dokter</p>
-                  <input type="text" value={dokter()} onInput={(e) => setDokter(e.target.value)} />
-                </div>
+                
+                {/* <div class={styles.input}>
+                    <p class={styles.p}>Dokter</p>
+                    <input
+                      type="text"
+                      list="dokterList"
+                      value={setDokter()}
+                      onInput={(e) => setDokter(e.target.value)}
+                    />
+                    <datalist id="dokterList">
+                      {DokterOption.map(option => (
+                        <option value={option} />
+                      ))}
+                    </datalist>
+                  </div> */}
+                  <div class={styles.input}>
+                    <p class={styles.p}>Dokter</p>
+                    <input
+                      type="text"
+                      list="dokterList"
+                      value={dokter()}
+                      onInput={(e) => setDokter(e.target.value)}
+                    />
+                    <datalist id="dokterList">
+                      {DokterOption.map(option => (
+                        <option value={option} />
+                      ))}
+                    </datalist>
+                  </div>
 
                 <div class={styles.subInputDua}>
                   <div class={styles.input}>
