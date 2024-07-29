@@ -66,8 +66,8 @@ const HomePage: Component = () => {
           {/* <----------------Feature---------------------------> */}
           <div class={styles.Mainfeature}>
             <div class={styles.titleMain}>
-              <h1 class={styles.titleSec}>FITUR UTAMA</h1>
-              <h2 class={styles.subTitleSec}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu pharetra velit. </h2>
+              <h1 class={styles.titleSec}>Doctor</h1>
+              <h2 class={styles.subTitleSec}>Kalian bisa memilih dokter untuk bertemu atau membuat janji di bawah ini. </h2>
             </div>
             
             <ul class={styles.ulcard}>
@@ -127,31 +127,31 @@ const HomePage: Component = () => {
         {/* <---------------Tutorial---------------------------> */}
         <div class={styles.tutorial}>
             <div class={styles.titleTutor}>
-              <h1 class={styles.h1}>ISINYA TUTORIAL MAKE</h1>
+              <h1 class={styles.h1}>Tutorial pemakaian</h1>
             </div>
 
             <div class={styles.tutorialRow}>
               <div class={styles.tutorialInCOntent}>
                 <img class={styles.tutorialimg} src="public/png/login.png" alt="" />
                 <div class={styles.tutorialText}>
-                  <h3 class={styles.h3}>Lorem Ipsum Dolor</h3>
-                  <h4 class={styles.h4}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h4>
+                  <h3 class={styles.h3}>Login</h3>
+                  <h4 class={styles.h4}>user harus login terlebih dahulu untuk mebuat janji</h4>
                 </div>
               </div>
 
               <div class={styles.tutorialInCOntent}>
                 <img class={styles.tutorialimg} src="public\png\janji.png" alt="" />
                 <div class={styles.tutorialText}>
-                  <h3 class={styles.h3}>Lorem Ipsum Dolor</h3>
-                  <h4 class={styles.h4}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h4>
+                  <h3 class={styles.h3}>membuat janji</h3>
+                  <h4 class={styles.h4}>User harus membuat janji untuk bertemu dengan dokter</h4>
                 </div>
               </div>
               
               <div class={styles.tutorialInCOntent}>
                 <img class={styles.tutorialimg} src="public\png\bertremu.png" alt="" />
                 <div class={styles.tutorialText}>
-                  <h3 class={styles.h3}>Lorem Ipsum Dolor</h3>
-                  <h4 class={styles.h4}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h4>
+                  <h3 class={styles.h3}>Bertemu</h3>
+                  <h4 class={styles.h4}>Bertemu dengan dokter yang sudah membuat janji</h4>
                 </div>
               </div>
             </div>
