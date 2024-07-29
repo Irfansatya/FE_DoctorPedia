@@ -1,18 +1,19 @@
 import { createSignal } from 'solid-js';
 import { useNavigate } from '@solidjs/router';
-import styles from './SignUp.module.css'; // Ensure correct CSS file import
+import styles from './docterSignUp.module.css'; // Ensure correct CSS file import
 
-const SignUpUser = () => {
+const SignUpDocter = () => {
   const navigate = useNavigate();
   
   const [firstName, setFirstName] = createSignal('');
   const [lastName, setLastName] = createSignal('');
-  const [username, setUsername] = createSignal('');
+  const [doctername, setDoctername] = createSignal('');
   const [email, setEmail] = createSignal('');
   const [mobileNumber, setMobileNumber] = createSignal('');
+  const [poli, setPoli] = createSignal('');
   const [password, setPassword] = createSignal('');
   const [confirmPassword, setConfirmPassword] = createSignal('');
-
+  
   const [emailError, setEmailError] = createSignal('');
   const [mobileNumberError, setMobileNumberError] = createSignal('');
   const [passwordError, setPasswordError] = createSignal('');
@@ -60,35 +61,25 @@ const SignUpUser = () => {
     }
   };
 
-  const handleSignUp = () => {
+  const handleSignUpDocter = () => {
     const isEmailValid = validateEmail(email());
     const isMobileNumberValid = validateMobileNumber(mobileNumber());
     const isPasswordValid = validatePassword(password());
     const isConfirmPasswordValid = validateConfirmPassword();
 
     if (isEmailValid && isMobileNumberValid && isPasswordValid && isConfirmPasswordValid) {
-      // Retrieve existing data from localStorage
-      const existingData = JSON.parse(localStorage.getItem('danaKaget')) || [];
-      
-      // Determine the maximum id
-      const maxId = existingData.length > 0 ? Math.max(...existingData.map(user => user.id)) : 0;
-      const newId = maxId + 1;
-
       // Save to localStorage
-      const newUser = {
-        id: newId,
+      const DocterData = {
         firstName: firstName(),
         lastName: lastName(),
-        password: password(),
+        doctername: doctername(),
         email: email(),
+        poli: poli(),
         mobileNumber: mobileNumber(),
-        userName: username(),
-        role: 'User' // Assign the default role
+        password: password(),
       };
+      localStorage.setItem('DocterData', JSON.stringify(DocterData));
       
-      const updatedData = [...existingData, newUser];
-      localStorage.setItem('danaKaget', JSON.stringify(updatedData));
-
       // Proceed with sign-up logic here (e.g., make a request to the backend)
       navigate('/Login');
     }
@@ -140,13 +131,13 @@ const SignUpUser = () => {
                 value={lastName()}
                 onInput={(e) => setLastName(e.target.value)}
               />
-              <p class={styles.p}>Username</p>
+              <p class={styles.p}>Docter name</p>
               <input
                 class={styles.inputcolection}
                 type="text"
-                placeholder="Masukkan nama user..."
-                value={username()}
-                onInput={(e) => setUsername(e.target.value)}
+                placeholder="Masukkan nama Dokter..."
+                value={doctername()}
+                onInput={(e) => setDoctername(e.target.value)}
               />
               <p class={styles.p}>E-mail</p>
               <input
@@ -173,6 +164,14 @@ const SignUpUser = () => {
                   validateMobileNumber(e.target.value);
                 }}
               />
+              <p class={styles.p}>Poli \ Spesialis</p>
+              <input
+                class={styles.inputcolection}
+                type="text"
+                placeholder="Masukkan Poli anda..."
+                value={poli()}
+                onInput={(e) => setPoli(e.target.value)}
+              />
               {mobileNumberError() && <p class={styles.error}>{mobileNumberError()}</p>}
               <p class={styles.p}>Password</p>
               <input
@@ -185,6 +184,7 @@ const SignUpUser = () => {
                   validatePassword(e.target.value);
                 }}
               />
+              
               {passwordError() && <p class={styles.error}>{passwordError()}</p>}
               <p class={styles.p}>Password Confirmation</p>
               <input
@@ -202,7 +202,8 @@ const SignUpUser = () => {
           </div>
         </div>
         <div class={styles.buttonIntegration}>
-          <button class={`${styles.signupButton} ${styles.button} ${styles.textButton}`} onClick={handleSignUp}>Sign Up</button>
+
+          <button class={`${styles.signupButton} ${styles.button} ${styles.textButton}`} onClick={handleSignUpDocter}>Sign Up as Doctor</button>
           <button class={`${styles.signupButton} ${styles.button} ${styles.textButton}`} onClick={handleBerandaSignUpClick}>Back to Login</button>
         </div>
         <div class={styles.separator}>
@@ -219,4 +220,4 @@ const SignUpUser = () => {
   );
 };
 
-export default SignUpUser;
+export default SignUpDocter;

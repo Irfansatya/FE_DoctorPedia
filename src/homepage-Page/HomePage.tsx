@@ -1,14 +1,12 @@
 import { createSignal, onMount, Component } from "solid-js";
-import { Link, useRoutes, useLocation,  useNavigate, Routes } from "@solidjs/router";
+import { Link, useRoutes, useLocation, Routes } from "@solidjs/router";
 import { routes } from "../routes";
-
 import styles from "./HomePage.module.css";
-import CreateAppointment from "../appointmentCreate/appointmentCreate";
+
 
 const HomePage: Component = () => {
   const location = useLocation();
   const Route = useRoutes(routes);
-  const navigate = useNavigate();
 
   // Step 1: Create a signal for the username
   const [username, setUsername] = createSignal('');
@@ -26,22 +24,22 @@ const HomePage: Component = () => {
     console.log('Card diklik');
   }
 
-  const appoClick = () => {
-    navigate('/appointment'); // Fungsi untuk navigasi
-  };
   
   return (
     <div class={`${styles.container}`}>
       {/* Header section */}
       <header class={styles.header}>
         <div class={styles.headerContainer}>
-            <div class={styles.logoH1}>
-                <h1>Dokterpedia</h1>
-            </div>
+            
             <div class={styles.nav} data-visible="false">
+                <div class={styles.logoH1}>
+                    Dokterpedia
+                </div>
                 <ul class={styles.ul}>
-                <li class={styles.li}><Link href="/login">Login</Link></li>
-                <li class={styles.li}><Link href="/new">Jadwal</Link></li>
+                <li class={styles.li}><Link href="/home">Home</Link></li>
+                <li class={styles.li}><Link href="/crate-Appointment">janji</Link></li>
+                <li class={styles.li}><Link href="/Appointment-Show">Jadwal</Link></li>
+                
                 {userRole === "Admin" && (
                     <li class={styles.li}><Link href="/account-manage">Akun</Link></li>
                 )}
@@ -56,7 +54,6 @@ const HomePage: Component = () => {
       {/* -----------------------------------Hub Atas------------------------------------------------ */}
       <div class={styles.image}>
         <div class={styles.backgroundContainer}>
-          <img src="public\jpg\bawah navbar.jpg" alt="Background" class={styles.backgroundImage} />
           <h1 class={styles.overlayText}>Selamat Datang, {username()}!</h1>
         </div>
       </div>
@@ -72,22 +69,67 @@ const HomePage: Component = () => {
               <h1 class={styles.titleSec}>FITUR UTAMA</h1>
               <h2 class={styles.subTitleSec}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu pharetra velit. </h2>
             </div>
-
-            <div class={styles.cardFeature}>
-             
-                <div class={styles.inCardFeature} onClick={appoClick} style={{ cursor: 'pointer' }}>
-                  <img src="" alt="" />
+            
+            <ul class={styles.ulcard}>
+              <li>
+                <div class={styles.cardFeature}>
+                  <Link href="/crate-Appointment" class={styles.inCardFeature}>
+                    <div class={styles.inCardFeature}>
+                      <img src="public\png\Doktor.png" alt="" />
+                    </div>
+                  </Link>
                 </div>
-                <h4 class={`${styles.h4} ${styles.decs1}`}>Appointment</h4>
-             
+              </li>
+
+              <li>
+                <div class={styles.cardFeature}>
+                  <Link href="/crate-Appointment" class={styles.inCardFeature}>
+                    <div class={styles.inCardFeature}>
+                      <img src="public\png\Doktor.png" alt="" />
+                    </div>
+                  </Link>
+                </div>
+              </li>
+
+              <li>
+                <div class={styles.cardFeature}>
+                  <Link href="/crate-Appointment" class={styles.inCardFeature}>
+                    <div class={styles.inCardFeature}>
+                      <img src="public\png\Doktor.png" alt="" />
+                    </div>
+                  </Link>
+                </div>
+              </li>
+
+              <li>
+                <div class={styles.cardFeature}>
+                  <Link href="/crate-Appointment" class={styles.inCardFeature}>
+                    <div class={styles.inCardFeature}>
+                      <img src="public\png\Doktor.png" alt="" />
+                    </div>
+                  </Link>
+                </div>
+              </li>
+
+              <li>
+                <div class={styles.cardFeature}>
+                  <Link href="/crate-Appointment" class={styles.inCardFeature}>
+                    <div class={styles.inCardFeature}>
+                      <img src="public\png\Doktor.png" alt="" />
+                    </div>
+                  </Link>
+                </div>
+              </li>
+            </ul>
             </div>
-            </div>
-            </div> 
-          {/* <---------------Tutorial---------------------------> */}
-          <div class={styles.tutorial}>
+        </div>
+        
+        {/* <---------------Tutorial---------------------------> */}
+        <div class={styles.tutorial}>
             <div class={styles.titleTutor}>
               <h1 class={styles.h1}>ISINYA TUTORIAL MAKE</h1>
             </div>
+
             <div class={styles.tutorialRow}>
               <div class={styles.tutorialInCOntent}>
                 <img class={styles.tutorialimg} src="public/png/login.png" alt="" />
@@ -96,6 +138,7 @@ const HomePage: Component = () => {
                   <h4 class={styles.h4}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h4>
                 </div>
               </div>
+
               <div class={styles.tutorialInCOntent}>
                 <img class={styles.tutorialimg} src="public\png\janji.png" alt="" />
                 <div class={styles.tutorialText}>
@@ -103,6 +146,7 @@ const HomePage: Component = () => {
                   <h4 class={styles.h4}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h4>
                 </div>
               </div>
+              
               <div class={styles.tutorialInCOntent}>
                 <img class={styles.tutorialimg} src="public\png\bertremu.png" alt="" />
                 <div class={styles.tutorialText}>
@@ -112,6 +156,7 @@ const HomePage: Component = () => {
               </div>
             </div>
           </div>
+
         <div class={styles.mainSectDiv}>
           {/* <---------------RS Content---------------------------> */}
           <div class={styles.rumahSakit}>
@@ -142,6 +187,30 @@ const HomePage: Component = () => {
                   <h3 class={`${styles.h3} ${styles.scrollable}`}>Rumah Sakit Umum, Jl. bla bla bla bla bla bla</h3>
                 </div>
               </div>
+              <div class={styles.rumahSakitcard} onclick={handleClick}>
+                <div class={styles.rumahSakitImage}>
+                  <div class={styles.town} onclick={handleClick}>
+                    <h3>Purwokerto</h3>
+                    <img class={styles.tutorialimg} src="public\png\35e10_rs-jih-purwokerto.jpg" alt="" />
+                  </div>    
+                </div>
+                <div class={styles.rumahSakitUnitTitle}> 
+                  <h2 class={`${styles.h2} ${styles.scrollable}`}>RSUD Margono bla bla bla bla bla bla</h2>
+                  <h3 class={`${styles.h3} ${styles.scrollable}`}>Rumah Sakit Umum, Jl. bla bla bla bla bla bla</h3>
+                </div>
+              </div>
+              <div class={styles.rumahSakitcard} onclick={handleClick}>
+                <div class={styles.rumahSakitImage}>
+                  <div class={styles.town} onclick={handleClick}>
+                    <h3>Purwokerto</h3>
+                    <img class={styles.tutorialimg} src="public\png\35e10_rs-jih-purwokerto.jpg" alt="" />
+                  </div>    
+                </div>
+                <div class={styles.rumahSakitUnitTitle}> 
+                  <h2 class={`${styles.h2} ${styles.scrollable}`}>RSUD Margono bla bla bla bla bla bla</h2>
+                  <h3 class={`${styles.h3} ${styles.scrollable}`}>Rumah Sakit Umum, Jl. bla bla bla bla bla bla</h3>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -151,6 +220,18 @@ const HomePage: Component = () => {
               <h1 class={styles.h1}>POLI KAMI:</h1>
             </div>
             <div class={styles.poliRow}>
+              <div class={styles.poliCard}>
+                <div class={styles.circle} onclick={handleClick}>
+                <img class={styles.tutorialimg} src="public\png\Gigi.png" alt="" />
+                </div>
+                <h6 class={styles.h6}>Gigi</h6>
+              </div>
+              <div class={styles.poliCard}>
+                <div class={styles.circle} onclick={handleClick}>
+                <img class={styles.tutorialimg} src="public\png\Gigi.png" alt="" />
+                </div>
+                <h6 class={styles.h6}>Gigi</h6>
+              </div>
               <div class={styles.poliCard}>
                 <div class={styles.circle} onclick={handleClick}>
                 <img class={styles.tutorialimg} src="public\png\Gigi.png" alt="" />
@@ -167,6 +248,8 @@ const HomePage: Component = () => {
               <h3 class={styles.h3}>Berikut adalah beberapa artikel-artikel yang mungkin dapat membantu permasalahan kesehatan anda</h3>
             </div>
             <div class={styles.artikelRow}>
+
+              <Link href="/Artikel">
               <div class={styles.artikelCard} onclick={handleClick}>
                 <div class={styles.artikelImg}>
                   <div class={styles.artikelCardTitle}>
@@ -175,6 +258,30 @@ const HomePage: Component = () => {
                   </div>
                 </div>
               </div>
+              </Link>
+          
+            <Link href="/Artikel">
+              <div class={styles.artikelCard} onclick={handleClick}>
+                <div class={styles.artikelImg}>
+                  <div class={styles.artikelCardTitle}>
+                    <h1 class={styles.h1}>TITLE</h1>
+                    <h3 class={styles.h3}>Lorem ipsum dolor sit amet;</h3>
+                  </div>
+                </div>
+              </div>
+              </Link>
+
+              <Link href="/Artikel">
+              <div class={styles.artikelCard} onclick={handleClick}>
+                <div class={styles.artikelImg}>
+                  <div class={styles.artikelCardTitle}>
+                    <h1 class={styles.h1}>TITLE</h1>
+                    <h3 class={styles.h3}>Lorem ipsum dolor sit amet;</h3>
+                  </div>
+                </div>  
+              </div>
+              </Link>
+
             </div>
           </div>
         </div>

@@ -1,6 +1,5 @@
 import { createSignal, onMount, Component } from "solid-js";
 import { Link, useRoutes, useLocation } from "@solidjs/router";
-import { routes } from "../routes";
 import styles from "./appointmentCRUD.module.css"
 
 import AgGridSolid from 'ag-grid-solid';
@@ -12,7 +11,6 @@ import DeleteButtonRenderer from './DeleteButtonRenderer';
 
 const janjiCRUD: Component = () => {
   const location = useLocation();
-  const Route = useRoutes(routes);
 
   const [username, setUsername] = createSignal('');
   const [appointments, setAppointments] = createSignal(JSON.parse(localStorage.getItem('Appointment')) || []);

@@ -1,6 +1,5 @@
 import { createSignal, onMount, Component } from "solid-js";
 import { Link, useNavigate, useLocation } from "@solidjs/router";
-import { routes } from "../routes";
 import styles from "./appointmentCreate.module.css";
 
 const CreateAppointment: Component = () => {

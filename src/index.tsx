@@ -1,20 +1,21 @@
 import { render } from 'solid-js/web';
 import { Router, Routes, Route } from '@solidjs/router';
 
-import App from './app';
 import Login from './loginPage/Login';
-import DocterSignUp from './docterSignUp';
-import UserSignUp from './SignUp';
-
-import CreateAppointment from './appointmentCreate/appointmentCreate';
-import CRUDAppointment from './appointmentCRUD/appointmentCRUD';
-import Article from './articlePage/Articles';
-import LandingPage from './landingpage-Page/landingpage';
+import SignUpUser from './signup/SignUp';
+import SignUpDocter from './SignDoctor/docterSignUp';
 import HomePage from './homepage-Page/HomePage';
-import AccountManaging from './user-Managing/userManaging';
-import test from './testingPage/MyGrid';
-import AppointmentShow from './appointmentShow/AppointmentShow';
+import LandingPage from './landingpage-Page/landingpage';
+import Artikel from './articlePage/Articles';
 import UserProfile from './profile/Profile';
+
+
+import CreateAppointment from './Ag-Grid/appointmentCreate/appointmentCreate';
+import appointmentCRUD from './Ag-Grid/appointmentCRUD/appointmentCRUD';
+import AppointmentShow from './Ag-Grid/appointmentShow/AppointmentShow';
+import userManaging from './user-Managing/userManaging';
+import test from './testingPage/MyGrid';
+
 
 
 
@@ -26,20 +27,21 @@ render(
   () => (
     <Router>
       <Routes>
-        <Route path="/coy" component={App} />
-        <Route path="/login" component={Login} />
-        <Route path="/docter-signup" component={DocterSignUp} />
-        <Route path="/user-signup" component={UserSignUp} />
-        <Route path="/appointmentShow" component={AppointmentShow} />
-        <Route path="/appointment" component={CreateAppointment} />
-        <Route path="/CRUDappointment" component={CRUDAppointment} />
-        <Route path="/" component={LandingPage} />
-        <Route path="/homepage" component={HomePage} />
-        <Route path="/article" component={Article} />
-        <Route path="/profile" component={UserProfile} />
+
+      <Route path="/" component={LandingPage} />
+      <Route path="/Login" component={Login} />
+      <Route path="/user-signup" component={SignUpUser} />
+      <Route path="/doctor-signup" component={SignUpDocter} />
+      <Route path="/user-managing" component={userManaging}/>
+      <Route path="/Homepage" component={HomePage}/>
+      <Route path="/Artikel" component={Artikel}/>
+
+      <Route path="/crate-Appointment" component={CreateAppointment}/>
+      <Route path="/Appointment-CRUD" component={appointmentCRUD}/>
+      <Route path="/Appointment-Show" component={AppointmentShow}/>
+      <Route path="/profile" component={UserProfile} />
 {/* 
         <Route path="/HoshizoraNiNaru" component={HitoWaMinaTachimaruKedo} /> */}
-        <Route path="/account-manage" component={AccountManaging} />
         <Route path="/tester2" component={test} />
       </Routes>
     </Router>

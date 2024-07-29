@@ -68,7 +68,7 @@ const SignUpUser = () => {
 
     if (isEmailValid && isMobileNumberValid && isPasswordValid && isConfirmPasswordValid) {
       // Retrieve existing data from localStorage
-      const existingData = JSON.parse(localStorage.getItem('loggedInUser')) || [];
+      const existingData = JSON.parse(localStorage.getItem('danaKaget')) || [];
       
       // Determine the maximum id
       const maxId = existingData.length > 0 ? Math.max(...existingData.map(user => user.id)) : 0;
@@ -87,7 +87,7 @@ const SignUpUser = () => {
       };
       
       const updatedData = [...existingData, newUser];
-      localStorage.setItem('loggedInUser', JSON.stringify(updatedData));
+      localStorage.setItem('danaKaget', JSON.stringify(updatedData));
 
       // Proceed with sign-up logic here (e.g., make a request to the backend)
       navigate('/Login');

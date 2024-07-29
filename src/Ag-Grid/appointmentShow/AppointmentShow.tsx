@@ -1,6 +1,5 @@
 import { createSignal, onMount, Component } from "solid-js";
 import { Link, useRoutes, useLocation } from "@solidjs/router";
-import { routes } from "../routes";
 import styles from "./appoitmentShow.module.css";
 
 import 'ag-grid-community/styles/ag-grid.css';
@@ -10,7 +9,6 @@ import Card from "./Card";
 
 const AppointmentShow: Component = () => {
   const location = useLocation();
-  const Route = useRoutes(routes);
 
   const [username, setUsername] = createSignal('');
   const [appointments, setAppointments] = createSignal<CardData[]>([]);
