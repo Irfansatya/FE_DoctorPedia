@@ -1,7 +1,6 @@
-import { createSignal, onMount, Component } from "solid-js";
-import { Link, useRoutes, useLocation } from "@solidjs/router";
+import { createSignal, Component } from "solid-js";
 import CryptoJS from 'crypto-js';
-import styles from "../appointmentShow/appoitmentShow.module.css";
+import styles from "./profile.module.css";
 
 const secretKey = 'your-secret-key';
 
@@ -26,10 +25,12 @@ const getUserData = () => {
       email: loggedInUser.email,
       berat: loggedInUser.berat || "",
       tinggi: loggedInUser.tinggi || "",
-      umur: loggedInUser.umur || "",
+      tanggallahir: loggedInUser.tanggallahir || "",
       golDarah: loggedInUser.golDarah || "",
       password: decryptPassword(loggedInUser.password),
-      riwayatPenyakit: loggedInUser.riwayatPenyakit || ""
+      riwayatPenyakit: loggedInUser.riwayatPenyakit || "",
+      alamat: loggedInUser.alamat || "",
+      userPhotoProfile: loggedInUser.userPhotoProfile || ""
     };
   }
   return {
@@ -41,10 +42,12 @@ const getUserData = () => {
     email: "",
     berat: "",
     tinggi: "",
-    umur: "",
+    tanggallahir: "",
     golDarah: "",
     password: "",
-    riwayatPenyakit: ""
+    riwayatPenyakit: "",
+    alamat: "",
+    userPhotoProfile: ""
   };
 };
 
@@ -60,16 +63,19 @@ const saveUserData = (data) => {
     email: data.email,
     berat: data.berat,
     tinggi: data.tinggi,
-    umur: data.umur,
+    tanggallahir: data.tanggallahir,
     golDarah: data.golDarah,
     password: encryptPassword(data.password),
-    riwayatPenyakit: data.riwayatPenyakit
+    riwayatPenyakit: data.riwayatPenyakit,
+    alamat: data.alamat,
+    userPhotoProfile: data.userPhotoProfile
   };
   localStorage.setItem('loggedInUser', JSON.stringify(updatedUser));
 };
 
 const AppointmentShow: Component = () => {
   const [formData, setFormData] = createSignal(getUserData());
+  const [imagePreview, setImagePreview] = createSignal(formData().userPhotoProfile);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -77,6 +83,22 @@ const AppointmentShow: Component = () => {
       ...prevData,
       [name]: value
     }));
+  };
+
+  const handleImageUpload = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const imageUrl = reader.result;
+        setImagePreview(imageUrl);
+        setFormData((prevData) => ({
+          ...prevData,
+          userPhotoProfile: imageUrl
+        }));
+      };
+      reader.readAsDataURL(file);
+    }
   };
 
   const handleSave = () => {
@@ -89,115 +111,193 @@ const AppointmentShow: Component = () => {
       <main class={styles.profile}>
         <div class={styles.form}>
           <div class={styles.upperForm}>
-            <div class={styles.RightForm}>
+            <div class={styles.image}>
               <label class={`${styles.formContent} ${styles.h6}`}>
-                Username
-                <input class={styles.InputForm}
-                  name="username"
-                  value={formData().username}
-                  onInput={handleInputChange}
-                />
-              </label>
-              <label class={`${styles.formContent} ${styles.h6}`}>
-                Nama Depan
-                <input class={styles.InputForm}
-                  name="namaDepan"
-                  value={formData().namaDepan}
-                  onInput={handleInputChange}
-                />
-              </label>
-              <label class={`${styles.formContent} ${styles.h6}`}>
-                Nama Belakang
-                <input class={styles.InputForm}
-                  name="namaBelakang"
-                  value={formData().namaBelakang}
-                  onInput={handleInputChange}
-                />
-              </label>
-              <label class={`${styles.formContent} ${styles.h6}`}>
-                Jenis Kelamin
-                <input class={styles.InputForm}
-                  name="jenisKelamin"
-                  value={formData().jenisKelamin}
-                  onInput={handleInputChange}
-                />
-              </label>
-              <label class={`${styles.formContent} ${styles.h6}`}>
-                Nomor Telefon
-                <input class={styles.InputForm}
-                  name="nomorTelefon"
-                  value={formData().nomorTelefon}
-                  onInput={handleInputChange}
-                />
-              </label>
-              <label class={`${styles.formContent} ${styles.h6}`}>
-                E-mail
-                <input class={styles.InputForm}
-                  name="email"
-                  type="email"
-                  value={formData().email}
-                  onInput={handleInputChange}
-                />
-              </label>
-              <label class={`${styles.formContent} ${styles.h6}`}>
-                Berat
-                <input class={styles.InputForm}
-                  name="berat"
-                  type="number"
-                  value={formData().berat}
-                  onInput={handleInputChange}
-                />
-              </label>
-              <label class={`${styles.formContent} ${styles.h6}`}>
-                Tinggi
-                <input class={styles.InputForm}
-                  name="tinggi"
-                  type="number"
-                  value={formData().tinggi}
-                  onInput={handleInputChange}
-                />
-              </label>
-              <label class={`${styles.formContent} ${styles.h6}`}>
-                Umur
-                <input class={styles.InputForm}
-                  name="umur"
-                  type="number"
-                  value={formData().umur}
-                  onInput={handleInputChange}
-                />
-              </label>
-              <label class={`${styles.formContent} ${styles.h6}`}>
-                Golongan Darah
-                <input class={styles.InputForm}
-                  name="golDarah"
-                  value={formData().golDarah}
-                  onInput={handleInputChange}
-                />
-              </label>
-              <label class={`${styles.formContent} ${styles.h6}`}>
-                Password
-                <input class={styles.InputForm}
-                  name="password"
-                  type="password"
-                  value={formData().password}
-                  onInput={handleInputChange}
+                Profile Picture
+                <input
+                  class={styles.InputForm}
+                  type="file"
+                  accept="image/*"
+                  onChange={handleImageUpload}
                 />
               </label>
             </div>
-            <div class={styles.LeftForm}>
+            <div class={styles.userTitle}>
+              {imagePreview() && (
+                <img
+                  src={imagePreview()}
+                  alt="Profile Preview"
+                  class={styles.profilePreview}
+                />
+              )}
+              <h5 class={`${styles.formContent} ${styles.h6} username`}>
+                {formData().username}
+              </h5>
+              <h5 class={`${styles.formContent} ${styles.h6} username`}>
+                {`${formData().namaDepan} ${formData().namaBelakang}`}
+              </h5>
+            </div>
+          </div>
+
+          <div class={styles.midForm}>
+            <h1>Informasi Akun</h1>
+            <div class={styles.content}>
+              <div class={styles.right}>
+                <label class={`${styles.formContent} ${styles.h6}`}>
+                  Nama Depan
+                  <input
+                    class={styles.InputForm}
+                    name="namaDepan"
+                    value={formData().namaDepan}
+                    onInput={handleInputChange}
+                  />
+                </label>
+                <label class={`${styles.formContent} ${styles.h6}`}>
+                  E-mail
+                  <input
+                    class={styles.InputForm}
+                    name="email"
+                    type="email"
+                    value={formData().email}
+                    onInput={handleInputChange}
+                  />
+                </label>
+                <label class={`${styles.formContent} ${styles.h6}`}>
+                  Password
+                  <input
+                    class={styles.InputForm}
+                    name="password"
+                    type="password"
+                    value={formData().password}
+                    onInput={handleInputChange}
+                  />
+                </label>
+              </div>
+              <div class={styles.left}>
+                <label class={`${styles.formContent} ${styles.h6}`}>
+                  Nama Belakang
+                  <input
+                    class={styles.InputForm}
+                    name="namaBelakang"
+                    value={formData().namaBelakang}
+                    onInput={handleInputChange}
+                  />
+                </label>
+                <label class={`${styles.formContent} ${styles.h6}`}>
+                  Nomor Telefon
+                  <input
+                    class={styles.InputForm}
+                    name="nomorTelefon"
+                    value={formData().nomorTelefon}
+                    onInput={handleInputChange}
+                  />
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class={styles.bottomForm}>
+            <h1>Informasi Personal</h1>
+            <div class={styles.content}>
+              <div class={styles.jenisKelamin_TanggalLahir}>
+                <label class={`${styles.formContent} ${styles.h6}`}>
+                  Jenis Kelamin
+                  <div>
+                    <label>
+                      <h6>Wanita</h6>
+                      <input
+                        type="radio"
+                        name="jenisKelamin"
+                        value="Wanita"
+                        checked={formData().jenisKelamin === "Wanita"}
+                        onInput={handleInputChange}
+                      />
+                    </label>
+                    <label>
+                      <h6>Pria</h6>
+                      <input
+                        type="radio"
+                        name="jenisKelamin"
+                        value="Pria"
+                        checked={formData().jenisKelamin === "Pria"}
+                        onInput={handleInputChange}
+                      />
+                    </label>
+                    <label class={`${styles.formContent} ${styles.h6}`}>
+                      Tanggal Lahir
+                      <input
+                        type="date"
+                        name="tanggallahir"
+                        class={styles.calendar}
+                        value={formData().tanggallahir}
+                        onInput={(e) => {
+                          setFormData((prevData) => ({
+                            ...prevData,
+                            tanggallahir: e.target.value
+                          }));
+                        }}
+                      />
+                    </label>
+                  </div>
+                </label>
+              </div>
+              <div class={styles.subgroup}>
+                <label class={`${styles.formContent} ${styles.h6}`}>
+                  Berat
+                  <input
+                    class={styles.InputForm}
+                    name="berat"
+                    type="number"
+                    value={formData().berat}
+                    onInput={handleInputChange}
+                  />
+                </label>
+                <label class={`${styles.formContent} ${styles.h6}`}>
+                  Tinggi
+                  <input
+                    class={styles.InputForm}
+                    name="tinggi"
+                    type="number"
+                    value={formData().tinggi}
+                    onInput={handleInputChange}
+                  />
+                </label>
+                <label class={`${styles.formContent} ${styles.h6}`}>
+                  Golongan Darah
+                  <input
+                    class={styles.InputForm}
+                    name="golDarah"
+                    value={formData().golDarah}
+                    onInput={handleInputChange}
+                  />
+                </label>
+              </div>
               <label class={`${styles.formContent} ${styles.h6}`}>
                 Riwayat Penyakit
-                <textarea class={`${styles.scrollable} ${styles.riwayatPenyakitDesc}`}
+                <textarea
+                  class={`${styles.InputForm} ${styles.scrollable}`}
                   name="riwayatPenyakit"
                   value={formData().riwayatPenyakit}
                   onInput={handleInputChange}
                 />
               </label>
+              <label class={`${styles.formContent} ${styles.h6}`}>
+                Alamat
+                <textarea
+                  class={`${styles.InputForm} ${styles.scrollable}`}
+                  name="alamat"
+                  value={formData().alamat}
+                  onInput={handleInputChange}
+                />
+              </label>
             </div>
           </div>
-          <div class={styles.BottomForm}>
-            <button type="button" onClick={handleSave} class={styles.button}>Save</button>
-          </div>
+        </div>
+
+        <div class={styles.BottomForm}>
+          <button type="button" onClick={handleSave} class={styles.button}>
+            Save
+          </button>
         </div>
       </main>
     </div>
