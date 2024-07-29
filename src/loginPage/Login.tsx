@@ -45,7 +45,7 @@ const Login: Component = () => {
   };
 
   const handleDocterSignUpClick = () => {
-    navigate("/docter-signup");
+    navigate("/doctor-signup");
   };
 
   const handleUserSignUpClick = () => {
