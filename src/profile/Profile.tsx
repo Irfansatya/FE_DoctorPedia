@@ -139,7 +139,7 @@ const AppointmentShow: Component = () => {
           </div>
 
           <div class={styles.midForm}>
-            <h1>Informasi Akun</h1>
+            <h1 class={styles.h1}>Informasi Akun</h1>
             <div class={styles.content}>
               <div class={styles.right}>
                 <label class={`${styles.formContent} ${styles.h6}`}>
@@ -196,14 +196,14 @@ const AppointmentShow: Component = () => {
           </div>
 
           <div class={styles.bottomForm}>
-            <h1>Informasi Personal</h1>
+            <h1 class={styles.h1}>Informasi Personal</h1>
             <div class={styles.content}>
               <div class={styles.jenisKelamin_TanggalLahir}>
                 <label class={`${styles.formContent} ${styles.h6}`}>
                   Jenis Kelamin
                   <div>
                     <label>
-                      <h6>Wanita</h6>
+                      <h6 class={styles.h6}>Wanita</h6>
                       <input
                         type="radio"
                         name="jenisKelamin"
@@ -213,7 +213,7 @@ const AppointmentShow: Component = () => {
                       />
                     </label>
                     <label>
-                      <h6>Pria</h6>
+                      <h6 class={styles.h6}>Pria</h6>
                       <input
                         type="radio"
                         name="jenisKelamin"

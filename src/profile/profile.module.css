@@ -45,13 +45,8 @@ body::-moz-scrollbar-track {
 
 
 
-
-.content {
-    width: 90%;
-    height: 90%;
-    border: 5px solid black;
-    background-color: white;
- 
+.h1{
+font-size: 3.5rem;
 }
 
 .main {
@@ -84,7 +79,7 @@ body::-moz-scrollbar-track {
     align-content: center;
 }
 
-.upperForm{
+.upperForm, .midForm, .bottomForm{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -97,6 +92,8 @@ body::-moz-scrollbar-track {
     height: auto;
     min-width: 10rem;
 }
+
+
 .profilePreview{
     width: 6em;
     height: 6em;
