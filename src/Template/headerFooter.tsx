@@ -9,6 +9,9 @@ const Template: Component = () => {
   const [username, setUsername] = createSignal('');
   const [menuOpen, setMenuOpen] = createSignal(false);
 
+
+  const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser')) || {};
+  const userRole = loggedInUser.role || 'Guest';
   onMount(() => {
     const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser')) || {};
     setUsername(loggedInUser.userName || 'Guest');
@@ -23,10 +26,6 @@ const Template: Component = () => {
     document.addEventListener('click', handleClickOutside);
     onCleanup(() => document.removeEventListener('click', handleClickOutside));
   });
-
-  const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser')) || {};
-  const userRole = loggedInUser.role || 'Guest';
-
   const toggleMenu = () => setMenuOpen(!menuOpen());
 
   return (
@@ -39,12 +38,12 @@ const Template: Component = () => {
           <nav class={`${styles.nav} ${menuOpen() ? styles.open : ''}`} data-visible={menuOpen()}>
             <ul class={styles.ul}>
               <li class={styles.li}><Link href="/login">Login</Link></li>
-              <li class={styles.li}><Link href="/appointment">Buat Janji</Link></li>
+              <li class={styles.li}><Link href="/Appointment-Create">Buat Janji</Link></li>
               {userRole === "Admin" && (
                 <li class={styles.li}><Link href="/account-manage">Akun</Link></li>
               )}
               <li class={styles.li}><Link href="/profile">Pengaturan Akun</Link></li>
-              <li class={styles.li}><Link href="/dokter">Jadwal Dokter</Link></li>
+              <li class={styles.li}><Link href="/Appointment-Show">Lihat Janji</Link></li>
             </ul>
           </nav>
           <button 
@@ -73,8 +72,8 @@ const Template: Component = () => {
         </div>
         <div class={styles.footerBottom}>
           <p class={styles.p}>
-            Dibuat oleh <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" class={styles.a}>EJBFSUE</a>.
-            WFEHIEWF <a href="#">HOME</a>.
+            Dibuat oleh
+            Fikri Hidayatulloh dan Kevin Priambudi 
           </p>
         </div>
       </footer>

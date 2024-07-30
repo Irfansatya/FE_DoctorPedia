@@ -36,7 +36,7 @@ render(
       <Route path="/Homepage" component={HomePage}/>
       <Route path="/Artikel" component={Artikel}/>
 
-      <Route path="/crate-Appointment" component={CreateAppointment}/>
+      <Route path="/Appointment-Create" component={CreateAppointment}/>
       <Route path="/Appointment-CRUD" component={appointmentCRUD}/>
       <Route path="/Appointment-Show" component={AppointmentShow}/>
       <Route path="/profile" component={UserProfile}/>
