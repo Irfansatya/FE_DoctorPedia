@@ -244,7 +244,7 @@ const HomePage: Component = () => {
           {/* <---------------Artikel content---------------------------> */}
           <div class={styles.artikel}>
             <div class={styles.artikelTitle}>
-              <h1 class={styles.h1}>Artikel</h1>
+              <h1 class={styles.h1}>Bukan Artikel</h1>
               <h3 class={styles.h3}>Berikut adalah beberapa artikel-artikel yang mungkin dapat membantu permasalahan kesehatan anda</h3>
             </div>
             <div class={styles.artikelRow}>
