@@ -49,7 +49,7 @@ const Tester2: Component = () => {
     </header>
     <div class={styles.image}>
         <div class={styles.backgroundContainer}>
-          <img src="assets\public\png\image-web-3-desktop 1.png" alt="Background" class={styles.backgroundImage} />
+          <img src="assets/public/png/image-web-3-desktop 1.png" alt="Background" class={styles.backgroundImage} />
           <h1 class={styles.overlayText}>Selamat Datang, {username()}!</h1>
         </div>
       </div>
@@ -63,7 +63,7 @@ const Tester2: Component = () => {
                 <h2 class={styles.h4}>Ditinjau oleh dr. Rizal Fadli 24 September 2024</h2>
             </div>
             <div class={styles.img}>
-                <img src="public\png\Artikel.png" alt="" />
+                <img src="public/png/Artikel.png" alt="" />
             </div >
             <div class={styles.articlesContent}>
                 <hr class={styles.hr}/>

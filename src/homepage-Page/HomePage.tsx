@@ -75,7 +75,7 @@ const HomePage: Component = () => {
                 <div class={styles.cardFeature}>
                   <Link href="/crate-Appointment" class={styles.inCardFeature}>
                     <div class={styles.inCardFeature}>
-                      <img src="public\png\Doktor.png" alt="" />
+                      <img src="public/png/Doktor.png" alt="" />
                     </div>
                   </Link>
                 </div>
@@ -85,7 +85,7 @@ const HomePage: Component = () => {
                 <div class={styles.cardFeature}>
                   <Link href="/crate-Appointment" class={styles.inCardFeature}>
                     <div class={styles.inCardFeature}>
-                      <img src="public\png\Doktor.png" alt="" />
+                      <img src="public/png/Doktor.png" alt="" />
                     </div>
                   </Link>
                 </div>
@@ -95,7 +95,7 @@ const HomePage: Component = () => {
                 <div class={styles.cardFeature}>
                   <Link href="/crate-Appointment" class={styles.inCardFeature}>
                     <div class={styles.inCardFeature}>
-                      <img src="public\png\Doktor.png" alt="" />
+                      <img src="public/png/Doktor.png" alt="" />
                     </div>
                   </Link>
                 </div>
@@ -105,7 +105,7 @@ const HomePage: Component = () => {
                 <div class={styles.cardFeature}>
                   <Link href="/crate-Appointment" class={styles.inCardFeature}>
                     <div class={styles.inCardFeature}>
-                      <img src="public\png\Doktor.png" alt="" />
+                      <img src="public/png/Doktor.png" alt="" />
                     </div>
                   </Link>
                 </div>
@@ -115,7 +115,7 @@ const HomePage: Component = () => {
                 <div class={styles.cardFeature}>
                   <Link href="/crate-Appointment" class={styles.inCardFeature}>
                     <div class={styles.inCardFeature}>
-                      <img src="public\png\Doktor.png" alt="" />
+                      <img src="public/png/Doktor.png" alt="" />
                     </div>
                   </Link>
                 </div>
@@ -140,7 +140,7 @@ const HomePage: Component = () => {
               </div>
 
               <div class={styles.tutorialInCOntent}>
-                <img class={styles.tutorialimg} src="public\png\janji.png" alt="" />
+                <img class={styles.tutorialimg} src="public/png/janji.png" alt="" />
                 <div class={styles.tutorialText}>
                   <h3 class={styles.h3}>membuat janji</h3>
                   <h4 class={styles.h4}>User harus membuat janji untuk bertemu dengan dokter</h4>
@@ -148,7 +148,7 @@ const HomePage: Component = () => {
               </div>
               
               <div class={styles.tutorialInCOntent}>
-                <img class={styles.tutorialimg} src="public\png\bertremu.png" alt="" />
+                <img class={styles.tutorialimg} src="public/png/bertremu.png" alt="" />
                 <div class={styles.tutorialText}>
                   <h3 class={styles.h3}>Bertemu</h3>
                   <h4 class={styles.h4}>Bertemu dengan dokter yang sudah membuat janji</h4>
@@ -179,7 +179,7 @@ const HomePage: Component = () => {
                 <div class={styles.rumahSakitImage}>
                   <div class={styles.town} onclick={handleClick}>
                     <h3>Purwokerto</h3>
-                    <img class={styles.tutorialimg} src="public\png\35e10_rs-jih-purwokerto.jpg" alt="" />
+                    <img class={styles.tutorialimg} src="public/png/35e10_rs-jih-purwokerto.jpg" alt="" />
                   </div>    
                 </div>
                 <div class={styles.rumahSakitUnitTitle}> 
@@ -191,7 +191,7 @@ const HomePage: Component = () => {
                 <div class={styles.rumahSakitImage}>
                   <div class={styles.town} onclick={handleClick}>
                     <h3>Purwokerto</h3>
-                    <img class={styles.tutorialimg} src="public\png\35e10_rs-jih-purwokerto.jpg" alt="" />
+                    <img class={styles.tutorialimg} src="public/png/35e10_rs-jih-purwokerto.jpg" alt="" />
                   </div>    
                 </div>
                 <div class={styles.rumahSakitUnitTitle}> 
@@ -203,7 +203,7 @@ const HomePage: Component = () => {
                 <div class={styles.rumahSakitImage}>
                   <div class={styles.town} onclick={handleClick}>
                     <h3>Purwokerto</h3>
-                    <img class={styles.tutorialimg} src="public\png\35e10_rs-jih-purwokerto.jpg" alt="" />
+                    <img class={styles.tutorialimg} src="public/png/35e10_rs-jih-purwokerto.jpg" alt="" />
                   </div>    
                 </div>
                 <div class={styles.rumahSakitUnitTitle}> 
@@ -222,19 +222,19 @@ const HomePage: Component = () => {
             <div class={styles.poliRow}>
               <div class={styles.poliCard}>
                 <div class={styles.circle} onclick={handleClick}>
-                <img class={styles.tutorialimg} src="public\png\Gigi.png" alt="" />
+                <img class={styles.tutorialimg} src="public/png/Gigi.png" alt="" />
                 </div>
                 <h6 class={styles.h6}>Gigi</h6>
               </div>
               <div class={styles.poliCard}>
                 <div class={styles.circle} onclick={handleClick}>
-                <img class={styles.tutorialimg} src="public\png\Gigi.png" alt="" />
+                <img class={styles.tutorialimg} src="public/png/Gigi.png" alt="" />
                 </div>
                 <h6 class={styles.h6}>Gigi</h6>
               </div>
               <div class={styles.poliCard}>
                 <div class={styles.circle} onclick={handleClick}>
-                <img class={styles.tutorialimg} src="public\png\Gigi.png" alt="" />
+                <img class={styles.tutorialimg} src="public/png/Gigi.png" alt="" />
                 </div>
                 <h6 class={styles.h6}>Gigi</h6>
               </div>

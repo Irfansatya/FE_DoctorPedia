@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
 
   .fullscreenBackground {
-    background-image: url('D:\Project\Code\DoctorPedia-FE-master\LoginSignUpBG.png');
+    background-image: url('D:/Project/Code/DoctorPedia-FE-master/LoginSignUpBG.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

@@ -164,7 +164,7 @@ const SignUpDocter = () => {
                   validateMobileNumber(e.target.value);
                 }}
               />
-              <p class={styles.p}>Poli \ Spesialis</p>
+              <p class={styles.p}>Poli / Spesialis</p>
               <input
                 class={styles.inputcolection}
                 type="text"
